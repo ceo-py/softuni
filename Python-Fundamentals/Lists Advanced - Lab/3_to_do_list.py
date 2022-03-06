@@ -12,5 +12,5 @@ while True:
     main_list.pop(priority)
     main_list.insert(priority, note)
 
-result = [n for n in main_list if n != 0]
-print(result)
+main_string = [n for n in main_list if n != 0]
+print(main_string)

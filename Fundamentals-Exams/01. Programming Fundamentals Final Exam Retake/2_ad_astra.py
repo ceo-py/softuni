@@ -7,9 +7,9 @@ date_r = "date"
 nutrition_r = "nutrition"
 patterns = re.compile(r"[#|\|]([a-zA-Z ]+)[#|\|](\d\d/\d\d/\d\d)[#|\|](\d+)[#|\|]")
 list_result = list()
-result = re.finditer(patterns, main_string)
+main_string = re.finditer(patterns, main_string)
 total = 0
-for show in result:
+for show in main_string:
     dash = show[0].count("#")
     special_s = show[0].count("|")
     if dash == 4 or special_s == 4:

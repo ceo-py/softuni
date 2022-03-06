@@ -1,7 +1,7 @@
 command = input()
 
 dwarf_info = {}
-result = {}
+main_string = {}
 
 def add_dwarf(name, color, physic):
     if color not in dwarf_info:
@@ -15,12 +15,12 @@ def add_dwarf(name, color, physic):
 def show_result():
     for color in dwarf_info:
         total = dwarf_info[color].values()
-        result[color] = sum(total)
-    resultt = sorted(result.items(), key=lambda x: x[1], reverse=True)
+        main_string[color] = sum(total)
+    resultt = sorted(main_string.items(), key=lambda x: x[1], reverse=True)
     for color in resultt:
-        result[color] = 0
+        main_string[color] = 0
         for key, value in dwarf_info[color[0]].items():
-            result[color] += value
+            main_string[color] += value
         # resultt = sorted(result[color].values(), key=lambda x: x[1], reverse=True)
     for color in resultt:
         for key, value in dwarf_info[color[0]].items():

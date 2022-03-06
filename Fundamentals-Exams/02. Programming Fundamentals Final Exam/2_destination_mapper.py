@@ -3,9 +3,9 @@ import re
 main_string = input()
 patterns = re.compile(r"[=|/]([A-Z][a-zA-Z]+)[=|/]")
 list_result = list()
-result = re.finditer(patterns, main_string)
+main_string = re.finditer(patterns, main_string)
 total_points = 0
-for show in result:
+for show in main_string:
     count_items = show[0].count("=")
     count_items_two = show[0].count("/")
     letters_count = len(show[1])

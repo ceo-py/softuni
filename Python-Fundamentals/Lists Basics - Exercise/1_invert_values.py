@@ -19,7 +19,7 @@ lst = numbers.split(' ')
 new_list = list()
 
 for number in lst:
-    result = int(number) * -1
-    new_list.append(result)
+    main_string = int(number) * -1
+    new_list.append(main_string)
 
 print(new_list)

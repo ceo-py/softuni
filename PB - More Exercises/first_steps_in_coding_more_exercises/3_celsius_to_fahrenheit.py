@@ -1,5 +1,5 @@
 celsius = float(input())
 
-result = celsius * 1.8 + 32
+main_string = celsius * 1.8 + 32
 
-print(f"{result:.2f}")
+print(f"{main_string:.2f}")

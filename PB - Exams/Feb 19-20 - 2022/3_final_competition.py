@@ -18,12 +18,12 @@ elif season == "winter":
     elif place == "Abroad":
         off = 0.15
 
-result = (number_points * dancers_number) - ((number_points * dancers_number) * off)
+main_string = (number_points * dancers_number) - ((number_points * dancers_number) * off)
 if not is_bulgaria:
-    result = result + result * 0.50
+    main_string = main_string + main_string * 0.50
 
-charity = result * 0.75
-money_left_for_dancer = abs(charity - result) / dancers_number
+charity = main_string * 0.75
+money_left_for_dancer = abs(charity - main_string) / dancers_number
 
 print(f"Charity - {charity:.2f}")
 print(f"Money per dancer - {money_left_for_dancer:.2f}")

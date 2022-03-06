@@ -1,7 +1,7 @@
 command = input()
 
 moba_possition_info = {}
-result = {}
+main_string = {}
 skills_p1 = list()
 skills_p2 = list()
 duel_result = list()
@@ -36,22 +36,22 @@ def duel_player(player_one, player_two):
                     break
         if check_status:
             total_score_players()
-            if result[player_one] > result[player_two]:
+            if main_string[player_one] > main_string[player_two]:
                 del moba_possition_info[player_two][spec]
-                del result[player_two]
-            elif result[player_two] > result[player_one]:
+                del main_string[player_two]
+            elif main_string[player_two] > main_string[player_one]:
                 del moba_possition_info[player_one][spec]
-                del result[player_one]
+                del main_string[player_one]
 
 def total_score_players():
     for name in moba_possition_info:
         total = moba_possition_info[name].values()
-        result[name] = sum(total)
+        main_string[name] = sum(total)
 
 def show_result():
 
     total_score_players()
-    resultt = sorted(result.items(), key=lambda x: x[1], reverse=True)
+    resultt = sorted(main_string.items(), key=lambda x: x[1], reverse=True)
     # resultt = sorted(resultt, key=lambda x: x[0], reverse=True)
     for name in resultt:
         if name[1] > 0:

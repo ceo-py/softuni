@@ -1,46 +1,39 @@
 targets = [int(n) for n in input().split()]
+command = input()
 
-how_long_index = len(targets)
 
-
-def shoot_command(index, power):
-    if index < how_long_index:
-        targets[index] += - power
+def shoot_target(index, power):
+    if 0 <= index < len(targets):
+        targets[index] -= power
         if targets[index] <= 0:
             del targets[index]
 
 
-def add_command(index, value):
-    if index < how_long_index:
+def add_target(index, value):
+    if 0 <= index < len(targets):
         targets.insert(index, value)
     else:
         print("Invalid placement!")
 
 
-def strike_command(index, radius):
-    condition_strike = [how_long_index > index, how_long_index > index + radius,
-                        how_long_index > (index - radius) >= 0]
-    if all(condition_strike):
-        del targets[abs(index - radius):(index + radius + 1)]
+def strike_target(index, radius):
+    if all([index - radius >= 0, index + radius < len(targets)]):
+        del targets[index - radius:index + radius + 1]
     else:
         print("Strike missed!")
 
 
-command = input()
-
 while command != "End":
     command = command.split()
     type_command = command[0]
-    index_command = int(command[1])
-    value_command = int(command[2])
-
+    index_target = int(command[1])
+    power_value_radius = int(command[2])
     if type_command == "Shoot":
-        shoot_command(index_command, value_command)
+        shoot_target(index_target, power_value_radius)
     elif type_command == "Add":
-        add_command(index_command, value_command)
+        add_target(index_target, power_value_radius)
     elif type_command == "Strike":
-        strike_command(index_command, value_command)
+        strike_target(index_target, power_value_radius)
     command = input()
-
 
 print(*targets, sep="|")
