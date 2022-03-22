@@ -21,7 +21,6 @@ while racer_code != "end of race":
         name_of_participants[find_name] += find_numbers
     racer_code = input()
 
-# result_p = sorted(name_of_participants.items(), key=lambda item: item[1])
 for name in name_of_participants:
     result_show.append({name_d: name, score_d: name_of_participants[name]})
 result_show.sort(key=lambda item: (-item[score_d]))

@@ -37,7 +37,8 @@ while force_command != "Lumpawaroo":
     force_command = input()
 
 for side in force_book:
-    if len(force_book[side]) > 0:
+    if force_book[side]:
+    # if len(force_book[side]) > 0:
         print(f"Side: {side}, Members: {len(force_book[side])}")
         for name in force_book[side]:
             print(f"! {name}")

@@ -4,13 +4,13 @@ minimum_wealth = int(input())
 distribution = True
 for ind, num in enumerate(population):
     if num < minimum_wealth:
-        main_string = minimum_wealth - num
+        result = minimum_wealth - num
         max_number = max(population)
         index_max_num = population.index(max_number)
-        check_number = max_number - main_string
+        check_number = max_number - result
         if check_number >= minimum_wealth:
             population[ind] = minimum_wealth
-            population[index_max_num] = max_number - main_string
+            population[index_max_num] = max_number - result
         else:
             distribution = False
             print("No equal distribution possible")

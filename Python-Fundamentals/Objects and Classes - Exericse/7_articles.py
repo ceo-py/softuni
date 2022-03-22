@@ -17,7 +17,6 @@ class Article:
     def __repr__(self):
         return f"{self.title} - {self.content}: {self.author}"
 
-
 # article = Article(
 #     "Highest Recorded Temperature",
 #     "Temperatures across Europe are unprecedented, according to scientists.",

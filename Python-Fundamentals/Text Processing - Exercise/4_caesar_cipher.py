@@ -1,7 +1,7 @@
 main_text = input()
-main_string = ""
+result = ""
 for letter in main_text:
     cripted_letter = ord(letter)
-    main_string += chr(cripted_letter + 3)
+    result += chr(cripted_letter + 3)
 
-print(main_string)
+print(result)

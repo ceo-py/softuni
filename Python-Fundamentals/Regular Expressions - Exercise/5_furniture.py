@@ -1,4 +1,5 @@
 import re
+
 main_string = input()
 pattern = re.compile(r">>(\w+)<<(\d+(\.\d+)?)!(\d+)")
 names_list = []
@@ -13,6 +14,7 @@ while main_string != "Purchase":
 
 print("Bought furniture:")
 if names_list:
+    # print("Bought furniture:")
     for name in names_list:
         print(name)
 print(f"Total money spend: {total_price:.2f}")

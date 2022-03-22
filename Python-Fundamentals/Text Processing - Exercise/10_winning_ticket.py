@@ -56,7 +56,7 @@ for ticket_characters in tickets_sting:
 #         if 6 * sym in left and 6 * sym in right:
 #             count = 0
 #             for i in range(7, 11):
-#                 if i * sym in left and i * sym in right:
+#                 if (i * sym) in left and (i * sym) in right:
 #                     count += 1
 #             symb = symbols[index]
 #             fins_ticket = True

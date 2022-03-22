@@ -25,11 +25,12 @@ def show_result():
     print("Results:")
     for key in student_information:
         for name, score in student_information[key].items():
-            if name not in ban_user_list and submissions not in name:
+            if all([name not in ban_user_list, submissions not in name]):
                 print(f"{name} | {score}")
-    print("Submissions:")
+    print(f"{submissions}:")
     for key in student_information:
-        if len(student_information[key]) > 0:
+        if student_information[key]:
+        # if len(student_information[key]) > 0:
             print(f"{key} - {student_information[key][submissions]}")
 
 

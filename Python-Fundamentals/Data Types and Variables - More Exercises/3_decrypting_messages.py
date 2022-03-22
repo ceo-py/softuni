@@ -1,4 +1,5 @@
-key, line = int(input()), int(input())
+key = int(input())
+line = int(input())
 
 word = list()
 

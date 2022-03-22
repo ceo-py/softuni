@@ -20,7 +20,6 @@ class Class:
         return f"The students in {self.name}: {', '.join(self.students)}. " \
                f"Average grade: {Class.get_average_grade(self)}"
 
-
 # a_class = Class("11B")
 # a_class.add_student("Peter", 4.80)
 # a_class.add_student("George", 6.00)

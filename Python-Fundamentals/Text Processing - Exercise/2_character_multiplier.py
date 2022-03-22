@@ -5,7 +5,7 @@ list_a = list()
 list_b = list()
 rest = list()
 i = 0
-main_string = 0
+result = 0
 for text in text_test:
     for letter in text:
         if i == 0:
@@ -20,18 +20,18 @@ equal_list = False
 diffrence = abs(how_long_a - how_long_b)
 if how_long_a > how_long_b:
     for a, b in zip(list_a, list_b):
-        main_string += a * b
-    main_string += sum(list_a[-diffrence:])
+        result += a * b
+    result += sum(list_a[-diffrence:])
 elif how_long_b > how_long_a:
     for a, b in zip(list_a, list_b):
-        main_string += a * b
-    main_string += sum(list_b[-diffrence:])
+        result += a * b
+    result += sum(list_b[-diffrence:])
 elif how_long_b == how_long_a:
     for a, b in zip(list_a, list_b):
-        main_string += a * b
+        result += a * b
         equal_list = True
 
 if equal_list:
-    print(main_string)
+    print(result)
 else:
-    print(main_string)
+    print(result)

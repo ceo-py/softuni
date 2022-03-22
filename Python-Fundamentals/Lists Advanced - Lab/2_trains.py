@@ -2,8 +2,6 @@ train_wagons = int(input())
 train = list()
 command = input()
 
-
-
 for n in range(train_wagons):
     train.append(0)
 

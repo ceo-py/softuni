@@ -19,6 +19,5 @@ for room in range(1, number_rooms + 1):
     command = input().split()
     check_chairs(len(command[0]), int(command[1]), room)
 
-
 if enough_chairs:
     print(f"Game On, {chairs_left} free chairs left")

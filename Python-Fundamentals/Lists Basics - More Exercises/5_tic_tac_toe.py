@@ -13,7 +13,6 @@ elif len(set(second_line)) == 1 and second_line[0] == "1":
 elif len(set(third_line)) == 1 and third_line[0] == "1":
     first_player_win = True
 
-
 elif first_line[0] == second_line[1] == third_line[2] and first_line[0] == "1":
     first_player_win = True
 

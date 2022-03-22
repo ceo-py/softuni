@@ -18,7 +18,7 @@ line = input()
 while line != "Stop":
     line = line.split()
     email = Email(line[0], line[1], line[2])
-    emails.append(Email(line[0], line[1], line[2]))
+    emails.append(email)
     line = input()
 
 send_emails = [int(n) for n in input().split(", ")]

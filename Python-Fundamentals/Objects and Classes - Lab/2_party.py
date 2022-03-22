@@ -15,5 +15,5 @@ while names_given != "End":
     names_given = input()
 
 print("Going:", end=" ")
-print(*party_people.name, sep = ", ")
+print(*party_people.name, sep=", ")
 print(f"Total: {len(party_people.name)}")

@@ -27,7 +27,6 @@ class Vehicle:
         else:
             return f"{self.model} {self.type} is owned by: {self.owner}"
 
-
 # vehicle_type = "car"
 # model = "BMW"
 # price = 30000

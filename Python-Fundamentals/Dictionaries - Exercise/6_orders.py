@@ -22,8 +22,8 @@ while command != "buy":
 
 for i in drinks_info:
     for key, value in drinks_info[i].items():
-        main_string = key * value
-        print(f"{i} -> {main_string:.2f}")
+        result = key * value
+        print(f"{i} -> {result:.2f}")
 
 
 

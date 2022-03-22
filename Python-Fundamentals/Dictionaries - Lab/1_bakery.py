@@ -16,4 +16,4 @@ for string in food_type:
 #     food_info_dic[food_type[i]] = int(food_type[(i + 1)])
 
 
-print(dict_variable)
+print(food_info_dic)

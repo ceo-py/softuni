@@ -1,6 +1,5 @@
 number_input = int(input())
 counter = 1
-
 for number in range(1, number_input + 1):
 
     if counter >= 11:
@@ -19,3 +18,5 @@ for number in range(1, number_input + 1):
     else:
         print(f"{number} -> False")
     counter += 1
+
+

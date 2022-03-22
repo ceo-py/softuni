@@ -8,5 +8,3 @@ for show in matches:
     show_result += 1
 
 print(show_result)
-
-

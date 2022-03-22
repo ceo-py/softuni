@@ -39,6 +39,10 @@ def BFS(x, y, i, j, matrix_main):
     # terminating case for BFS
     if (x != y) or x != ".":
         return
+    #
+    # if x != ".":
+    #     return
+
 
     visited[i][j] = 1
     COUNT += 1
@@ -101,8 +105,8 @@ def computeLargestConnectedGrid(matrix_main):
                 current_max = COUNT
                 reset_result(matrix_main[i][j], matrix_main)
 
-            reset_visited()
-            COUNT = 0
+            reset_visited();
+            COUNT = 0;
 
             # checking cell downwards
             if (i + 1 < n):
@@ -118,8 +122,3 @@ def computeLargestConnectedGrid(matrix_main):
 
 computeLargestConnectedGrid(matrix_main)
 
-
-
-#methods to solve this problem
-# https://favtutor.com/blogs/depth-first-search-python - dfs
-# https://favtutor.com/blogs/breadth-first-search-python - bfs

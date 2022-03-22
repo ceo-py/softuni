@@ -1,11 +1,11 @@
 class Catalogue:
 
     def __init__(self, name):
-        self.name = name
+        self.name = str(name)
         self.products = []
 
     def add_product(self, product_name):
-        self.products.append(product_name)
+        self.products.append(str(product_name))
 
     def get_by_letter(self, first_letter):
         return [x for x in self.products if x.startswith(first_letter)]

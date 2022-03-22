@@ -5,7 +5,7 @@ letter = ""
 take_list = list()
 skip_list = list()
 
-main_string = ""
+result = ""
 
 for character in main_string:
     if character.isdigit():
@@ -23,7 +23,7 @@ for i, n in zip(take_list, skip_list):
     if i == 0:
         letter = letter[n:]
     elif i != 0:
-        main_string = main_string + letter[:i]
+        result = result + letter[:i]
         letter = letter[n + i:]
 
-print(main_string)
+print(result)
