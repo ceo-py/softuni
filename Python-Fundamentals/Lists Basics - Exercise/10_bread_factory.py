@@ -1,38 +1,51 @@
-items_accessories = input().split("|")
+main_events = input().split("|")
 
 energy = 100
 coins = 100
 
-for clean_text in items_accessories:
-    if "rest-" in clean_text:
-        text = int(clean_text.replace("rest-", ""))
-        energy += text
-        if energy < 100:
-            energy += text
-            print(f"You gained {text} energy.")
-        else:
-            diffrence = (energy - text) - (energy - text)
-            energy += - text
-            print(f"You gained {diffrence} energy.")
-        print(f"Current energy: {energy}.")
 
-
-    elif "order-" in clean_text:
-        text = int(clean_text.replace("order-", ""))
-        if energy > text - 30:
-            print(f"You earned {text} coins.")
-            energy += - 30
-        else:
-            energy += 50
-            print(f"You had to rest!")
-
-
+def rest_event(energy_number):
+    global energy
+    if energy + energy_number > 100:
+        print(f"You gained {abs(100 - energy)} energy.")
+        energy = 100
     else:
-        text = clean_text.split("-")
-        number = int(text[-1])
-        text = text[0]
-        if coins - number >= 0:
-            coins += - number
-            print(f"You bought {text}")
-        else:
-            print(f"Closed! Cannot afford {text}.")
+        energy += energy_number
+        print(f"You gained {energy_number} energy.")
+    print(f"Current energy: {energy}.")
+
+
+def order_event(coins_number):
+    global energy, coins
+    if energy - 30 >= 0:
+        coins += coins_number
+        energy -= 30
+        print(f"You earned {coins_number} coins.")
+    else:
+        print("You had to rest!")
+        energy += 50
+
+
+def ingredient_event(name, price_item):
+    global coins
+    if price_item < coins:
+        print(f"You bought {name}.")
+        coins -= price_item
+    else:
+        print(f"Closed! Cannot afford {name}.")
+        exit()
+
+
+for event_type in main_events:
+    event_type = event_type.split("-")
+    event_command = event_type[0]
+    event_energy_coins = int(event_type[-1])
+
+    if event_command == "rest":
+        rest_event(event_energy_coins)
+    elif event_command == "order":
+        order_event(event_energy_coins)
+    else:
+        ingredient_event(event_command, event_energy_coins)
+
+print(f"Day completed!\nCoins: {coins}\nEnergy: {energy}")

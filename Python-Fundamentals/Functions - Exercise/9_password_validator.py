@@ -1,31 +1,32 @@
-password_type = input()
+password_to_check = input()
+
+characters_in_range = False
+letters_digits_only = False
+two_digits = False
+numbers_check = 0
 
 
-def check_password(check):
-    how_long = len(check)
-    total_numbers = 0
-    range_numbers = False
-    digits_check = False
-
-    if 6 <= how_long <= 10:
-        range_numbers = True
-    else:
-        print(f"Password must be between 6 and 10 characters")
-
-    for n in check:
-        if n.isdigit() or n.isalpha():
-            total_numbers += 1
-        if n.isdigit():
-            digits_check = True
-
-    if check.isalnum() is False:
-        print("Password must consist only of letters and digits")
-
-    if digits_check == False:
-        print(f"Password must have at least 2 digits")
-
-    if  check.isalnum() and total_numbers == how_long and range_numbers:
-        print("Password is valid")
+def pass_check(check):
+    global characters_in_range, letters_digits_only, two_digits, numbers_check
+    if 6 <= len(check) <= 10:
+        characters_in_range = True
+    if check.isalnum():
+        letters_digits_only = True
+    for letter in check:
+        if letter.isdigit():
+            numbers_check += 1
+        if numbers_check == 2:
+            two_digits = True
+            break
 
 
-check_password(password_type)
+pass_check(password_to_check)
+
+if all([characters_in_range, letters_digits_only, two_digits]):
+    print("Password is valid")
+if not characters_in_range:
+    print("Password must be between 6 and 10 characters")
+if not letters_digits_only:
+    print("Password must consist only of letters and digits")
+if not two_digits:
+    print("Password must have at least 2 digits")

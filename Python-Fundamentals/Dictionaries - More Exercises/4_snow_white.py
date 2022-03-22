@@ -1,39 +1,31 @@
-command = input()
+dwarf_input = input()
 
 dwarf_info = {}
-main_string = {}
-
-def add_dwarf(name, color, physic):
-    if color not in dwarf_info:
-        dwarf_info[color] = {}
-    if name not in dwarf_info[color]:
-        dwarf_info[color][name] = physic
-    if physic > dwarf_info[color][name]:
-        dwarf_info[color][name] = physic
+result_list = []
+name_d = "name"
+hat_d = "hat"
+physic_d = "physic"
+hat_len = "hat len"
+while dwarf_input != "Once upon a time":
+    dwarf_input = dwarf_input.split(" <:> ")
+    dwarf_name = dwarf_input[0]
+    dwarf_hat_color = dwarf_input[1]
+    dwarf_physics = int(dwarf_input[-1])
+    if dwarf_hat_color not in dwarf_info:
+        dwarf_info[dwarf_hat_color] = {}
+    if dwarf_name not in dwarf_info[dwarf_hat_color]:
+        dwarf_info[dwarf_hat_color][dwarf_name] = 0
+    if dwarf_info[dwarf_hat_color][dwarf_name] < dwarf_physics:
+        dwarf_info[dwarf_hat_color][dwarf_name] = dwarf_physics
+    dwarf_input = input()
 
 
 def show_result():
-    for color in dwarf_info:
-        total = dwarf_info[color].values()
-        main_string[color] = sum(total)
-    resultt = sorted(main_string.items(), key=lambda x: x[1], reverse=True)
-    for color in resultt:
-        main_string[color] = 0
-        for key, value in dwarf_info[color[0]].items():
-            main_string[color] += value
-        # resultt = sorted(result[color].values(), key=lambda x: x[1], reverse=True)
-    for color in resultt:
-        for key, value in dwarf_info[color[0]].items():
-            print(f"({color[0]}) {key} <-> {value}")
+    for hat in dwarf_info:
+        for name, physic in dwarf_info[hat].items():
+            result_list.append({hat_len: len(dwarf_info[hat]), name_d: name, physic_d: physic, hat_d: hat})
+    for show in sorted(result_list, key=lambda item: (-item[physic_d], -item[hat_len])):
+        print(f"({show[hat_d]}) {show[name_d]} <-> {show[physic_d]}")
 
-
-while command != "Once upon a time":
-    command = command.split(" <:> ")
-    name = command[0]
-    color = command[1]
-    physic = int(command[2])
-    add_dwarf(name, color, physic)
-
-    command = input()
 
 show_result()

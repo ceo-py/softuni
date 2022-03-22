@@ -1,14 +1,18 @@
 main_string = input()
-text_to_show = ""
-for symbol in main_string[:]:
-    if symbol.isdigit():
-        to_show = main_string[:main_string.index(symbol)]
-        main_string = main_string.replace(to_show + symbol, "")
-        text_to_show += (str(to_show.upper()) * int(symbol))
 
-count = set(text_to_show)
+current_result, result_show, number = "", "", "",
 
-print(f"Unique symbols used: {len(count)}")
-print(text_to_show)
+for index, symbols in enumerate(main_string):
+    if not symbols.isdigit():
+        current_result += symbols
+    elif symbols.isdigit():
+        number += symbols
+        if index + 1 < len(main_string):
+            if main_string[index + 1].isdigit():
+                continue
+        result_show += int(number) * current_result
+        current_result, number = "", ""
 
-
+result_show = result_show.upper()
+print(f"Unique symbols used: {len(set(result_show))}")
+print(result_show)

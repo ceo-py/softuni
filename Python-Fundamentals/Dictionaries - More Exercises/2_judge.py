@@ -1,68 +1,38 @@
-command = input()
+command_judge = input()
 
-standings = {}
-as_list = []
-total_score = {}
+judge_info = {"user": {}, "contest": {}}
+user_d = "user"
+contest_d = "contest"
 
+while command_judge != "no more time":
+    command_judge = command_judge.split(" -> ")
+    user_name = command_judge[0]
+    contest = command_judge[1]
+    points = int(command_judge[-1])
+    if contest not in judge_info[contest_d]:
+        judge_info[contest_d][contest] = {}
+    if user_name not in judge_info[contest_d][contest]:
+        judge_info[contest_d][contest][user_name] = 0
+    if user_name not in judge_info[user_d]:
+        judge_info[user_d][user_name] = 0
+    if user_name in judge_info[user_d] and judge_info[user_d][user_name] == points:
+        judge_info[user_d][user_name] += points
+    if judge_info[contest_d][contest][user_name] < points:
+        judge_info[user_d][user_name] += points - judge_info[contest_d][contest][user_name]
+        judge_info[contest_d][contest][user_name] = points
 
-def add_people(name, algo, points):
-    if algo not in standings:
-        standings[algo] = {}
-    if name not in standings[algo]:
-        standings[algo][name] = 0
-    # if standings[algo][name] == points:
-    #     standings[algo][name] += points
-    if standings[algo][name] < points:
-        standings[algo][name] = points
-    else:
-        standings[algo][name] = points
-
-
-def print_position(individual):
-    if individual:
-        separator = "->"
-    else:
-        separator = "<::>"
-    name = "name"
-    points = "points"
-    possition = 1
-    for pos in as_list:
-        print(f"{possition}. {pos[name]} {separator} {pos[points]}")
-        possition += 1
+    command_judge = input()
 
 
-def show_results():
-    for name_algo in standings:
-        total = 0
-
-        for name, points in standings[name_algo].items():
-            total += 1
-            individual_standings = {"name": name, "points": points}
-            if name not in total_score:
-                total_score[name] = points
-            else:
-                total_score[name] += points
-            as_list.append(individual_standings)
-
-        print(f"{name_algo}: {total} participants")
-        as_list.sort(key=lambda item: (-item['points'], item['name']))
-        print_position(False)
-        as_list.clear()
-    # total result
-    for name_t, score_t in total_score.items():
-        individual_standings = {"name": name_t, "points": score_t}
-        as_list.append(individual_standings)
-    as_list.sort(key=lambda item: (-item['points'], item['name']))
+def show_result():
+    for contest in judge_info[contest_d]:
+        print(f"{contest}: {len(judge_info[contest_d][contest])} participants")
+        for pos, (name, points) in enumerate(
+                sorted(judge_info[contest_d][contest].items(), key=lambda item: (-item[1], item[0])), 1):
+            print(f"{pos}. {name} <::> {points}")
     print("Individual standings:")
-    print_position(True)
+    for pos, (name, points) in enumerate(sorted(judge_info[user_d].items(), key=lambda item: (-item[1], item[0])), 1):
+        print(f"{pos}. {name} -> {points}")
 
 
-while command != "no more time":
-    command = command.split(" -> ")
-    name = command[0]
-    algo = command[1]
-    points = int(command[-1])
-    add_people(name, algo, points)
-    command = input()
-
-show_results()
+show_result()

@@ -1,79 +1,48 @@
-command = input()
+command_input = input()
 
-moba_possition_info = {}
-main_string = {}
-skills_p1 = list()
-skills_p2 = list()
-duel_result = list()
+player_info = {}
+best_players = []
 
 
-def add_player(name, spec, points):
-    if name not in moba_possition_info:
-        moba_possition_info[name] = {}
-        moba_possition_info[name] = {}
-    if spec not in moba_possition_info[name]:
-        moba_possition_info[name][spec] = points
-    if moba_possition_info[name][spec] < points:
-        moba_possition_info[name][spec] = points
+def duel_players(name_one, name_two):
+    if (name_one and name_two) in player_info:
+        for p_one in player_info[name_one]:
+            if p_one in player_info[name_two]:
+                total_pl_one = sum(player_info[name_one].values())
+                total_pl_two = sum(player_info[name_two].values())
+                if total_pl_one > total_pl_two:
+                    del player_info[name_two]
+                elif total_pl_one < total_pl_two:
+                    del player_info[name_one]
+                break
 
 
-def duel_player(player_one, player_two):
-    check_status = False
-    if (player_one and player_two) in moba_possition_info:
-        p1 = len(moba_possition_info[player_one])
-        p2 = len(moba_possition_info[player_two])
-        if p1 >= p2:
-            for key in moba_possition_info[player_one]:
-                if key in moba_possition_info[player_two]:
-                    spec = key
-                    check_status = True
-                    break
-        else:
-            for key in moba_possition_info[player_two]:
-                if key in moba_possition_info[player_one]:
-                    spec = key
-                    check_status = True
-                    break
-        if check_status:
-            total_score_players()
-            if main_string[player_one] > main_string[player_two]:
-                del moba_possition_info[player_two][spec]
-                del main_string[player_two]
-            elif main_string[player_two] > main_string[player_one]:
-                del moba_possition_info[player_one][spec]
-                del main_string[player_one]
+def adding_players_roles(player, position, skill):
+    if player not in player_info:
+        player_info[player] = {}
+    if position not in player_info[player]:
+        player_info[player][position] = 0
+    if player_info[player][position] < skill:
+        player_info[player][position] = skill
 
-def total_score_players():
-    for name in moba_possition_info:
-        total = moba_possition_info[name].values()
-        main_string[name] = sum(total)
+
+while command_input != "Season end":
+    if " vs " in command_input:
+        command_input = command_input.split(" vs ")
+        duel_players(command_input[0], command_input[-1])
+    else:
+        command_input = command_input.split(" -> ")
+        adding_players_roles(command_input[0], command_input[1], int(command_input[-1]))
+    command_input = input()
+
 
 def show_result():
+    for p_name in player_info:
+        best_players.append({"name": p_name, "total_score": sum(player_info[p_name].values())})
+    for show in sorted(best_players, key=lambda item: (-item["total_score"], item["name"])):
+        print(f"{show['name']}: {show['total_score']} skill")
+        for pos, skill in sorted(player_info[show['name']].items(), key=lambda item: (-item[1], item[0])):
+            print(f"- {pos} <::> {skill}")
 
-    total_score_players()
-    resultt = sorted(main_string.items(), key=lambda x: x[1], reverse=True)
-    # resultt = sorted(resultt, key=lambda x: x[0], reverse=True)
-    for name in resultt:
-        if name[1] > 0:
-            print(f"{name[0]}: {name[1]} skill")
-            name_sort = sorted(moba_possition_info[name[0]].items(), key=lambda x: x[1], reverse=True)
-            for info in name_sort:
-                print(f"- {info[0]} <::> {info[1]}")
 
-while command != "Season end":
-    if "vs" in command:
-        command = command.split(" vs ")
-        name_p1 = command[0]
-        name_p2 = command[-1]
-        duel_player(name_p1, name_p2)
-    else:
-        command = command.split(" -> ")
-        name = command[0]
-        spec = command[1]
-        points = int(command[-1])
-        add_player(name, spec, points)
-
-    command = input()
-
-total_score_players()
 show_result()

@@ -1,52 +1,44 @@
-command = input()
-
-examp_results = {}
-total_people_show = {}
-
-
-def ban_remove(name):
-    for lang_name in examp_results:
-        for key, value in examp_results[lang_name].items():
-            if key == name:
-                examp_results[lang_name].pop(key)
-                break
+user_command = input()
+student_information = {}
+ban_user_list = []
+submissions = "Submissions"
 
 
-def adding_scores(name, lang, score):
-    if lang not in examp_results:
-        examp_results[lang] = {}
-        total_people_show[lang] = {}
-        total_people_show[lang][lang] = 0
-    if name not in examp_results[lang]:
-        examp_results[lang][name] = score
-        total_people_show[lang][lang] += 1
-    else:
-        if examp_results[lang][name] < score:
-            examp_results[lang][name] = score
-        total_people_show[lang][lang] += 1
+def ban_user(name):
+    ban_user_list.append(name)
+
+
+def add_user(name, lang, score):
+    if lang not in student_information:
+        student_information[lang] = {}
+        student_information[lang][name] = 0
+        student_information[lang][submissions] = 0
+    if name not in student_information[lang]:
+        student_information[lang][name] = 0
+    if student_information[lang][name] < score:
+        student_information[lang][name] = score
+    student_information[lang][submissions] += 1
 
 
 def show_result():
+    global submissions
     print("Results:")
-    for lang_name in examp_results:
-        for name, score in examp_results[lang_name].items():
-            print(f"{name} | {score}")
+    for key in student_information:
+        for name, score in student_information[key].items():
+            if name not in ban_user_list and submissions not in name:
+                print(f"{name} | {score}")
     print("Submissions:")
-    for lang_name in total_people_show:
-        for name, score in total_people_show[lang_name].items():
-            print(f"{lang_name} - {score}")
+    for key in student_information:
+        if len(student_information[key]) > 0:
+            print(f"{key} - {student_information[key][submissions]}")
 
 
-while command != "exam finished":
-    command = command.split("-")
-    name = command[0]
-    lang_name = command[1]
-    if lang_name != "banned":
-        score = command[-1]
-        adding_scores(name, lang_name, score)
+while user_command != "exam finished":
+    user_command = user_command.split("-")
+    if user_command[-1] == "banned":
+        ban_user(user_command[0])
     else:
-        ban_remove(name)
-
-    command = input()
+        add_user(user_command[0], user_command[1], int(user_command[-1]))
+    user_command = input()
 
 show_result()

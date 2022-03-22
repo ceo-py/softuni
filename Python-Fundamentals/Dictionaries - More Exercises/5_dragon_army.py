@@ -18,7 +18,6 @@ def create_dragon(dragon_type, dragon_name, dragon_damage, dragon_health, dragon
 
 def show_result():
     for color in dragon_information:
-        i = 0
         damage = 0
         health = 0
         armor = 0
@@ -26,8 +25,8 @@ def show_result():
             damage += dragon_information[color][name][damage_d]
             health += dragon_information[color][name][health_d]
             armor += dragon_information[color][name][armor_d]
-            i += 1
-        print(f"{color}::({(damage / i):.2f}/{(health / i):.2f}/{(armor / i):.2f})")
+        total_dragons = len(dragon_information[color])
+        print(f"{color}::({(damage / total_dragons):.2f}/{(health / total_dragons):.2f}/{(armor / total_dragons):.2f})")
         for name in sorted(dragon_information[color].keys()):
             print(
                 f"-{name} -> damage: {dragon_information[color][name][damage_d]}, health: {dragon_information[color][name][health_d]}, armor: {dragon_information[color][name][armor_d]}")

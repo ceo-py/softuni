@@ -1,40 +1,34 @@
 quantity = int(input())
 days = int(input())
-
 ornament_set = 2
 tree_skirt = 5
 tree_garlands = 3
 tree_lights = 15
-spirit_points = 0
-total_budget = 0
-if days % 10 == 0:
-    spirit_points = - 30
-
+total_cost = 0
+gained_spirit = 0
+having_ten_day = False
 for day in range(1, days + 1):
-
-
-    if day % 2 == 0:
-        total_budget += (ornament_set * quantity)
-        spirit_points += 5
-
-    if day % 3 == 0:
-        total_budget += (tree_skirt * quantity) + (tree_garlands * quantity)
-        spirit_points += 13
-
-    if day % 5 == 0:
-        total_budget += tree_lights * quantity
-        spirit_points += 17
-        if day % 3 == 0:
-            spirit_points += 30
-
-    if day % 10 == 0:
-        total_budget += tree_skirt + tree_garlands + tree_lights
-        spirit_points += - 20
+    tree_set = False
+    if day % 11 == 0:
         quantity += 2
+    if day % 2 == 0:
+        total_cost += (ornament_set * quantity)
+        gained_spirit += 5
+    if day % 3 == 0:
+        total_cost += (tree_skirt * quantity) + (tree_garlands * quantity)
+        tree_set = True
+        gained_spirit += 13
+    if day % 5 == 0:
+        total_cost += tree_lights * quantity
+        gained_spirit += 17
+        if tree_set:
+            gained_spirit += 30
+    if day % 10 == 0:
+        total_cost += (tree_skirt + tree_garlands + tree_lights)
+        gained_spirit -= 20
+        having_ten_day = True
+    if days % 10 == 0 and days == day:
+        gained_spirit -= 30
 
-    if day > days:
-        break
-
-
-print(f"Total cost: {total_budget}")
-print(f"Total spirit: {spirit_points}")
+print(f"Total cost: {total_cost}")
+print(f"Total spirit: {gained_spirit}")

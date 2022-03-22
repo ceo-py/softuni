@@ -1,30 +1,34 @@
 import math
 
-x1 = math.floor(float(input()))
-x2 = math.floor(float(input()))
-y1 = math.floor(float(input()))
-y2 = math.floor(float(input()))
-z1 = math.floor(float(input()))
-z2 = math.floor(float(input()))
-h1 = math.floor(float(input()))
-h2 = math.floor(float(input()))
+x1, x2, y1, y2 = math.floor(float(input())), math.floor(float(input())), math.floor(float(input())), math.floor(
+    float(input()))
+z1, z2, v1, v2 = math.floor(float(input())), math.floor(float(input())), math.floor(float(input())), math.floor(
+    float(input()))
 
 sum_x = math.floor(abs(x1) + abs(x2))
 sum_y = math.floor(abs(y1) + abs(y2))
 sum_z = math.floor(abs(z1) + abs(z2))
-sum_h = math.floor(abs(h1) + abs(h2))
-longer_line = list()
+sum_v = math.floor(abs(v1) + abs(v2))
+
 
 def whats_closer(arg1, arg2, arg3, arg4):
-    longer_line.append(arg1)
-    longer_line.append(arg2)
-    longer_line.append(arg3)
-    longer_line.append(arg4)
-    longer_line.sort()
-    # if longer_line[-2] == sum_x
+    one = arg1 + arg2
+    two = arg3 + arg4
+    if one > two:
+        if abs(x1) + abs(x2) > abs(y1) + abs(y2):
+            return f"({y1}, {y2})({x1}, {x2})"
+        else:
+            return f"({x1}, {x2})({y1}, {y2})"
+    elif one < two:
+        if abs(z1) + abs(z2) > abs(v1) + abs(v2):
+            return f"({v1}, {v2})({z1}, {z2})"
+        else:
+            return f"({z1}, {z2})({v1}, {v2})"
+    else:
+        if abs(z1) + abs(z2) > abs(v1) + abs(v2):
+            return f"({v1}, {v2})({z1}, {z2})"
+        else:
+            return f"({z1}, {z2})({v1}, {v2})"
 
 
-
-
-
-print(whats_closer(sum_x, sum_y, sum_z, sum_h))
+print(whats_closer(sum_x, sum_y, sum_z, sum_v))
