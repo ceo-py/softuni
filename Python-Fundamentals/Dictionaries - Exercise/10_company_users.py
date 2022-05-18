@@ -3,24 +3,17 @@ command = input()
 company_info = {}
 
 
-def employee_id_seach(id):
-    global duplicate_id
-    for key, value in company_info[id].items():
+def employee_id_search(id):
+    for value in company_info[id].values():
         if id == value:
-            duplicate_id = True
-            break
+            return True
+    return False
 
 
 while command != "End":
-    duplicate_id = False
-    command = command.split(" -> ")
-    company_name = command[0]
-    employee_id = command[-1]
-    if company_name not in company_info:
-        company_info[company_name] = {}
-    employee_id_seach(company_name)
-
-    if not duplicate_id:
+    company_name, employee_id = command.split(" -> ")
+    company_info[company_name] = company_info.get(company_name, {})
+    if not employee_id_search(company_name):
         company_info[company_name][employee_id] = employee_id
     command = input()
 

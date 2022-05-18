@@ -9,12 +9,9 @@ def ban_user(name):
 
 
 def add_user(name, lang, score):
-    if lang not in student_information:
-        student_information[lang] = {}
-        student_information[lang][name] = 0
-        student_information[lang][submissions] = 0
-    if name not in student_information[lang]:
-        student_information[lang][name] = 0
+    student_information[lang] = student_information.get(lang, {})
+    student_information[lang][name] = student_information[lang].get(name, 0)
+    student_information[lang][submissions] = student_information[lang].get(submissions, 0)
     if student_information[lang][name] < score:
         student_information[lang][name] = score
     student_information[lang][submissions] += 1

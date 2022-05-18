@@ -2,7 +2,6 @@ team_information = input()
 
 team_a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 team_b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-
 team_list = team_information.split(" ")
 
 for letter in team_list:

@@ -11,5 +11,6 @@ for number_breads in range(1, int(budget) + 1):
         if number_breads % 3 == 0:
             colored_eggs -= (number_breads - 2)
     else:
-        print(f"You made {number_breads - 1} loaves of Easter bread! Now you have {colored_eggs} eggs and {budget:.2f}BGN left.")
+        print(
+            f"You made {number_breads - 1} loaves of Easter bread! Now you have {colored_eggs} eggs and {budget:.2f}BGN left.")
         break

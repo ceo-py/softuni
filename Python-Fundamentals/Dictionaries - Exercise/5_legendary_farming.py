@@ -40,9 +40,7 @@ while not shadowmourne and not valanyr and not dragonwrath:
     for _ in range(int(len(collected_items) / 2)):
         type_item = collected_items[i]
         quantity_item = int(collected_items[counter])
-        if type_item not in items_information:
-            items_information[collected_items[i]] = 0
-
+        items_information[collected_items[i]] = items_information.get(collected_items[i], 0)
         items_information[type_item] += quantity_item
         counter += 2
         i += 2

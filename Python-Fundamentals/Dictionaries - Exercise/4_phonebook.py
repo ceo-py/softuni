@@ -1,12 +1,8 @@
 phone_book = {}
 phone_number = input()
 while not phone_number.isdigit():
-    phone_number = phone_number.split("-")
-    name = phone_number[0]
-    number = phone_number[-1]
-    if name not in phone_book:
-        phone_book[name] = 0
-    phone_book[name] = number
+    name, number = phone_number.split("-")
+    phone_book[name] = phone_book.get(name, number)
     phone_number = input()
 
 for _ in range(int(phone_number)):

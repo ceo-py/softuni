@@ -7,31 +7,31 @@ total_fire = 0
 water_left = water
 for clean_text in fire_levels:
     if "High = " in clean_text:
-        text = clean_text.replace("High = ", "")
+        text = int(clean_text.replace("High = ", ""))
 
-        if int(text) in range(81, 126) and water_left >= int(text):
+        if text in range(81, 126) and water_left >= text:
             put_out_cells.append(text)
-            effort += int(text) * 0.25
-            total_fire += int(text)
-            water_left -= int(text)
+            effort += text * 0.25
+            total_fire += text
+            water_left -= text
 
     elif "Low = " in clean_text:
-        text = clean_text.replace("Low = ", "")
+        text = int(clean_text.replace("Low = ", ""))
 
-        if int(text) in range(1, 51) and water_left >= int(text):
-            put_out_cells.append(int(text))
-            effort += int(text) * 0.25
-            total_fire += int(text)
-            water_left -= int(text)
+        if text in range(1, 51) and water_left >= text:
+            put_out_cells.append(text)
+            effort += text * 0.25
+            total_fire += text
+            water_left -= text
 
     elif "Medium = " in clean_text:
-        text = clean_text.replace("Medium = ", "")
+        text = int(clean_text.replace("Medium = ", ""))
 
-        if int(text) in range(51, 81) and water_left >= int(text):
+        if text in range(51, 81) and water_left >= text:
             put_out_cells.append(int(text))
-            effort += int(text) * 0.25
-            total_fire += int(text)
-            water_left -= int(text)
+            effort += text * 0.25
+            total_fire += text
+            water_left -= text
 
 print("Cells:")
 for n in put_out_cells:

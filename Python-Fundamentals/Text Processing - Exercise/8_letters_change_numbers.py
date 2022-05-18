@@ -1,6 +1,5 @@
 import re
-# import datetime
-# begin_time = datetime.datetime.now()
+
 main_string = re.sub("\s+", " ", input()).split()
 total = 0
 for string in main_string:
@@ -17,4 +16,3 @@ for string in main_string:
     total += second_result
 
 print(f"{total:.2f}")
-# print(datetime.datetime.now() - begin_time)

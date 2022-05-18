@@ -5,11 +5,8 @@ students_grades = {}
 for _ in range(number_students):
     name = input()
     grade = float(input())
-    if name not in students_grades:
-        students_grades[name] = {}
-        students_grades[name][name + str(grade)] = 0
-    if name in students_grades:
-        students_grades[name][name + str(grade)] = 0
+    students_grades[name] = students_grades.get(name, {})
+    students_grades[name][name + str(grade)] = 0
     students_grades[name][name + str(grade)] += grade
 
 for name_student in students_grades:

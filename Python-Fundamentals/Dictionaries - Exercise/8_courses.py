@@ -5,8 +5,7 @@ while command != "end":
     command = command.split(" : ")
     language_name = command[0]
     studen_name = command[1]
-    if language_name not in school_information:
-        school_information[language_name] = {}
+    school_information[language_name] = school_information.get(language_name, {})
     school_information[language_name][studen_name] = studen_name
     command = input()
 

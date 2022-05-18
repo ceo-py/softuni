@@ -15,12 +15,5 @@ while len_list > 0:
     final_numbers.append(int(number_to_check.pop(index)))
     len_list -= 1
 
-i = 1
-print("[", end="")
-len_list = (len(main_list))
-for n in final_numbers:
-    if i != len_list:
-        print(f"{n},", end="")
-    else:
-        print(f"{n}]")
-    i += 1
+
+print(f"[{','.join(str(x) for x in final_numbers)}]")

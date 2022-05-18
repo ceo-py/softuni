@@ -28,7 +28,7 @@ def order_event(coins_number):
 
 def ingredient_event(name, price_item):
     global coins
-    if price_item < coins:
+    if price_item <= coins:
         print(f"You bought {name}.")
         coins -= price_item
     else:

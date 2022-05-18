@@ -4,15 +4,11 @@ force_book = {}
 
 
 def force_side(side_, user_):
-    find_user = False
     for key in force_book:
         if user_ in force_book[key]:
-            find_user = True
-            break
-    if side_ not in force_book:
-        force_book[side_] = {}
-    if not find_user:
-        force_book[side_][user_] = user_
+            return
+    force_book[side_] = force_book.get(side_, {})
+    force_book[side_][user_] = force_book.get(side_, side_)
 
 
 def force_change(user_, side_):
@@ -20,9 +16,8 @@ def force_change(user_, side_):
         if user_ in force_book[key]:
             del force_book[key][user_]
             break
-    if side_ not in force_book:
-        force_book[side_] = {}
-    force_book[side_][user_] = user_
+    force_book[side_] = force_book.get(side_, {})
+    force_book[side_][user_] = force_book.get(side_, side_)
     print(f"{user_} joins the {side_} side!")
 
 
