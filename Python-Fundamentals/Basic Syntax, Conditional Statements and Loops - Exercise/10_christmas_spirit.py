@@ -6,7 +6,6 @@ tree_garlands = 3
 tree_lights = 15
 total_cost = 0
 gained_spirit = 0
-having_ten_day = False
 for day in range(1, days + 1):
     tree_set = False
     if day % 11 == 0:
@@ -26,7 +25,6 @@ for day in range(1, days + 1):
     if day % 10 == 0:
         total_cost += (tree_skirt + tree_garlands + tree_lights)
         gained_spirit -= 20
-        having_ten_day = True
 if days % 10 == 0 :
     gained_spirit -= 30
 
