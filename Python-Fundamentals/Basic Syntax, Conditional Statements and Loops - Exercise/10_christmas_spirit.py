@@ -27,8 +27,8 @@ for day in range(1, days + 1):
         total_cost += (tree_skirt + tree_garlands + tree_lights)
         gained_spirit -= 20
         having_ten_day = True
-    if days % 10 == 0 and days == day:
-        gained_spirit -= 30
+if days % 10 == 0 :
+    gained_spirit -= 30
 
 print(f"Total cost: {total_cost}")
 print(f"Total spirit: {gained_spirit}")
