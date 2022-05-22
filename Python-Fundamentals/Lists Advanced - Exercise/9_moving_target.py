@@ -36,7 +36,6 @@ while command != "End":
 
 print(*targets, sep="|")
 
-
 #
 #
 # targets = [int(n) for n in input().split()]
