@@ -6,7 +6,7 @@ for _ in range(numbers_to_check):
         print("Hello")
     elif num == 86:
         print("How are you?")
-    elif all([num != 88, num != 86]) and num < 88:
+    elif num < 88:
         print("GREAT!")
     elif num > 88:
         print("Bye.")
