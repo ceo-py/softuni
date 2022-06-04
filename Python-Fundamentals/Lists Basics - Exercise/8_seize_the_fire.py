@@ -6,8 +6,7 @@ effort = 0
 total_fire = 0
 water_left = water
 for clean_text in fire_levels:
-    type_of_fire, cell_value = clean_text.split(" = ")
-    cell_value = int(cell_value)
+    type_of_fire, cell_value = [info if info.isalpha() else int(info) for info in clean_text.split(" = ")]
     if water_left >= cell_value:
         if any(["High" in type_of_fire and cell_value in range(81, 126),
                 "Low" in type_of_fire and cell_value in range(1, 51),
