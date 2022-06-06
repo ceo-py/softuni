@@ -14,17 +14,20 @@ for line in game_matrix:
         winner["player"] = line[0]
         break
 else:  # vertical check
+    test_diagonals = [[], []]
     for col in range(3):
+        test_diagonals[0].append(game_matrix[col][col])
+        test_diagonals[1].append(game_matrix[col][::-1][col])
         for player in range(1, 3):
             if all([game_matrix[0][col] == game_matrix[1][col] == game_matrix[2][col] == player]):
                 winner["player"] = game_matrix[0][col]
                 break
-# diagonal check
-if winner["player"] == 0:
-    if (game_matrix[0][0] == game_matrix[1][1] == game_matrix[2][2]) == (1 or 2):
-        winner["player"] = game_matrix[0][0]
-    elif (game_matrix[0][2] == game_matrix[1][1] == game_matrix[2][0]) == (1 or 2):
-        winner["player"] = game_matrix[0][2]
+    else:
+         # diagonal check
+        for diagonal in test_diagonals:
+            if len(set(diagonal)) == 1:
+                winner["player"] = diagonal[0]
+                break
 
 print(winner[winner["player"]])
 
