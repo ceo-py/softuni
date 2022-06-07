@@ -1,37 +1,76 @@
-game_matrix = []
+first_row = input().split()
+second_row = input().split()
+third_row = input().split()
+
 winner = {
-    0: "Draw!",
-    1: "First player won",
-    2: "Second player won",
-    "player": 0
+    "1": "First",
+    "2": "Second"
 }
 
-for _ in range(3):
-    game_matrix.append([int(num) for num in input().split()])
-# horizontal check
-for line in game_matrix:
-    if len(set(line)) == 1:
-        winner["player"] = line[0]
+
+def tic_tac(player):
+    lines = [player] * 3
+    if any([lines == first_row, second_row == lines, third_row == lines]):
+        return player
+    for row in range(0, 3):
+        if all([first_row[row] == player, second_row[row] == player, third_row[row] == player]):
+            return player
+    if all([first_row[0] == player, second_row[1] == player, third_row[2] == player]):
+        return player
+    elif all([first_row[2] == player, second_row[1] == player, third_row[0] == player]):
+        return player
+
+
+for player in range(1, 3):
+    player_win = tic_tac(str(player))
+    if any([player_win == "1", player_win == "2"]):
+        print(f"{winner[player_win]} player won")
         break
-else:  # vertical check
-    test_diagonals = [[], []]
-    for col in range(3):
-        test_diagonals[0].append(game_matrix[col][col])
-        test_diagonals[1].append(game_matrix[col][::-1][col])
-        for player in range(1, 3):
-            if all([game_matrix[0][col] == game_matrix[1][col] == game_matrix[2][col] == player]):
-                winner["player"] = game_matrix[0][col]
-                break
-    else:
-         # diagonal check
-        for diagonal in test_diagonals:
-            if len(set(diagonal)) == 1:
-                winner["player"] = diagonal[0]
-                break
-
-print(winner[winner["player"]])
+else:
+    print("Draw!")
 
 
+
+
+
+
+
+
+#
+# game_matrix = []
+# winner = {
+#     0: "Draw!",
+#     1: "First player won",
+#     2: "Second player won",
+#     "player": 0
+# }
+#
+# for _ in range(3):
+#     game_matrix.append([int(num) for num in input().split()])
+# # horizontal check
+# for line in game_matrix:
+#     if len(set(line)) == 1:
+#         winner["player"] = line[0]
+#         break
+# else:  # vertical check
+#     test_diagonals = [[], []]
+#     for col in range(3):
+#         test_diagonals[0].append(game_matrix[col][col])
+#         test_diagonals[1].append(game_matrix[col][::-1][col])
+#         for player in range(1, 3):
+#             if all([game_matrix[0][col] == game_matrix[1][col] == game_matrix[2][col] == player]):
+#                 winner["player"] = game_matrix[0][col]
+#                 break
+#     else:
+#          # diagonal check
+#         for diagonal in test_diagonals:
+#             if len(set(diagonal)) == 1:
+#                 winner["player"] = diagonal[0]
+#                 break
+#
+# print(winner[winner["player"]])
+#
+#
 
 
 
