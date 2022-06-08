@@ -1,161 +1,89 @@
-from random import randint
+tickets_sting = input().replace(" ", "").split(",")
 
-beetle_body = {
-    "head": {"head": '''                     
-                 ^       
-              (     )''',
-             "eyes": '''                     
-               o ^ o     
-              (     )''',
-             "antennas": '''              \     /
-          \      ^      /
-            \ (     ) /''',
-             "full head": '''              \     /
-          \    o ^ o    /
-            \ (     ) /'''
-             },
-    "body": {"body":
-             '''             (%%%%%%%) 
-             )%%%%%%%(   
-
-             (%%%%%%%)          
-             (%%%%%%%)  
-             (       ) 
-              (%%%%%)    
-               (%%%)
-                 !''',
-             "legs":
-             '''             (%%%%%%%) 
-             )%%%%%%%(   
-
-             (%%%%%%%)          
-             (%%%%%%%)  
-            /(       )\\
-          /   (%%%%%)   \\
-               (%%%)
-                 !''',
-             "wings":
- ''' ____________(%%%%%%%)____________
-(     /   /  )%%%%%%%(  \   \     )
-(___/___/__/           \__\___\___)
-   (     /  /(%%%%%%%)\  \     )
-    (__/___/ (%%%%%%%) \___\__)
-             (       )  
-              (%%%%%)     
-               (%%%)
-                 !''',
-             "full body":
- ''' ____________(%%%%%%%)____________
-(     /   /  )%%%%%%%(  \   \     )
-(___/___/__/           \__\___\___)
-   (     /  /(%%%%%%%)\  \     )
-    (__/___/ (%%%%%%%) \___\__)
-            /(       )\\
-          /   (%%%%%)   \\
-               (%%%)
-                 !'''}
-}
-
-print(beetle_body["head"]["full head"])
-print(beetle_body["body"]["full body"])
-
-
-player_info = {
-    "body": [1, False],
-    "head": [2, False],
-    "legs": [3, False],
-    "eyes": [4, False],
-    "antenna": [5, False],
-    "wings": [6, False]
-}
-computer_info = {
-    "body": [1, False],
-    "head": [2, False],
-    "legs": [3, False],
-    "eyes": [4, False],
-    "antenna": [5, False],
-    "wings": [6, False]
-}
-
-
-def roll_dice():
-    return randint(1, 6)
-
-
-def logic_body(player_or_cpu_):
-    if not player_or_cpu_["body"][1]:
-        print(beetle_body["body"]["body"])
-        player_or_cpu_["body"][1] = True
-    else:
-        print("You Already have that part body!")
-
-
-def head_logic(player_or_cpu_):
-    if player_or_cpu_["body"][1]:
-        if not player_or_cpu_["head"][1]:
-            print(beetle_body["head"]["head"])
-            print(beetle_body["body"]["body"])
-            player_or_cpu_["head"][1] = True
+symbols = ['@', '#', '$', '^']
+for ticket_characters in tickets_sting:
+    price_find = False
+    jackpot_find = False
+    if len(ticket_characters) == 20:
+        how_long = int(len(ticket_characters) / 2)
+        left_side = ticket_characters[:how_long]
+        right_side = ticket_characters[how_long:]
+        if left_side == right_side and left_side[0] in symbols:
+            print(f'ticket "{ticket_characters}" - 10{left_side[0]} Jackpot!')
+            jackpot_find = True
         else:
-            print("You Already have that part head!")
+            for index, symbol in enumerate(symbols):
+                for symbols_number in range(9, 5, - 1):
+                    if (symbol * symbols_number) in left_side and (symbol * symbols_number) in right_side:
+                        symbol_type = symbols[index]
+                        price_find = True
+                        break
+                if price_find:
+                    print(f'ticket "{ticket_characters}" - {left_side.count(symbol_type)}{symbol_type}')
+                    break
+        if not jackpot_find and not price_find:
+            print(f'ticket "{ticket_characters}" - no match')
     else:
-        print("You still don't have body part!")
+        print("invalid ticket")
 
-def eye_logic(player_or_cpu_):
-    if player_or_cpu_["head"][1]:
-        if not player_or_cpu_["eyes"][1]:
-            print(beetle_body["head"]["eyes"])
-            if all([player_or_cpu_["legs"], player_or_cpu_["wings"]]):
-                print(beetle_body["body"]["full body"])
-            elif player_or_cpu_["legs"]:
-                print(beetle_body["body"]["legs"])
-            elif player_or_cpu_["wings"]:
-                print(beetle_body["body"]["legs"])
-            else:
-                print(beetle_body["body"]["body"])
+# tickets = input().replace(" ", "")
+# tickets = tickets.split(',')
+# count = 0
+# symb = ''
+# symbols = ['@', '#', '$', '^']
+#
+# for ticket in tickets:
+#     fins_ticket = False
+#     if len(ticket) != 20:
+#         print('invalid ticket')
+#         continue
+#     left = ticket[:int(len(ticket) / 2)]
+#     right = ticket[int(len(ticket) / 2):]
+#     for index, sym in enumerate(symbols):
+#         if 6 * sym in left and 6 * sym in right:
+#             count = 0
+#             for i in range(7, 11):
+#                 if (i * sym) in left and (i * sym) in right:
+#                     count += 1
+#             symb = symbols[index]
+#             fins_ticket = True
+#     if not fins_ticket:
+#         print(f'ticket "{ticket}" - no match')
+#     elif count != 4:
+#         print(f'ticket "{ticket}" - {6 + count}{symb}')
+#     else:
+#         print(f'ticket "{ticket}" - {6 + count}{symb} Jackpot!')
 
-            player_or_cpu_["head"][1] = True
-        else:
-            print("You Already have that part head!")
-    else:
-        print("You still don't have body part!")
 
-
-
-player_one_name = input("What is your name? : ")
-player_win = False
-computer_win = False
-player_or_cpu = 0  # even numbers player odd number cpu
-
-while not player_win and not computer_win:
-    dice = roll_dice()
-    print(f"\n\n")
-    if player_or_cpu % 2 == 0:
-        print(f"{player_one_name} turn he roll the dice - {dice}")
-        if dice == 1:
-            logic_body(player_info)
-        elif dice == 2:
-            head_logic(player_info)
-        print(f"{player_one_name} parts find:")
-        for key, value in player_info.items():
-            if value[1]:
-                print(f"1/1 of {key}")
-            else:
-                print(f"0/1 of {key}")
-    else:
-        print(f"Computer turn he roll the dice - {dice}")
-        if dice == 1:
-            logic_body(computer_info)
-        elif dice == 2:
-            head_logic(computer_info)
-        print("Computer parts find:")
-        for key, value in computer_info.items():
-            if value[1]:
-                print(f"1/1 of {key}")
-            else:
-                print(f"0/1 of {key}")
-    player_or_cpu += 1
-
-# print(beetle_body["head"]["full head"], end="")
-# print(beetle_body["body"]["full body"])
-# print(beetle_body["head"])
+# tickets = input().replace(" ", "")
+# tickets = tickets.split(',')
+# count = 0
+# symb = ''
+# symbols = ['@', '#', '$', '^']
+#
+# def check_next(symbol, first, second):
+#     back = 6
+#     for i in range(7, 11):
+#         if (i * symbol) in first and (i * symbol) in second:
+#             back += 1
+#     return back
+#
+#
+# for ticket in tickets:
+#     fins_ticket =False
+#     if len(ticket) != 20:
+#         print('invalid ticket')
+#         continue
+#     left = ticket[0:int(len(ticket) / 2)]
+#     right = ticket[int(len(ticket) / 2):]
+#     for index, sym in enumerate(symbols):
+#         if (6 * sym) in left and (6 * sym) in right:
+#             count = check_next(sym, left, right)
+#             symb = symbols[index]
+#             fins_ticket = True
+#     if not fins_ticket:
+#         print(f'ticket "{ticket}" - no match')
+#     elif count != 10:
+#         print(f'ticket "{ticket}" - {count}{symb}')
+#     else:
+#         print(f'ticket "{ticket}" - {count}{symb} Jackpot!')
