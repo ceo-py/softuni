@@ -52,3 +52,30 @@ print(combinations)
 #         combinations_count += 1
 #
 # print(combinations_count)
+
+
+
+#
+# import string
+#
+# all_letters = string.ascii_lowercase
+#
+# letter_a = input()
+# letter_b = input()
+# letter_c = input()
+#
+# starting_point_loop = all_letters.index(letter_a)
+# ending_point_loop = all_letters.index(letter_b)
+# skip_letter = all_letters.index(letter_c)
+# combinations = 0
+# for pos, first_letter in enumerate(all_letters[starting_point_loop:ending_point_loop + 1], starting_point_loop):
+#     if pos != skip_letter:
+#         for pos, second_letter in enumerate(all_letters[starting_point_loop:ending_point_loop + 1],
+#                                             starting_point_loop):
+#             if pos != skip_letter:
+#                 for pos, third_letter in enumerate(all_letters[starting_point_loop:ending_point_loop + 1],
+#                                                    starting_point_loop):
+#                     if pos != skip_letter:
+#                         combinations += 1
+#                         print(f"{first_letter}{second_letter}{third_letter}", end=" ")
+# print(combinations)
