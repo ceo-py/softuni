@@ -3,9 +3,9 @@ secret_msg = input()
 
 how_long = len(secret_key)
 while secret_msg != "find":
-    aa = "".join([chr(ord(secret_msg[i]) - secret_key[i % len(secret_key)]) for i in range(len(secret_msg))])
-    item = aa.split("&")[-2]
-    location = aa.split("<")[-1][:-1]
+    secret_text = "".join([chr(ord(secret_msg[i]) - secret_key[i % len(secret_key)]) for i in range(len(secret_msg))])
+    item = secret_text.split("&")[-2]
+    location = secret_text.split("<")[-1][:-1]
     print(f"Found {item} at {location}")
     secret_msg = input()
 
