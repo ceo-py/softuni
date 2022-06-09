@@ -14,14 +14,12 @@ while letter != "End":
         skip_letters_count = ""
         complete_word += f"{guess_word} "
         guess_word = ""
-    for char in skip_letters_count:
-        if skip_letters_count.count(letter) > 1:
-            guess_word += letter
-            break
+    if skip_letters_count.count(letter) > 1:
+        guess_word += letter
+
     letter = input()
 
 print(complete_word)
-
 
 
 
