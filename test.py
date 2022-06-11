@@ -1,22 +1,20 @@
-skip_letters = "con"
+type_fuel = input().lower()
+quantity_fuel = float(input())
+card = input().lower()
 
-letter = input()
-complete_word = ""
-skip_letters_count = ""
-guess_word = ""
-while letter != "End":
-    if letter in skip_letters:
-        skip_letters_count += letter
-    else:
-        if letter.islower() or letter.isupper():
-            guess_word += letter
-    if "c" in skip_letters_count and "o" in skip_letters_count and "n" in skip_letters_count:
-        skip_letters_count = ""
-        complete_word += f"{guess_word} "
-        guess_word = ""
-    if skip_letters_count.count(letter) > 1:
-        guess_word += letter
+fuel_info = {"diesel": {"diesel": 2.33, "yes": 0.12, "no": 0},
+            "gas": {"gas": 0.93, "yes": 0.08, "no": 0},
+            "gasoline": {"gasoline": 2.22, "yes": 0.18, "no": 0}}
+off_over_twenty_five_liters = 0.10
+off_between_twenty_and_twenty_five = 0.08
 
-    letter = input()
+if quantity_fuel <= 19:
+    total = (fuel_info[type_fuel][type_fuel] - fuel_info[type_fuel][card]) * quantity_fuel
+elif quantity_fuel <= 25:
+    total = (fuel_info[type_fuel][type_fuel] - fuel_info[type_fuel][card]) * quantity_fuel
+    total += - (total * off_between_twenty_and_twenty_five)
+elif quantity_fuel > 25:
+    total = (fuel_info[type_fuel][type_fuel] - fuel_info[type_fuel][card]) * quantity_fuel
+    total += - (total * off_over_twenty_five_liters)
 
-print(complete_word)
+print(f"{total:.2f} lv.")
