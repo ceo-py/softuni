@@ -5,7 +5,7 @@ commands = input()
 def merge(start_index, end_index):
     if start_index < 0:
         start_index = 0
-    if 0 <= start_index < end_index:
+    if start_index < end_index:
         how_long = len(main_string)
         if end_index >= how_long:
             end_index = how_long - 1
@@ -22,17 +22,16 @@ def divide(index_, partitions):
         result_.append(string_to_change[:space_between])
         string_to_change = string_to_change[space_between:]
     result_.append(string_to_change)
-    result_.reverse()
-    for x in result_:
+    for x in result_[::-1]:
         main_string.insert(index_, x)
 
 
 while commands != "3:1":
-    command, start_index, end_index = commands.split()
+    command, start_index, end_index = [int(x) if x[-1].isdigit() else x for x in commands.split()]
     if command == "merge":
-        merge(int(start_index), int(end_index))
+        merge(start_index, end_index)
     elif command == "divide":
-        divide(int(start_index), int(end_index))
+        divide(start_index, end_index)
     commands = input()
 
 print(" ".join(main_string))
