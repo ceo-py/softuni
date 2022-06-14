@@ -5,7 +5,6 @@ damage_d, health_d, armor_d = "damage", "health", "armor"
 
 
 def create_dragon(dragon_type, dragon_name, dragon_damage, dragon_health, dragon_armor):
-    global dragon_information
     dragon_information[dragon_type] = dragon_information.get(dragon_type, dict())
     dragon_information[dragon_type][dragon_name] = dragon_information.get(dragon_name, dict())
     dragon_information[dragon_type][dragon_name][damage_d] = dragon_damage
