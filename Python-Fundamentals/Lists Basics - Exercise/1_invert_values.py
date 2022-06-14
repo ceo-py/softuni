@@ -1,3 +1,8 @@
+
+
+print([int(x) * - 1 for x in input().split()])
+
+
 # numbers = input()
 #
 # lst = numbers.split(' ')
@@ -13,13 +18,15 @@
 # print(new_list)
 
 
-numbers = input()
+# numbers = input()
+#
+# lst = numbers.split(' ')
+# new_list = list()
+#
+# for number in lst:
+#     result = int(number) * -1
+#     new_list.append(result)
+#
+# print(new_list)
 
-lst = numbers.split(' ')
-new_list = list()
 
-for number in lst:
-    result = int(number) * -1
-    new_list.append(result)
-
-print(new_list)
