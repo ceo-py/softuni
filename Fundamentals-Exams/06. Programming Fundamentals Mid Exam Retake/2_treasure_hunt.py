@@ -35,12 +35,11 @@ def show_result():
 
 while command != "Yohoho!":
     command = command.split()
-    type_command = command[0]
-    if type_command == "Loot":
+    if "Loot" in command:
         loot_(command)
-    elif type_command == "Drop":
+    elif "Drop" in command:
         drop_(command)
-    elif type_command == "Steal":
+    elif "Steal" in command:
         steal_(command)
     command = input()
 
