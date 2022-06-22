@@ -25,10 +25,7 @@ def steal_(command):
 
 def show_result():
     if main_treasure_check:
-        average_treasure = 0
-        for item in main_treasure_check:
-            average_treasure += len(item)
-        print(f"Average treasure gain: {(average_treasure / len(main_treasure_check)):.2f} pirate credits.")
+        print(f"Average treasure gain: {(sum(len(item) for item in main_treasure_check) / len(main_treasure_check)):.2f} pirate credits.")
     else:
         print(f"Failed treasure hunt.")
 
