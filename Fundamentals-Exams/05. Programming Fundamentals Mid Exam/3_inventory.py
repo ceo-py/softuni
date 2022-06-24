@@ -21,6 +21,11 @@ def chest(points_command):
     print(f"You found {points_command} bitcoins.")
 
 
+def monster_slay(type_command):
+    if all([hero_info['health'] > 0, "chest" != type_command != "potion"]):
+        print(f"You slayed {type_command}.")
+
+
 for room, command in enumerate(dungeons_rooms, 1):
     type_command, points_command = [int(x) if x.isdigit() else x for x in command.split()]
     if type_command == "potion":
@@ -29,8 +34,7 @@ for room, command in enumerate(dungeons_rooms, 1):
         chest(points_command)
     else:
         hero_info['health'] -= points_command
-    if all([hero_info['health'] > 0, "chest" != type_command != "potion"]):
-        print(f"You slayed {type_command}.")
+    monster_slay(type_command)
     if hero_info['health'] <= 0:
         print(f"You died! Killed by {type_command}.")
         print(f"Best room: {room}")
