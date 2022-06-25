@@ -13,12 +13,23 @@ def find_lesson_index(lesson_title):
 
 
 def check_for_exercise(index):
-    for pos, x in enumerate(lessons[index:], 1):
-        if pos == 2 and "Exercise" in x:
+    if len(lessons) - 1 > index:
+        if "Exercise" in lessons[index + 1]:
             return True
-        if pos == 3:
-            return False
     return False
+
+    # try:
+    #     if "Exercise" in lessons[index + 1]:
+    #         return True
+    # except IndexError:
+    #     return False
+    #
+    # for pos, x in enumerate(lessons[index:]):
+    #     if pos == 1 and "Exercise" in x:
+    #         return True
+    #     if pos == 2:
+    #         return False
+    # return False
 
 
 def add_lesson(lessons_title):
