@@ -1,20 +1,36 @@
-type_fuel = input().lower()
-quantity_fuel = float(input())
-card = input().lower()
+collection_of_items = input().split("|")
+budget = int(input())
+budget_left = budget
+train_ticket = 150
+total_money = 0
+items_bought = []
 
-fuel_info = {"diesel": {"diesel": 2.33, "yes": 0.12, "no": 0},
-            "gas": {"gas": 0.93, "yes": 0.08, "no": 0},
-            "gasoline": {"gasoline": 2.22, "yes": 0.18, "no": 0}}
-off_over_twenty_five_liters = 0.10
-off_between_twenty_and_twenty_five = 0.08
 
-if quantity_fuel <= 19:
-    total = (fuel_info[type_fuel][type_fuel] - fuel_info[type_fuel][card]) * quantity_fuel
-elif quantity_fuel <= 25:
-    total = (fuel_info[type_fuel][type_fuel] - fuel_info[type_fuel][card]) * quantity_fuel
-    total += - (total * off_between_twenty_and_twenty_five)
-elif quantity_fuel > 25:
-    total = (fuel_info[type_fuel][type_fuel] - fuel_info[type_fuel][card]) * quantity_fuel
-    total += - (total * off_over_twenty_five_liters)
+def add_money(current_price):
+    global total_money, budget_left
+    total_money += current_price
+    budget_left -= current_price
 
-print(f"{total:.2f} lv.")
+
+for index in collection_of_items:
+    current_item, current_price = [float(x) if x[-1].isdigit() else x for x in index.split('->')]
+    if budget_left >= current_price:
+        if current_item == 'Clothes' and current_price <= 50:
+            add_money(current_price)
+            items_bought.append(current_price + (current_price * 0.40))
+        elif current_item == 'Shoes' and current_price <= 35:
+            add_money(current_price)
+            items_bought.append(current_price + (current_price * 0.40))
+        elif current_item == 'Accessories' and current_price <= 20.50:
+            add_money(current_price)
+            items_bought.append(current_price + (current_price * 0.40))
+
+difference = sum(items_bought) - total_money
+print(' '.join(f"{n:.2f}" for n in items_bought))
+print(f'Profit: {difference:.2f}')
+if budget + difference > train_ticket:
+    print('Hello, France!')
+else:
+    print('Not enough money.')
+
+
