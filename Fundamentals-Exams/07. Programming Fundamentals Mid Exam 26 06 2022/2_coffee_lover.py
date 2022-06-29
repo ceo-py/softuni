@@ -12,11 +12,14 @@ def include_coffee(coffee):
 
 
 def remove_coffee(first_or_last, number_of_coffees):
+    global names_of_the_coffees
     if 0 <= number_of_coffees < len(names_of_the_coffees):
         if "first" in first_or_last:
+            #names_of_the_coffees = names_of_the_coffees[first_or_last:]
             for coffee_to_remove in range(number_of_coffees):
                 del names_of_the_coffees[0]
         elif "last" in first_or_last:
+            #names_of_the_coffees = names_of_the_coffees[:-first_or_last]
             for coffee_to_remove in range(number_of_coffees):
                 del names_of_the_coffees[-1]
 
