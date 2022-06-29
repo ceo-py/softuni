@@ -25,12 +25,12 @@ for car in vehicles:
     current_car_taxes = 0
     if any([True for car_type in list(tax_info.keys()) if car_type in car]):
         type_car, car_years, car_km = [int(x) if x.isdigit() else x for x in car.split()]
-        current_car_taxes = tax_info[type_car]["tax"] + (int(car_km / tax_info[type_car]['traveled km']) * tax_info[type_car]['increase for km']) \
+        current_car_taxes = tax_info[type_car]["tax"] + (
+                int(car_km / tax_info[type_car]['traveled km']) * tax_info[type_car]['increase for km']) \
                             - (tax_info[type_car]["declines for every year"] * car_years)
         total_tax_collected += current_car_taxes
         print(f"A {type_car} car will pay {current_car_taxes:.2f} euros in taxes.")
     else:
         print(f"Invalid car type")
-
 
 print(f"The National Revenue Agency will collect {total_tax_collected:.2f} euros in taxes.")
