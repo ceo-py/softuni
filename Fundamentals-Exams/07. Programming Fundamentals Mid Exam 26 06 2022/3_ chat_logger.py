@@ -29,7 +29,7 @@ def pin_msg(msg):
 def spam_msg(msgs):
     for msg in msgs:
         chat_log.append(msg)
-    # or we can you one of this 2 methods to combite two lists also
+    # or we can use one of this 2 methods to combite two lists also
     #chat_log.extend(msg)
     #global chat_log
     #chat_log = chat_log + msgs
