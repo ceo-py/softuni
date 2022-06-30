@@ -6,11 +6,11 @@ class Class:
         self.students = []
         self.grades = []
 
-    def add_student(self, name, grade):
+    def add_student(self, name: str, grade: float):
         Class.__students_count -= 1
         if Class.__students_count >= 0:
-            self.students.append(str(name))
-            self.grades.append(float(grade))
+            self.students.append(name)
+            self.grades.append(grade)
 
     def get_average_grade(self):
         number = f"{(sum(self.grades) / len(self.grades)):.2f}"
