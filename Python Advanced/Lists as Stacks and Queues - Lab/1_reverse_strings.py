@@ -1,6 +1,6 @@
 stack_list = list(input())
 while stack_list:
-    print(stack_list.pop(), sep= "")
+    print(stack_list.pop(), end= "")
 
 
 # from collections import deque
