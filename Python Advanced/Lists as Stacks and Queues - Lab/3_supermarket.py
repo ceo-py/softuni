@@ -9,6 +9,9 @@ def customers_to_paid():
     for person in range(len(supermarket_line)):
         print(f"{supermarket_line.popleft()} ")
 
+    # while supermarket_line:
+    #     print(f"{supermarket_line.popleft()} ")
+
 
 while name != "End":
     if name == "Paid":
@@ -17,8 +20,8 @@ while name != "End":
         supermarket_line.append(name)
     name = input()
 
-else:
-    print(f"{len(supermarket_line)} people remaining.")
+
+print(f"{len(supermarket_line)} people remaining.")
 
 
 
