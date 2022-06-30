@@ -33,4 +33,3 @@ if budget + difference > train_ticket:
 else:
     print('Not enough money.')
 
-
