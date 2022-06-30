@@ -11,9 +11,8 @@ class Catalogue:
         return [x for x in self.products if x.startswith(first_letter)]
 
     def __repr__(self):
-        self.products.sort()
         show_result = "Items in the {0} catalogue:\n" \
-                 "{1}".format(self.name, '\n'.join(self.products))
+                 "{1}".format(self.name, '\n'.join(sorted(self.products)))
         return show_result
 
 
