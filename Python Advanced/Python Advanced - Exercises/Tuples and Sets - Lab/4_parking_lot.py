@@ -7,7 +7,7 @@ for car in range(car_numbers):
     if "IN" == direction:
         parking_lot.add(car_plate_number)
 
-    elif "OUT" == direction:
+    elif "OUT" == direction and car_plate_number in parking_lot:
         parking_lot.remove(car_plate_number)
 
 
