@@ -1,59 +1,92 @@
 from collections import deque
 
-string_expression = deque(input().split())
+string_expression = input().split()
 
-result = 0
-numbers_so_far = ""
-el = 0
-while len(string_expression) != 1:
-    check_element = string_expression[el]
-    if check_element == "-":
-        result = int(string_expression.popleft())
-        while True:
-            check_element = string_expression[0]
-            if check_element != "-":
-                take_element = string_expression.popleft()
-                result -= int(take_element)
+numbers = deque()
+
+for element in string_expression:
+    if element in "+-*/":
+        while len(numbers) > 1:
+            num_one = numbers.popleft()
+            num_two = numbers.popleft()
+
+            result = 0
+
+            if element == "+":
+                result = num_one + num_two
+            elif element == "-":
+                result = num_one - num_two
+            elif element == "*":
+                result = num_one * num_two
             else:
-                string_expression[0] = result
-                el = 0
-                break
-    elif check_element == "*":
-        result = int(string_expression.popleft())
-        while True:
-            check_element = string_expression[0]
-            if check_element != "*":
-                take_element = string_expression.popleft()
-                result *= int(take_element)
-            else:
-                string_expression[0] = result
-                el = 0
-                break
-    elif check_element == "/":
-        result = int(string_expression.popleft())
-        while True:
-            check_element = string_expression[0]
-            if check_element != "/":
-                take_element = string_expression.popleft()
-                result = int(result / int(take_element))
-            else:
-                string_expression[0] = result
-                el = 0
-                break
-    if check_element == "+":
-        result = int(string_expression.popleft())
-        while True:
-            check_element = string_expression[0]
-            if check_element != "+":
-                take_element = string_expression.popleft()
-                result += int(take_element)
-            else:
-                string_expression[0] = result
-                el = 0
-                break
+                result = num_one // num_two
+
+            numbers.appendleft(result)
+
     else:
-        el += 1
+        numbers.append(int(element))
+
+print(numbers.popleft())
 
 
-print(*string_expression)
+
+
+# from collections import deque
+#
+# string_expression = deque(input().split())
+#
+# result = 0
+# numbers_so_far = ""
+# el = 0
+# while len(string_expression) != 1:
+#     check_element = string_expression[el]
+#     if check_element == "-":
+#         result = int(string_expression.popleft())
+#         while True:
+#             check_element = string_expression[0]
+#             if check_element != "-":
+#                 take_element = string_expression.popleft()
+#                 result -= int(take_element)
+#             else:
+#                 string_expression[0] = result
+#                 el = 0
+#                 break
+#     elif check_element == "*":
+#         result = int(string_expression.popleft())
+#         while True:
+#             check_element = string_expression[0]
+#             if check_element != "*":
+#                 take_element = string_expression.popleft()
+#                 result *= int(take_element)
+#             else:
+#                 string_expression[0] = result
+#                 el = 0
+#                 break
+#     elif check_element == "/":
+#         result = int(string_expression.popleft())
+#         while True:
+#             check_element = string_expression[0]
+#             if check_element != "/":
+#                 take_element = string_expression.popleft()
+#                 result = int(result / int(take_element))
+#             else:
+#                 string_expression[0] = result
+#                 el = 0
+#                 break
+#     if check_element == "+":
+#         result = int(string_expression.popleft())
+#         while True:
+#             check_element = string_expression[0]
+#             if check_element != "+":
+#                 take_element = string_expression.popleft()
+#                 result += int(take_element)
+#             else:
+#                 string_expression[0] = result
+#                 el = 0
+#                 break
+#     else:
+#         el += 1
+#
+#
+# print(*string_expression)
 
