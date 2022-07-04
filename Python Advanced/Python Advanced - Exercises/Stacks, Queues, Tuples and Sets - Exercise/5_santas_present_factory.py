@@ -46,8 +46,9 @@ else:
     print(f"No presents this Christmas!")
 
 if boxes_with_materials:
-    print(f"Materials left: {', '.join([str(boxes_with_materials.pop()) for _ in range(len(boxes_with_materials))])}")
-    #print(f"Materials left: {', '.join(str(x) for x in boxes_with_materials[::-1])}")
+    print(f"Materials left: {', '.join(str(x) for x in boxes_with_materials[::-1])}")
+    #print(f"Materials left: {', '.join([str(boxes_with_materials.pop()) for _ in range(len(boxes_with_materials))])}")
+    #print(f"Materials left: {', '.join(str(x) for x in reversed(boxes_with_materials)}")
 
 if magic_values:
     print(f"Magic left: {', '.join(str(x) for x in magic_values)}")
