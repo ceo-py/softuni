@@ -26,11 +26,7 @@ def find_starting_point():
 
 
 def find_the_lab_path(row, col, lab):
-    if correct_lab_bounds(row, col):
-        return
-    if check_wall(row, col):
-        return
-    if check_already_visit(row, col):
+    if correct_lab_bounds(row, col) or check_wall(row, col) or check_already_visit(row, col):
         return
 
     path_steps.append(1)
