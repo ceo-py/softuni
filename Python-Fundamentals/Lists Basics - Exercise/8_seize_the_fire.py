@@ -2,11 +2,10 @@ fire_levels = input().split("#")
 water = int(input())
 
 put_out_cells = list()
-effort = 0
-total_fire = 0
-water_left = water
+effort, total_fire, water_left = 0, 0, water
+
 for clean_text in fire_levels:
-    type_of_fire, cell_value = [info if info.isalpha() else int(info) for info in clean_text.split(" = ")]
+    type_of_fire, cell_value = [int(x) if x.isdigit() else x for x in clean_text.split(" = ")]
     if water_left >= cell_value:
         if any(["High" in type_of_fire and cell_value in range(81, 126),
                 "Low" in type_of_fire and cell_value in range(1, 51),
