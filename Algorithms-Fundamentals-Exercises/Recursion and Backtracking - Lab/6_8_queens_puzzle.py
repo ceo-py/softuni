@@ -33,7 +33,7 @@ def remove_queen(row, col, set_rows, set_cols, set_l_diagonal, set_r_diagonal, c
 
 
 def check_board(row, set_rows, set_cols, set_l_diagonal, set_r_diagonal, ches_board):
-    if row == 8:
+    if row == board_len:
         show_board(ches_board)
         return
 
