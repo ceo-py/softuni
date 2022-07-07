@@ -32,7 +32,7 @@ def remove_queen(row, col, set_rows, set_cols, set_l_diagonal, set_r_diagonal, c
     set_r_diagonal.remove(row + col)
 
 
-def check_boars(row, set_rows, set_cols, set_l_diagonal, set_r_diagonal, ches_board):
+def check_board(row, set_rows, set_cols, set_l_diagonal, set_r_diagonal, ches_board):
     if row == 8:
         show_board(ches_board)
         return
@@ -40,8 +40,8 @@ def check_boars(row, set_rows, set_cols, set_l_diagonal, set_r_diagonal, ches_bo
     for col in range(board_len):
         if queen_place(row, col, set_rows, set_cols, set_l_diagonal, set_r_diagonal):
             add_queen(row, col, set_rows, set_cols, set_l_diagonal, set_r_diagonal, ches_board)
-            check_boars(row + 1, set_rows, set_cols, set_l_diagonal, set_r_diagonal, ches_board)
+            check_board(row + 1, set_rows, set_cols, set_l_diagonal, set_r_diagonal, ches_board)
             remove_queen(row, col, set_rows, set_cols, set_l_diagonal, set_r_diagonal, ches_board)
 
 
-check_boars(0, set(), set(), set(), set(), ches_board)
+check_board(0, set(), set(), set(), set(), ches_board)
