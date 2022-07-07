@@ -13,6 +13,22 @@ print(fib_of(n))
 
 
 #
+# n = int(input())
+#
+#
+# def loop_fib(num):
+#     fib0 = 1
+#     fib1 = 1
+#     result = 0
+#     for _ in range(num - 1):
+#         result = fib0 + fib1
+#         fib0, fib1 = fib1, fib0
+#     return result
+#
+#
+# print(loop_fib(n))
+
+#
 # number = int(input())
 # FibArray = [0, 1]
 #
