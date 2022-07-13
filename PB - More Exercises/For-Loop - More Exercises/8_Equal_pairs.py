@@ -1,32 +1,55 @@
-n = int(input())
+count = int(input())
+previous_sum = int(input()) + int(input())
+max_difference = 0
 
-curr_pair_sum = 0
-prev_pair_sum = 0
-max_diff_pair = 0
+for i in range(count - 1):
+    current_sum = int(input()) + int(input())
+    sum_abs = abs(previous_sum - current_sum)
+    if sum_abs > max_difference:
+        max_difference = sum_abs
 
-for i in range(2 * n):
-    curr = int(input())
-    curr_pair_sum += curr
+    previous_sum = current_sum
 
-    if i % 2 != 0 and i >= 3:
-        pairs = abs(curr_pair_sum - prev_pair_sum)
-        if max_diff_pair < pairs:
-            max_diff_pair = pairs
-        prev_pair_sum = curr_pair_sum
-        curr_pair_sum = 0
-
-    elif i % 2 != 0 and i >= 1:
-        prev_pair_sum = curr_pair_sum
-        curr_pair_sum = 0
-
-if max_diff_pair == 0:
-    print(f"Yes, value={prev_pair_sum}")
+if max_difference == 0:
+    print(f"Yes, value={previous_sum}")
 else:
-    print(f"No, maxdiff={max_diff_pair}")
+    print(f"No, maxdiff={max_difference}")
 
 
 
 
+
+#
+#
+# n = int(input())
+#
+# curr_pair_sum = 0
+# prev_pair_sum = 0
+# max_diff_pair = 0
+#
+# for i in range(2 * n):
+#     curr = int(input())
+#     curr_pair_sum += curr
+#
+#     if i % 2 != 0 and i >= 3:
+#         pairs = abs(curr_pair_sum - prev_pair_sum)
+#         if max_diff_pair < pairs:
+#             max_diff_pair = pairs
+#         prev_pair_sum = curr_pair_sum
+#         curr_pair_sum = 0
+#
+#     elif i % 2 != 0 and i >= 1:
+#         prev_pair_sum = curr_pair_sum
+#         curr_pair_sum = 0
+#
+# if max_diff_pair == 0:
+#     print(f"Yes, value={prev_pair_sum}")
+# else:
+#     print(f"No, maxdiff={max_diff_pair}")
+#
+#
+#
+#
 
 
 
