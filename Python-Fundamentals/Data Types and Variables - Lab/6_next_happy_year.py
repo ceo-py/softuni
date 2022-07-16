@@ -5,6 +5,22 @@ while len(set(str(year))) != len(str(year)):
 
 print(year)
 
+#
+#
+# year = int(input())
+#
+# result = {}
+# while len(result.keys()) != len(str(year)):
+#     result = {}
+#     year += 1
+#     for num in str(year):
+#         result[num] = num
+#
+#
+# print(year)
+#
+#
+
 
 # years = int(input()) + 1
 #
