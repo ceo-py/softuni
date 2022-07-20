@@ -4,8 +4,7 @@ max_difference = 0
 
 for i in range(count - 1):
     current_sum = int(input()) + int(input())
-    sum_abs = abs(previous_sum - current_sum)
-    max_difference = max(max_difference, abs(sum_abs))
+    max_difference = max(max_difference, abs(previous_sum - current_sum))
     previous_sum = current_sum
 
 if max_difference == 0:
