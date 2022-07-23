@@ -3,7 +3,9 @@ import re
 main_string = input()
 
 patterns = re.compile(
-    r"([|#])(?P<item_name>[A-Za-z ]+)\1(?P<epx_date>[0-9]{2}/[0-9]{2}/[0-9]{2})\1(?P<calories>[0-9]+)\1")
+    r"([|#])(?P<item_name>[A-Za-z\s]+)\1(?P<epx_date>[0-9]{2}/[0-9]{2}/[0-9]{2})\1(?P<calories>[0-9]+)\1")
+
+# ([|#])(?P<item_name>[A-Za-z\s]+)\1(?P<epx_date>[0-9]{2}/[0-9]{2}/[0-9]{2})\1(?P<calories>[0-9]{1,}\1)
 
 list_result = list()
 result = re.finditer(patterns, main_string)
@@ -20,6 +22,36 @@ for show in list_result:
 
 
 
+
+
+
+#
+# import re
+#
+# main_string = input()
+#
+# patterns = re.compile(
+#     r"([|#])(?P<item_name>[A-Za-z ]+)\1(?P<epx_date>[0-9]{2}/[0-9]{2}/[0-9]{2})\1(?P<calories>[0-9]+)\1")
+#
+# #([|#])(?P<item_name>[A-Za-z ]+)\1(?P<epx_date>\d\d/\d\d/\d\d)\1(?P<calories>[0-9]+)\1
+#
+# result_info = {}
+# result = re.finditer(patterns, main_string)
+# total = 0
+# for show in result:
+#     total += int(show["calories"])
+#     result_info[show["item_name"]] = {}
+#     result_info[show["item_name"]]["date"] = show["epx_date"]
+#     result_info[show["item_name"]]["nutrition"] = show["calories"]
+#
+# total = int(total / 2000)
+#
+# print(f"You have food to last you for: {total} days!")
+# for name in result_info:
+#     print(f"Item: {name}, Best before: {result_info[name]['date']}, Nutrition: {result_info[name]['nutrition']}")
+#
+#
+#
 
 
 
