@@ -20,6 +20,33 @@ for num1 in range(number_one, (number_one + number_three + 1)):
 
 
 #
+#
+# number_one = int(input())
+# number_two = int(input())
+# number_three = int(input())
+# number_four = int(input())
+#
+#
+# def check_for_prime(num1):
+#     if num1 > 1:
+#         for i in range(2, num1 // 2):
+#             if (num1 % i) == 0:
+#                 return
+#         else:
+#             return True
+#
+#
+# for num1 in range(number_one, (number_one + number_three + 1)):
+#     for num2 in range(number_two, (number_two + number_four + 1)):
+#         if check_for_prime(num1) and check_for_prime(num2):
+#             print(f"{num1}{num2}")
+#
+#
+#
+#
+
+
+#
 # number_one = int(input())
 # number_two = int(input())
 # number_three = int(input())
