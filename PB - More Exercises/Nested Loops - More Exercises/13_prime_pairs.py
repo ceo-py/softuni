@@ -19,6 +19,36 @@ for num1 in range(number_one, (number_one + number_three + 1)):
 
 
 
+#
+# number_one = int(input())
+# number_two = int(input())
+# number_three = int(input())
+# number_four = int(input())
+#
+# prime_numbers = ""
+# for n in range(number_one, (number_one + number_three + 1)):
+#     if n > 1:
+#         for i in range(2, n // 2):
+#             if (n % i) == 0:
+#                 break
+#         else:
+#             prime_numbers += f"{n} "
+# for n in range(number_two, (number_two + number_four + 1)):
+#     if n > 1:
+#         for i in range(2, n // 2):
+#             if (n % i) == 0:
+#                 break
+#         else:
+#             prime_numbers += f"{n} "
+#
+# for num1 in range(number_one, (number_one + number_three + 1)):
+#     for num2 in range(number_two, (number_two + number_four + 1)):
+#         if str(num2) in prime_numbers and str(num1) in prime_numbers:
+#             print(f"{num1}{num2}")
+#
+#
+
+
 
 
 #
