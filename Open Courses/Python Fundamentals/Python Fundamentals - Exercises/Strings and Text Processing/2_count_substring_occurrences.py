@@ -1,18 +1,17 @@
 import re
 text = input().lower()
-print(len(re.findall(rf'{input().lower()}', text)))
+print(len(re.findall(rf'(?=({input().lower()}))', text)))
 
 
 
 #
 #
 # def frequency_count(string, substr):
-#     count = 0
-#     pos = 0
-#     while (True):
+#     count, pos = 0, 0
+#     while True:
 #         pos = string.find(substr, pos)
 #         if pos > -1:
-#             count = count + 1
+#             count += 1
 #             pos += 1
 #         else:
 #             break
@@ -20,6 +19,7 @@ print(len(re.findall(rf'{input().lower()}', text)))
 #
 #
 # print(frequency_count(input().lower(), input().lower()))
+
 
 
 # print(input().lower().count(input().lower()))
