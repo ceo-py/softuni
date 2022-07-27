@@ -1,12 +1,4 @@
-print(input().lower().count(input().lower()))
-
-
-
-
-
-
-
-def frequencyCount(string, substr):
+def frequency_count(string, substr):
     count = 0
     pos = 0
     while (True):
@@ -19,4 +11,11 @@ def frequencyCount(string, substr):
     return count
 
 
-print(frequencyCount(input().lower(), input().lower()))
+print(frequency_count(input().lower(), input().lower()))
+
+
+# print(input().lower().count(input().lower()))
+
+
+
+
