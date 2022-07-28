@@ -4,9 +4,9 @@ number_of_messages = int(input())
 
 planets_info = {"Attacked": {}, "Destroyed": {}, "A": "Attacked", "D": "Destroyed"}
 pattern = re.compile(r"@(?P<planet_name>[A-Za-z]+)([^\@\-\!\:\>]*)"
-                     r":(?P<population>[0-9]+)([^\@\-\!\:\>]*)(\!)"
-                     r"(?P<attack_type>[AD])\5([^\@\-\!\:\>]*)->"
-                     r"(?P<soldier>[0-9]+)")
+                     r":(?P<population>[0-9]+)([^\@\-\!\:\>]*)"
+                     r"(\!)(?P<attack_type>[AD])\5([^\@\-\!\:\>]*)"
+                     r"->(?P<soldier>[0-9]+)")
 
 for msg in range(number_of_messages):
     current_msg = input()
@@ -22,7 +22,6 @@ for type_attack in list(planets_info.keys())[:2]:
     if planet_count:
         for planet in sorted(planets_info[type_attack].keys()):
             print(f"-> {planet}")
-
 
 
 
