@@ -1,46 +1,95 @@
-raw_string_stops = input()
+class TourStops:
+    def __init__(self, stops):
+        self.stops = stops
+
+    def check_valid_index(self, index):
+        if 0 <= index < len(self.stops):
+            return True
+
+    def add_stop(self, start_index: int, string_to_add: str):
+        if self.check_valid_index(start_index):
+            self.stops = f"{self.stops[:start_index]}{string_to_add}{self.stops[start_index:]}"
+
+    def remove_stop(self, start_index: int, end_index: int):
+        if self.check_valid_index(start_index) and self.check_valid_index(end_index):
+            self.stops = f"{self.stops[:start_index]}{self.stops[end_index + 1:]}"
+
+    def switch_(self, old_string: str, new_string):
+        if old_string in self.stops:
+            self.stops = self.stops.replace(old_string, new_string)
+
+    def __str__(self):
+        return self.stops
+
+
+stops_info = TourStops(input())
 
 command = input()
 
-
-def valid_index(index):
-    if 0 <= index < len(raw_string_stops):
-        return True
-
-
-def add_stop(index, string, main_string):
-    if valid_index(index):
-        main_string = main_string[:index] + string + main_string[index:]
-    return main_string
-
-
-def remove_stop(start_index, end_index, main_string):
-    if valid_index(start_index) and valid_index(end_index):
-        main_string = main_string[:start_index] + "" + main_string[end_index + 1:]
-    return main_string
-
-
-def switch(old_string, new_string, main_string):
-    if old_string in main_string:
-        main_string = main_string.replace(old_string, new_string)
-    return main_string
-
-
 while command != "Travel":
-    command_type, index_or_old_string, end_index_or_string = [int(x) if x.isdigit() else x for x in command.split(":")]
-    if "Add" in command_type:
-        raw_string_stops = add_stop(index_or_old_string, end_index_or_string, raw_string_stops)
-    elif "Remove" in command_type:
-        raw_string_stops = remove_stop(index_or_old_string, end_index_or_string, raw_string_stops)
-    elif "Switch" in command_type:
-        raw_string_stops = switch(index_or_old_string, end_index_or_string, raw_string_stops)
-    print(raw_string_stops)
+    command_type, *info = [int(x) if x.isdigit() else x for x in command.split(":")]
+    if command_type == "Add Stop":
+        stops_info.add_stop(int(info[0]), info[1])
+    elif command_type == "Remove Stop":
+        stops_info.remove_stop(int(info[0]), int(info[1]))
+    elif command_type == "Switch":
+        stops_info.switch_(info[0], info[1])
+    print(stops_info)
     command = input()
 
+print(f"Ready for world tour! Planned stops: {stops_info}")
 
-print(f"Ready for world tour! Planned stops: {raw_string_stops}")
 
 
+
+
+
+
+#
+#
+# raw_string_stops = input()
+#
+# command = input()
+#
+#
+# def valid_index(index):
+#     if 0 <= index < len(raw_string_stops):
+#         return True
+#
+#
+# def add_stop(index, string, main_string):
+#     if valid_index(index):
+#         main_string = main_string[:index] + string + main_string[index:]
+#     return main_string
+#
+#
+# def remove_stop(start_index, end_index, main_string):
+#     if valid_index(start_index) and valid_index(end_index):
+#         main_string = main_string[:start_index] + "" + main_string[end_index + 1:]
+#     return main_string
+#
+#
+# def switch(old_string, new_string, main_string):
+#     if old_string in main_string:
+#         main_string = main_string.replace(old_string, new_string)
+#     return main_string
+#
+#
+# while command != "Travel":
+#     command_type, index_or_old_string, end_index_or_string = [int(x) if x.isdigit() else x for x in command.split(":")]
+#     if "Add" in command_type:
+#         raw_string_stops = add_stop(index_or_old_string, end_index_or_string, raw_string_stops)
+#     elif "Remove" in command_type:
+#         raw_string_stops = remove_stop(index_or_old_string, end_index_or_string, raw_string_stops)
+#     elif "Switch" in command_type:
+#         raw_string_stops = switch(index_or_old_string, end_index_or_string, raw_string_stops)
+#     print(raw_string_stops)
+#     command = input()
+#
+#
+# print(f"Ready for world tour! Planned stops: {raw_string_stops}")
+#
+#
 
 
 
