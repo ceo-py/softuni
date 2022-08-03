@@ -38,16 +38,6 @@ print(f"{total_kid_tickets:.2f}% kids tickets.")
 
 
 
-
-
-
-
-
-
-
-
-
-
 # movie_name = input()
 # new_name = movie_name
 # moive_theater_info = {}
@@ -106,4 +96,3 @@ print(f"{total_kid_tickets:.2f}% kids tickets.")
 # print(f"{total_studend:.2f}% student tickets.")
 # print(f"{total_stantard:.2f}% standard tickets.")
 # print(f"{total_kid:.2f}% kids tickets.")
-

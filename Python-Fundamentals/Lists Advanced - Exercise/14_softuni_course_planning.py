@@ -36,16 +36,12 @@ def swap_lesson(lesson_title, lesson_title_swap):
     if lesson_title in schedule_of_lessons and lesson_title_swap in schedule_of_lessons:
         index_lesson_one = schedule_of_lessons.index(lesson_title)
         index_lesson_two = schedule_of_lessons.index(lesson_title_swap)
-        schedule_of_lessons[index_lesson_one], schedule_of_lessons[index_lesson_two] = schedule_of_lessons[
-                                                                                           index_lesson_two], \
-                                                                                       schedule_of_lessons[
-                                                                                           index_lesson_one]
+        schedule_of_lessons[index_lesson_one], schedule_of_lessons[index_lesson_two] = \
+            schedule_of_lessons[index_lesson_two], schedule_of_lessons[index_lesson_one]
         if check_for_exercise(index_lesson_one):
-            lesson_one_exercise = index_lesson_one + 1
-            schedule_of_lessons.insert(index_lesson_two + 1, schedule_of_lessons.pop(lesson_one_exercise))
+            schedule_of_lessons.insert(index_lesson_two + 1, schedule_of_lessons.pop(index_lesson_one + 1))
         if check_for_exercise(index_lesson_two):
-            lesson_two_exercise = index_lesson_two + 1
-            schedule_of_lessons.insert(index_lesson_one + 1, schedule_of_lessons.pop(lesson_two_exercise))
+            schedule_of_lessons.insert(index_lesson_one + 1, schedule_of_lessons.pop(index_lesson_two + 1))
 
 
 def exercise_lesson(lesson_title):
@@ -81,16 +77,6 @@ while command != "course start":
 
 for pos, lesson in enumerate(schedule_of_lessons, 1):
     print(f"{pos}.{lesson}")
-
-
-
-
-
-
-
-
-
-
 
 #
 # lessons = input().split(", ")
