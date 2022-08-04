@@ -3,7 +3,7 @@ total_income = 0
 pattern = re.compile(
     r"(%)(?P<customer>[A-Z][a-z]+)\1([^\|\$\%\.]*)"
     r"<(?P<product>[\w]+)>([^\|\$\%\.]*)"
-    r"\|(?P<count>[1-9]+)\|([^\|\$\%\.]*)"
+    r"\|(?P<count>[\d]+)\|([^\|\$\%\.]*)"
     r"(?P<price>[1-9]+[.0-9]*)\$")
 
 
