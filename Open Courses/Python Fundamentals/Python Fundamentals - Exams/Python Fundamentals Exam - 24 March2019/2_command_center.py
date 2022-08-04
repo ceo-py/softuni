@@ -1,22 +1,20 @@
 main_list = [int(x) for x in input().split()]
-
 commands_received = input()
+
+
 total_count = 0
 
 
 def swap(num_one, num_two):
     num_one = int(num_one)
     how_big = len(main_list)
-    if num_one in range(how_big) and num_two in range(how_big):
-        one = main_list[num_one]
-        second = main_list[num_two]
-        main_list[num_one] = second
-        main_list[num_two] = one
+    if all([num_one in range(how_big), num_two in range(how_big)]):
+        main_list[num_one], main_list[num_two] = main_list[num_two], main_list[num_one]
     return main_list
 
 
-def enumerate_list(trash):
-    return list(enumerate(trash))
+def enumerate_list(*trash):
+    return list(enumerate(main_list))
 
 
 def get_divisible(_, num):
@@ -27,7 +25,6 @@ command_list = [swap, enumerate_list, get_divisible, max, min]
 
 while commands_received != "end":
     command = commands_received.split()
-    result_ = ""
     for function in command_list:
         if function.__name__ == command[0]:
             if len(command) == 1:
