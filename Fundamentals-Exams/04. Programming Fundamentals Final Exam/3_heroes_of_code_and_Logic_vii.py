@@ -3,77 +3,226 @@ number_of_heroes = int(input())
 heroes_info = {}
 
 for hero in range(number_of_heroes):
-    hero_name, hp, mp = [int(x) if x.isdigit() else x for x in input().split()]
-    heroes_info[hero_name] = heroes_info.get(hero_name, {})
-    heroes_info[hero_name]["hp"] = hp
-    heroes_info[hero_name]["mp"] = mp
+    hero_name, *info = (int(x) if x.isdigit() else x for x in input().split())
+    heroes_info[hero_name] = info
 
 
-def hero_cast_spell(hero_name, mp_needed, spell_name, heroes_info):
-    if heroes_info[hero_name]["mp"] >= mp_needed:
-        heroes_info[hero_name]["mp"] -= mp_needed
-        print(f"{hero_name} has successfully cast {spell_name} and now has {heroes_info[hero_name]['mp']} MP!")
-    else:
-        print(f"{hero_name} does not have enough MP to cast {spell_name}!")
-    return heroes_info
+def cast_spell(info):
+    hero_name, mp_needed, spell_name = info
+    if mp_needed > heroes_info[hero_name][1]:
+        return f"{hero_name} does not have enough MP to cast {spell_name}!"
+    heroes_info[hero_name][1] -= mp_needed
+    return f"{hero_name} has successfully cast {spell_name} and now has {heroes_info[hero_name][1]} MP!"
 
 
-def hero_take_damage(hero_name, damage, attacker, heroes_info):
-    heroes_info[hero_name]["hp"] -= damage
-    if heroes_info[hero_name]["hp"] > 0:
-        print(f"{hero_name} was hit for {damage} HP by {attacker} and now has {heroes_info[hero_name]['hp']} HP left!")
-    else:
-        del heroes_info[hero_name]
-        print(f"{hero_name} has been killed by {attacker}!")
-    return heroes_info
+def take_damage(info):
+    hero_name, damage, attacker = info
+    heroes_info[hero_name][0] -= damage
+    if heroes_info[hero_name][0] > 0:
+        return f"{hero_name} was hit for {damage} HP by {attacker} and now has {heroes_info[hero_name][0]} HP left!"
+    del heroes_info[hero_name]
+    return f"{hero_name} has been killed by {attacker}!"
 
 
-def hero_recharge(hero_name, amount, heroes_info):
-    if heroes_info[hero_name]["mp"] + amount > 200:
-        amount = 200 - heroes_info[hero_name]["mp"]
-        heroes_info[hero_name]["mp"] = 200
-    else:
-        heroes_info[hero_name]["mp"] += amount
-    print(f"{hero_name} recharged for {amount} MP!")
-    return heroes_info
+def heal(info):
+    hero_name, amount = info
+    if heroes_info[hero_name][0] + amount > 100:
+        amount = 100 - heroes_info[hero_name][0]
+    heroes_info[hero_name][0] += amount
+    return f"{hero_name} healed for {amount} HP!"
 
 
-def hero_heal(hero_name, amount, heroes_info):
-    if heroes_info[hero_name]["hp"] + amount > 100:
-        amount = 100 - heroes_info[hero_name]["hp"]
-        heroes_info[hero_name]["hp"] = 100
-    else:
-        heroes_info[hero_name]["hp"] += amount
-    print(f"{hero_name} healed for {amount} HP!")
-    return heroes_info
+def recharge(info):
+    hero_name, amount = info
+    if heroes_info[hero_name][1] + amount > 200:
+        amount = 200 - heroes_info[hero_name][1]
+    heroes_info[hero_name][1] += amount
+    return f"{hero_name} recharged for {amount} MP!"
 
 
 def show_result():
     for hero in heroes_info:
-        print(hero)
-        print(f"  HP: {heroes_info[hero]['hp']}")
-        print(f"  MP: {heroes_info[hero]['mp']}")
+        print(f"{hero}\n  "
+              f"HP: {heroes_info[hero][0]}\n  "
+              f"MP: {heroes_info[hero][1]}")
 
+
+command_func = {
+"CastSpell" : cast_spell,
+"TakeDamage": take_damage,
+"Recharge" : recharge,
+"Heal": heal
+}
 
 command = input()
-
 while command != "End":
-    command, *info = [int(x) if x.isdigit() else x for x in command.split(" - ")]
-    if "Recharge" in command or "Heal" in command:
-        hero_name, amount = info
-        if "Heal" in command:
-            heroes_info = hero_heal(hero_name, amount, heroes_info)
-        elif "Recharge" in command:
-            heroes_info = hero_recharge(hero_name, amount, heroes_info)
-    elif "CastSpell" in command or "TakeDamage" in command:
-        hero_name, mp_needed_or_damage, spell_name_or_attacker = info
-        if "CastSpell" in command:
-            heroes_info = hero_cast_spell(hero_name, mp_needed_or_damage, spell_name_or_attacker, heroes_info)
-        elif "TakeDamage" in command:
-            heroes_info = hero_take_damage(hero_name, mp_needed_or_damage, spell_name_or_attacker, heroes_info)
+    command_type, *info = (int(x) if x.isdigit() else x for x in command.split(" - "))
+    print(command_func[command_type](info))
     command = input()
 
 show_result()
+
+
+
+
+
+#
+# number_heroes = int(input())
+#
+# heroes_info = {}
+#
+#
+# class Heroes:
+#     def __init__(self, name):
+#         self.name = name
+#         self.hp = 0
+#         self.mp = 0
+#
+#     def add_hp(self, hp):
+#         self.hp += hp
+#
+#     def add_mp(self, mp):
+#         self.mp += mp
+#
+#     def cast_spall(self, mp_need, spell_name):
+#         if self.mp >= mp_need:
+#             self.mp -= mp_need
+#             return f"{self.name} has successfully cast {spell_name} and now has {self.mp} MP!"
+#         return f"{self.name} does not have enough MP to cast {spell_name}!"
+#
+#     def take_damage(self, damage, attacker):
+#         self.hp -= damage
+#         if self.hp > 0:
+#             return f"{self.name} was hit for {damage} HP by {attacker} and now has {self.hp} HP left!"
+#         del heroes_info[self.name]
+#         return f"{self.name} has been killed by {attacker}!"
+#
+#     def recharge(self, amount):
+#         if self.mp + amount > 200:
+#             amount = 200 - self.mp
+#         self.mp += amount
+#         return f"{self.name} recharged for {amount} MP!"
+#
+#     def heal(self, amount):
+#         if self.hp + amount > 100:
+#             amount = 100 - self.hp
+#         self.hp += amount
+#         return f"{self.name} healed for {amount} HP!"
+#
+#     def __repr__(self):
+#         return f"{self.name}\n  " \
+#                f"HP: {self.hp}\n  " \
+#                f"MP: {self.mp}"
+#
+#
+# for hero in range(number_heroes):
+#     hero_name, hp, mp = [int(x) if x.isdigit() else x for x in input().split()]
+#     heroes_info[hero_name] = heroes_info.get(hero_name, Heroes(hero_name))
+#     heroes_info[hero_name].add_hp(hp)
+#     heroes_info[hero_name].add_mp(mp)
+#
+# command = input()
+#
+# while command != "End":
+#     command_type, hero_name, *info = [int(x) if x.isdigit() else x for x in command.split(" - ")]
+#     if command_type == "Heal":
+#         hp = info[0]
+#         print(heroes_info[hero_name].heal(hp))
+#     elif command_type == "Recharge":
+#         mp = info[0]
+#         print(heroes_info[hero_name].recharge(mp))
+#     elif command_type == "TakeDamage":
+#         damage, attacker = info
+#         print(heroes_info[hero_name].take_damage(damage, attacker))
+#     elif command_type == "CastSpell":
+#         mp_need, spell_name = info
+#         print(heroes_info[hero_name].cast_spall(mp_need, spell_name))
+#
+#     command = input()
+#
+# for hero in heroes_info.values():
+#     print(hero)
+#
+
+
+
+
+# number_of_heroes = int(input())
+#
+# heroes_info = {}
+#
+# for hero in range(number_of_heroes):
+#     hero_name, hp, mp = [int(x) if x.isdigit() else x for x in input().split()]
+#     heroes_info[hero_name] = heroes_info.get(hero_name, {})
+#     heroes_info[hero_name]["hp"] = hp
+#     heroes_info[hero_name]["mp"] = mp
+#
+#
+# def hero_cast_spell(hero_name, mp_needed, spell_name, heroes_info):
+#     if heroes_info[hero_name]["mp"] >= mp_needed:
+#         heroes_info[hero_name]["mp"] -= mp_needed
+#         print(f"{hero_name} has successfully cast {spell_name} and now has {heroes_info[hero_name]['mp']} MP!")
+#     else:
+#         print(f"{hero_name} does not have enough MP to cast {spell_name}!")
+#     return heroes_info
+#
+#
+# def hero_take_damage(hero_name, damage, attacker, heroes_info):
+#     heroes_info[hero_name]["hp"] -= damage
+#     if heroes_info[hero_name]["hp"] > 0:
+#         print(f"{hero_name} was hit for {damage} HP by {attacker} and now has {heroes_info[hero_name]['hp']} HP left!")
+#     else:
+#         del heroes_info[hero_name]
+#         print(f"{hero_name} has been killed by {attacker}!")
+#     return heroes_info
+#
+#
+# def hero_recharge(hero_name, amount, heroes_info):
+#     if heroes_info[hero_name]["mp"] + amount > 200:
+#         amount = 200 - heroes_info[hero_name]["mp"]
+#         heroes_info[hero_name]["mp"] = 200
+#     else:
+#         heroes_info[hero_name]["mp"] += amount
+#     print(f"{hero_name} recharged for {amount} MP!")
+#     return heroes_info
+#
+#
+# def hero_heal(hero_name, amount, heroes_info):
+#     if heroes_info[hero_name]["hp"] + amount > 100:
+#         amount = 100 - heroes_info[hero_name]["hp"]
+#         heroes_info[hero_name]["hp"] = 100
+#     else:
+#         heroes_info[hero_name]["hp"] += amount
+#     print(f"{hero_name} healed for {amount} HP!")
+#     return heroes_info
+#
+#
+# def show_result():
+#     for hero in heroes_info:
+#         print(hero)
+#         print(f"  HP: {heroes_info[hero]['hp']}")
+#         print(f"  MP: {heroes_info[hero]['mp']}")
+#
+#
+# command = input()
+#
+# while command != "End":
+#     command, *info = [int(x) if x.isdigit() else x for x in command.split(" - ")]
+#     if "Recharge" in command or "Heal" in command:
+#         hero_name, amount = info
+#         if "Heal" in command:
+#             heroes_info = hero_heal(hero_name, amount, heroes_info)
+#         elif "Recharge" in command:
+#             heroes_info = hero_recharge(hero_name, amount, heroes_info)
+#     elif "CastSpell" in command or "TakeDamage" in command:
+#         hero_name, mp_needed_or_damage, spell_name_or_attacker = info
+#         if "CastSpell" in command:
+#             heroes_info = hero_cast_spell(hero_name, mp_needed_or_damage, spell_name_or_attacker, heroes_info)
+#         elif "TakeDamage" in command:
+#             heroes_info = hero_take_damage(hero_name, mp_needed_or_damage, spell_name_or_attacker, heroes_info)
+#     command = input()
+#
+# show_result()
 
 
 
