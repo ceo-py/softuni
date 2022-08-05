@@ -42,6 +42,64 @@ print(f"Ready for world tour! Planned stops: {raw_string_stops}")
 
 
 
+
+
+
+#
+# encrypted_message = [input()]
+#
+#
+# def check_valid_index(index_):
+#     if 0 <= index_ < len(encrypted_message[0]):
+#         return True
+#
+#
+# def add_stop(info):
+#     index_, string_ = info
+#     if check_valid_index(index_):
+#         encrypted_message[0] = f"{encrypted_message[0][:index_]}{string_}{encrypted_message[0][index_:]}"
+#         return True
+#
+#
+# def remove_stop(info):
+#     start_index, end_index = info
+#     if check_valid_index(start_index) and check_valid_index(end_index):
+#         encrypted_message[0] = f"{encrypted_message[0][:start_index]}{encrypted_message[0][start_index + end_index:]}"
+#         return True
+#
+#
+# def switch_msg(info):
+#     old_string, new_string = info
+#     if old_string in encrypted_message[0]:
+#         encrypted_message[0] = encrypted_message[0].replace(old_string, new_string)
+#         return True
+#
+#
+# command_func = {
+#     "Add Stop": add_stop,
+#     "Remove Stop": remove_stop,
+#     "Switch": switch_msg
+# }
+#
+# command = input()
+#
+# while command != "Travel":
+#     command_type, *info = (int(x) if x.isdigit() else x for x in command.split(":"))
+#     if command_func[command_type](info):
+#         print(encrypted_message[0])
+#     command = input()
+#
+# print(f"Ready for world tour! Planned stops: {encrypted_message[0]}")
+#
+#
+#
+#
+
+
+
+
+
+
 #
 # class TourStops:
 #     def __init__(self, stops):
