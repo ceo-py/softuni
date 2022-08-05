@@ -1,60 +1,179 @@
-city = input()
+towns_info = {}
 
-city_info = {}
-
-while city != "Sail":
-    city_name, city_population, city_gold = [int(x) if x.isdigit() else x for x in city.split("||")]
-    city_info[city_name] = city_info.get(city_name, {})
-    city_info[city_name]["population"] = city_info[city_name].get("population", 0)
-    city_info[city_name]["gold"] = city_info[city_name].get("gold", 0)
-    city_info[city_name]["population"] += city_population
-    city_info[city_name]["gold"] += city_gold
-    city = input()
+town = input()
+while town != "Sail":
+    city_name, population, gold = (int(x) if x.isdigit() else x for x in town.split("||"))
+    towns_info[city_name] = towns_info.get(city_name, [0, 0])
+    towns_info[city_name][0] += population
+    towns_info[city_name][1] += gold
+    town = input()
 
 
-def plunder_town(town, people, gold, city_info):
-    city_info[town]["population"] -= people
-    city_info[town]["gold"] -= gold
+def plunder(info):
+    town, people, gold = info
+    towns_info[town][0] -= int(people)
+    towns_info[town][1] -= int(gold)
     print(f"{town} plundered! {gold} gold stolen, {people} citizens killed.")
-    if city_info[town]["population"] <= 0 or city_info[town]["gold"] <= 0:
-        del city_info[town]
+    if any(True for x in towns_info[town] if x <= 0):
         print(f"{town} has been wiped off the map!")
-    return city_info
+        del towns_info[town]
 
 
-def prosper_town(town, gold, city_info):
-    if gold < 0:
-        print("Gold added cannot be a negative number!")
+def prosper(info):
+    town, gold = info
+    if int(gold) < 0:
+        print(f"Gold added cannot be a negative number!")
     else:
-        city_info[town]["gold"] += gold
-        print(f"{gold} gold added to the city treasury. {town} now has {city_info[town]['gold']} gold.")
-    return city_info
+        towns_info[town][1] += int(gold)
+        print(f"{gold} gold added to the city treasury. {town} now has {towns_info[town][1]} gold.")
 
 
-events = input()
-
-while events != "End":
-    command, town, *other = [int(x) if x.isdigit() else x for x in events.split("=>")]
-    if "Plunder" == command:
-        city_info = plunder_town(town, int(other[0]), int(other[1]), city_info)
-    elif "Prosper" == command:
-        city_info = prosper_town(town, int(other[0]), city_info)
-    events = input()
-
-if city_info:
-    print(f"Ahoy, Captain! There are {len(city_info.keys())} wealthy settlements to go to:")
-    for town in city_info:
-        print(f"{town} -> Population: {city_info[town]['population']} citizens, Gold: {city_info[town]['gold']} kg")
-
-else:
-    print("Ahoy, Captain! All targets have been plundered and destroyed!")
+def show_result():
+    if towns_info:
+        print(f"Ahoy, Captain! There are {len(towns_info)} wealthy settlements to go to:")
+        for town in towns_info:
+            print(f"{town} -> Population: {towns_info[town][0]} citizens, Gold: {towns_info[town][1]} kg")
+    else:
+        print("Ahoy, Captain! All targets have been plundered and destroyed!")
 
 
+commands_func = {
+    "Plunder": plunder,
+    "Prosper": prosper
+}
+commands = input()
+
+while commands != "End":
+    command, *info = commands.split("=>")
+    commands_func[command](info)
+    commands = input()
+
+show_result()
 
 
 
 
+#
+# towns_info = {}
+#
+#
+# class Town:
+#     def __init__(self, name):
+#         self.name = name
+#         self.population = 0
+#         self.gold = 0
+#
+#     def add_people(self, people):
+#         self.population += people
+#
+#     def add_gold(self, gold):
+#         self.gold += gold
+#
+#     def plunder(self, people, gold):
+#         self.population -= people
+#         self.gold -= gold
+#         print(f"{self.name} plundered! {gold} gold stolen, {people} citizens killed.")
+#         if self.population <= 0 or self.gold <= 0:
+#             del towns_info[self.name]
+#             print(f"{self.name} has been wiped off the map!")
+#
+#     def prosper(self, gold):
+#         if gold < 0:
+#             print("Gold added cannot be a negative number!")
+#         else:
+#             self.gold += gold
+#             print(f"{gold} gold added to the city treasury. {self.name} now has {self.gold} gold.")
+#
+#     def __repr__(self):
+#         return f"{self.name} -> Population: {self.population} citizens, Gold: {self.gold} kg"
+#
+#
+# command = input()
+#
+# while command != "Sail":
+#     town, people, gold = [int(x) if x.isdigit() else x for x in command.split("||")]
+#     towns_info[town] = towns_info.get(town, Town(town))
+#     towns_info[town].add_gold(gold)
+#     towns_info[town].add_people(people)
+#     command = input()
+#
+# command = input()
+# while command != "End":
+#     command_type, town_name, *info = [int(x) if x.isdigit() else x for x in command.split("=>")]
+#     if command_type == "Plunder":
+#         people, gold = info
+#         towns_info[town_name].plunder(people, gold)
+#     elif command_type == "Prosper":
+#         gold = int(info[0])
+#         towns_info[town_name].prosper(gold)
+#     command = input()
+#
+# if towns_info:
+#     print(f"Ahoy, Captain! There are {len(towns_info.keys())} wealthy settlements to go to:")
+#     for town in towns_info.values():
+#         print(town)
+# else:
+#     print("Ahoy, Captain! All targets have been plundered and destroyed!")
+#
+#
+#
+#
+#
 
+
+
+
+#
+# city = input()
+#
+# city_info = {}
+#
+# while city != "Sail":
+#     city_name, city_population, city_gold = [int(x) if x.isdigit() else x for x in city.split("||")]
+#     city_info[city_name] = city_info.get(city_name, {})
+#     city_info[city_name]["population"] = city_info[city_name].get("population", 0)
+#     city_info[city_name]["gold"] = city_info[city_name].get("gold", 0)
+#     city_info[city_name]["population"] += city_population
+#     city_info[city_name]["gold"] += city_gold
+#     city = input()
+#
+#
+# def plunder_town(town, people, gold, city_info):
+#     city_info[town]["population"] -= people
+#     city_info[town]["gold"] -= gold
+#     print(f"{town} plundered! {gold} gold stolen, {people} citizens killed.")
+#     if city_info[town]["population"] <= 0 or city_info[town]["gold"] <= 0:
+#         del city_info[town]
+#         print(f"{town} has been wiped off the map!")
+#     return city_info
+#
+#
+# def prosper_town(town, gold, city_info):
+#     if gold < 0:
+#         print("Gold added cannot be a negative number!")
+#     else:
+#         city_info[town]["gold"] += gold
+#         print(f"{gold} gold added to the city treasury. {town} now has {city_info[town]['gold']} gold.")
+#     return city_info
+#
+#
+# events = input()
+#
+# while events != "End":
+#     command, town, *other = [int(x) if x.isdigit() else x for x in events.split("=>")]
+#     if "Plunder" == command:
+#         city_info = plunder_town(town, int(other[0]), int(other[1]), city_info)
+#     elif "Prosper" == command:
+#         city_info = prosper_town(town, int(other[0]), city_info)
+#     events = input()
+#
+# if city_info:
+#     print(f"Ahoy, Captain! There are {len(city_info.keys())} wealthy settlements to go to:")
+#     for town in city_info:
+#         print(f"{town} -> Population: {city_info[town]['population']} citizens, Gold: {city_info[town]['gold']} kg")
+#
+# else:
+#     print("Ahoy, Captain! All targets have been plundered and destroyed!")
 
 
 
