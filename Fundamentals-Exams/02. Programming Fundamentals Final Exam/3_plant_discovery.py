@@ -15,20 +15,17 @@ def check_plant_exist(plant):
 
 def rate(info):
     plant, rating = info.split(" - ")
-    if check_plant_exist(plant):
-        plants_info[plant][1].append(int(rating))
+    plants_info[plant][1].append(int(rating))
 
 
 def update(info):
     plant, new_rarity = info.split(" - ")
-    if check_plant_exist(plant):
-        plants_info[plant][0] = new_rarity
+    plants_info[plant][0] = new_rarity
 
 
 def reset(info):
     plant = info
-    if check_plant_exist(plant):
-        plants_info[plant][1] = []
+    plants_info[plant][1] = []
 
 
 def show_result():
@@ -49,10 +46,14 @@ command_func = {
 command = input()
 while command != "Exhibition":
     command_type, info = command.split(": ")
-    command_func[command_type](info)
+    if check_plant_exist(info.split(" - ")[0]):
+        command_func[command_type](info)
     command = input()
 
 show_result()
+
+
+
 
 
 
