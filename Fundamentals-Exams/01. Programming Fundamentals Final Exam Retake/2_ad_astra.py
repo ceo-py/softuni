@@ -14,7 +14,7 @@ for show in result:
     total += int(show["calories"])
     list_result.append({"name": show["item_name"], "date": show["epx_date"], "nutrition": show["calories"]})
 
-total = int(total / 2000)
+total = int(total // 2000)
 
 print(f"You have food to last you for: {total} days!")
 for show in list_result:
