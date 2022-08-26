@@ -1,12 +1,9 @@
 rows, colons = [int(x) for x in input().split()]
 
-matrix_list = []
+matrix_list = [[int(x) for x in input().split()] for row in range(rows)]
 max_sum = {"max number": -181,
            "row": 0,
            "col": 0}
-
-for row in range(rows):
-    matrix_list.append([int(x) for x in input().split()])
 
 
 def check_valid_index(row, col):
@@ -29,8 +26,6 @@ for row in range(rows):
     for col in range(colons):
         sum_rectangle(row, col)
 
-
 print(f"Sum = {max_sum['max number']}")
 for row in range(max_sum["row"], max_sum["row"] + 3):
-    print(" ". join([str(x) for x in matrix_list[row][max_sum["col"]: max_sum["col"] + 3]]))
-
+    print(" ".join([str(x) for x in matrix_list[row][max_sum["col"]: max_sum["col"] + 3]]))
