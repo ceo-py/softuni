@@ -5,15 +5,14 @@ mine_field = [input().split() for _ in range(field_numbers)]
 
 def find_starting_position():
     total_coal = 0
-    for col in range(len(mine_field)):
-        if "s" in mine_field[col]:
-            colon, row = col, mine_field[col].index("s")
-        if "c" in mine_field[col]:
-            total_coal += mine_field[col].count("c")
-    return row, colon, total_coal
+    for row in range(len(mine_field)):
+        if "s" in mine_field[row]:
+            row_find, col_find = row, mine_field[row].index("s")
+        total_coal += mine_field[row].count("c")
+    return row_find, col_find, total_coal
 
 
-col, row, total_coal = find_starting_position()
+row, col, total_coal = find_starting_position()
 command_dic = {"up": [-1, 0], "down": [1, 0], "left": [0, -1], "right": [0, 1]}
 
 
