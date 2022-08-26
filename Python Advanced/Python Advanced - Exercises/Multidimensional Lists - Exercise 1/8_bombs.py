@@ -1,28 +1,52 @@
 rows = int(input())
 matrix = [[int(x) for x in input().split()] for _ in range(rows)]
 bombs_coordinates = [int(x) for x in input().replace(" ", ",").split(",")]
-cols, alive_cells, movement_explosion = len(matrix[0]), [], {
-    "up": [0, -1], "down": [0, 1], "left": [-1, 0], "right": [1, 0],
-    "top left diagonal": [-1, -1], "bottom left diagonal": [-1, 1],
-    "top right diagonal": [1, -1], "bottom right diagonal": [1, 1]}
+cols, movement_explosion = len(matrix[0]), [0, -1, 0, 1, -1, 0, 1, 0, -1, -1, 1, -1, -1, 1, 1, 1]
 
 for i in range(0, len(bombs_coordinates), 2):
     row, col = bombs_coordinates[i], bombs_coordinates[i + 1]
     if matrix[row][col] > 0:
         bomb_damage, matrix[row][col] = matrix[row][col], 0
-        for ind in movement_explosion:
-            row_movement, col_movement = row + movement_explosion[ind][0], col + movement_explosion[ind][1]
+        for ind in range(0, len(movement_explosion), 2):
+            row_movement, col_movement = row + movement_explosion[ind], col + movement_explosion[ind + 1]
             if 0 <= row_movement < rows and 0 <= col_movement < cols:
                 if matrix[row_movement][col_movement] > 0:
                     matrix[row_movement][col_movement] -= bomb_damage
 
 alive_cells = [num for row in range(len(matrix)) for num in matrix[row] if num > 0]
 print(f"Alive cells: {len(alive_cells)}\nSum: {sum(alive_cells)}")
-[print(*matrix[row], sep=" ") for row in range(len(matrix))]
+[print(*matrix[row]) for row in range(len(matrix))]
 
 
 
 
+
+
+# rows = int(input())
+# matrix = [[int(x) for x in input().split()] for _ in range(rows)]
+# bombs_coordinates = [int(x) for x in input().replace(" ", ",").split(",")]
+# cols, alive_cells, movement_explosion = len(matrix[0]), [], {
+#     "up": [0, -1], "down": [0, 1], "left": [-1, 0], "right": [1, 0],
+#     "top left diagonal": [-1, -1], "bottom left diagonal": [-1, 1],
+#     "top right diagonal": [1, -1], "bottom right diagonal": [1, 1]}
+#
+# for i in range(0, len(bombs_coordinates), 2):
+#     row, col = bombs_coordinates[i], bombs_coordinates[i + 1]
+#     if matrix[row][col] > 0:
+#         bomb_damage, matrix[row][col] = matrix[row][col], 0
+#         for ind in movement_explosion:
+#             row_movement, col_movement = row + movement_explosion[ind][0], col + movement_explosion[ind][1]
+#             if 0 <= row_movement < rows and 0 <= col_movement < cols:
+#                 if matrix[row_movement][col_movement] > 0:
+#                     matrix[row_movement][col_movement] -= bomb_damage
+#
+# alive_cells = [num for row in range(len(matrix)) for num in matrix[row] if num > 0]
+# print(f"Alive cells: {len(alive_cells)}\nSum: {sum(alive_cells)}")
+# [print(*matrix[row], sep=" ") for row in range(len(matrix))]
+#
+#
+#
+#
 
 
 
