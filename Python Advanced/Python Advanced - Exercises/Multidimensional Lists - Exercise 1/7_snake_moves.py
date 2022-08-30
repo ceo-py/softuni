@@ -21,6 +21,27 @@ for row in range(rows):
 
 
 
+
+# rows, cols = [int(x) for x in input().split()]
+# snake = input()
+#
+# index_snake = 0
+#
+# for row in range(rows):
+#     line = ""
+#     for col in range(cols):
+#         if index_snake == len(snake):
+#             index_snake = 0
+#         if row % 2 == 0:
+#             line += snake[index_snake]
+#         else:
+#             line = snake[index_snake] + line
+#         index_snake += 1
+#     print(line)
+#
+
+
+
 # rows, cols = [int(x) for x in input().split()]
 # snake = input()
 #
