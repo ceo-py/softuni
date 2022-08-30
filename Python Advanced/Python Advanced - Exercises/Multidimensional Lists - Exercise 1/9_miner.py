@@ -2,10 +2,14 @@ field_numbers = int(input())
 commands = input().split()
 mine_field = [input().split() for _ in range(field_numbers)]
 
+command_movement = {
+    "up": [-1, 0], "down": [1, 0], "left": [0, -1], "right": [0, 1]
+}
+
 
 def find_starting_position():
     total_coal = 0
-    for row in range(len(mine_field)):
+    for row in range(field_numbers):
         if "s" in mine_field[row]:
             row_find, col_find = row, mine_field[row].index("s")
         total_coal += mine_field[row].count("c")
@@ -13,15 +17,14 @@ def find_starting_position():
 
 
 row, col, total_coal = find_starting_position()
-command_dic = {"up": [-1, 0], "down": [1, 0], "left": [0, -1], "right": [0, 1]}
 
 
 def check_valid_index(col, row):
-    if 0 <= row < len(mine_field) and 0 <= col < len(mine_field[row]):
+    if 0 <= row < field_numbers and 0 <= col < len(mine_field[row]):
         return True
 
 
-def end_of_route(col, row):
+def end_route(col, row):
     if mine_field[row][col] == "e":
         print(f"Game over! ({row}, {col})")
         exit()
@@ -34,22 +37,20 @@ def coal_position(col, row, coal):
     return coal
 
 
-def check_movement(col, row, total_coal):
-    end_of_route(col, row)
-    return col, row, coal_position(col, row, total_coal)
+def check_movement(col, row, coal):
+    end_route(col, row)
+    return col, row, coal_position(col, row, coal)
 
 
 for command in commands:
-    row_check, col_check = command_dic[command]
-    if check_valid_index(row + row_check, col + col_check):
-        col, row, total_coal = check_movement(col + col_check, row + row_check, total_coal)
+    row_check, col_check = row + command_movement[command][0], col + command_movement[command][1]
+    if check_valid_index(col_check, row_check):
+        col, row, total_coal = check_movement(col_check, row_check, total_coal)
         if total_coal == 0:
             print(f"You collected all coal! ({row}, {col})")
             break
 else:
     print(f"{total_coal} pieces of coal left. ({row}, {col})")
-
-
 
 
 
