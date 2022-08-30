@@ -8,7 +8,7 @@ def force_side(side_, user_):
         if user_ in force_book[key]:
             return
     force_book[side_] = force_book.get(side_, {})
-    force_book[side_][user_] = force_book.get(side_, side_)
+    force_book[side_][user_] = force_book.get(user_, side_)
 
 
 def force_change(user_, side_):
@@ -17,7 +17,7 @@ def force_change(user_, side_):
             del force_book[key][user_]
             break
     force_book[side_] = force_book.get(side_, {})
-    force_book[side_][user_] = force_book.get(side_, side_)
+    force_book[side_][user_] = force_book.get(user_, side_)
     print(f"{user_} joins the {side_} side!")
 
 
