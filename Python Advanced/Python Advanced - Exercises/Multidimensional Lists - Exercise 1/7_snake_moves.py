@@ -6,16 +6,16 @@ snake = input()
 index_snake = 0
 
 for row in range(rows):
-    line = deque()
+    result = deque()
     for col in range(cols):
         if index_snake == len(snake):
             index_snake = 0
         if row % 2 == 0:
-            line.append(snake[index_snake])
+            result.append(snake[index_snake])
         else:
-            line.appendleft(snake[index_snake])
+            result.appendleft(snake[index_snake])
         index_snake += 1
-    print(*line, sep="")
+    print("".join(result))
 
 
 
@@ -27,13 +27,13 @@ for row in range(rows):
 # index_snake = 0
 #
 # for row in range(rows):
-#     line = []
+#     result = []
 #     for col in range(cols):
 #         if index_snake == len(snake):
 #             index_snake = 0
 #         if row % 2 == 0:
-#             line.append(snake[index_snake])
+#             result.append(snake[index_snake])
 #         else:
-#             line.insert(0, snake[index_snake])
+#             result.insert(0, snake[index_snake])
 #         index_snake += 1
-#     print(*line, sep="")
+#     print(*result, sep="")
