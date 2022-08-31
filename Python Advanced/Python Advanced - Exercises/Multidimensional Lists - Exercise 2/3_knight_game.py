@@ -44,7 +44,6 @@ def find_all_knights():
 #     matrix[int(row)][int(col)] = "0"
 
 
-
 def check_knights(pos_knights):
     result = {}
     for i in range(0, len(pos_knights), 2):
@@ -63,4 +62,3 @@ def check_knights(pos_knights):
 
 
 print(total_knights[0])
-
