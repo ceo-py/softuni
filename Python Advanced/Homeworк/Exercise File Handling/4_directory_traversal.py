@@ -8,7 +8,7 @@ def get_directory_files(directory):
 
 
 def save_report(data, directory):
-    with open(f"{directory}\output.txt", "a", encoding="utf-8") as file:
+    with open(f"{directory}\\report.txt", "a", encoding="utf-8") as file:
         file.write(data)
 
 
