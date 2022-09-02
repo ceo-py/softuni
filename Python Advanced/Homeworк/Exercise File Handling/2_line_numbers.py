@@ -1,8 +1,4 @@
 import string
-# from pathlib import Path
-
-
-# създаване друг метод са създаване на файла ако не съществува
 
 
 def open_file():
@@ -11,9 +7,6 @@ def open_file():
 
 
 def write_file(info):
-    # filename = Path(f"output.txt")
-    # filename.parent.mkdir(parents=True, exist_ok=True)
-    # filename.touch(exist_ok=True)
     with open("output.txt", "w", encoding="utf-8") as file:
         file.write("\n".join(info))
 
