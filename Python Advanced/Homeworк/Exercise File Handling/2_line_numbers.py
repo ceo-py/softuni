@@ -22,11 +22,13 @@ def count_punctuation(text):
 def show_result():
     data = open_file()
     data_to_save_in_file = []
-    for pos, row in enumerate(range(len(data)), 1):
-        letters_ = count_letters(data[row])
-        punctuation_ = count_punctuation(data[row])
-        data_to_save_in_file.append(f"Line {pos}: {data[row]} ({letters_})({punctuation_})")
-    write_file(data_to_save_in_file)
+    # for pos, row in enumerate(range(len(data)), 1):
+    #     letters_ = count_letters(data[row])
+    #     punctuation_ = count_punctuation(data[row])
+    #     data_to_save_in_file.append(f"Line {pos}: {data[row]} ({letters_})({punctuation_})")
+    # write_file(data_to_save_in_file)
+    write_file([f"Line {pos}: {data[row]} ({count_letters(data[row])})({count_punctuation(data[row])})" for pos, row in
+                enumerate(range(len(data)), 1)])
 
 
 show_result()
