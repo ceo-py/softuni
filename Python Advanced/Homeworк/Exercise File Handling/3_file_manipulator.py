@@ -16,17 +16,16 @@ def create_file(info):
         return
 
 
-def save_file(name, data, mode, save_data=False):
+def save_file(name, data, mode):
     with open(f"{name}", f"{mode}", encoding="utf-8") as file:
-        if save_data:
-            file.write(data)
-            if mode == "a":
-                file.write("\n")
+        file.write(data)
+        if mode == "a":
+            file.write("\n")
 
 
 def add_text_to_file(info):
     file_name, text = info
-    save_file(file_name, text, "a", True)
+    save_file(file_name, text, "a")
 
 
 def replace_text_in_file(info):
@@ -34,7 +33,7 @@ def replace_text_in_file(info):
     file_exists, data = check_if_file_exist(file_name)
     if file_exists:
         data = data.replace(old_string, new_string)
-        save_file(file_name, data, "w+", True)
+        save_file(file_name, data, "w+")
 
 
 def delete_file(info):
