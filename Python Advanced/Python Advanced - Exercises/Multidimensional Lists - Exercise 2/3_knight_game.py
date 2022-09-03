@@ -42,7 +42,7 @@ print(total_knights[0])
 
 
 
-#
+
 # rows = int(int(input()))
 # matrix = [[x for x in input()] for _ in range(rows)]
 # cols = len(matrix[0])
