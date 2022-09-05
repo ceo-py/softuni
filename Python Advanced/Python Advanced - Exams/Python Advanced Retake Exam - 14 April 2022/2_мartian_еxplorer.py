@@ -16,9 +16,9 @@ borders, alive_rover = ((-1, 5), (6, 0)), [True]
 def movement(row, col, direction):
     new_positions = [row + directions[direction][0], col + directions[direction][1]]
     for pos in range(len(new_positions)):
-        for old_num, swap_num in borders:
-            if new_positions[pos] == old_num:
-                new_positions[pos] = swap_num
+        for out_of_border, return_to_other_side_of_border in borders:
+            if new_positions[pos] == out_of_border:
+                new_positions[pos] = return_to_other_side_of_border
     return new_positions[0], new_positions[1]
 
 
