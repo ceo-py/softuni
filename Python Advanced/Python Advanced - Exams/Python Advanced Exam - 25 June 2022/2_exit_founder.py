@@ -22,7 +22,7 @@ def wall(row, col, player):
         print(f"{player[0]} hits a wall and needs to rest.")
 
 
-commands = (find_exit, trap, wall)
+commands = {"E": find_exit, "T": trap, "W": wall}
 
 
 player_one, player_two = list(players.keys())
@@ -39,8 +39,9 @@ while True:
     if players[player[0]]["rest"]:
         players[player[0]]["rest"] = False
         continue
-    for command in commands:
-        command(input_row, input_col, player)
+    player_steps_on = matrix[input_row][input_col]
+    if player_steps_on != ".":
+        commands[player_steps_on](input_row, input_col, player)
 
 '''
 Tom, Jerry
