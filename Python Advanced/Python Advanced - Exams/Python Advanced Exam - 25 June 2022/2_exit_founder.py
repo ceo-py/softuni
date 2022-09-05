@@ -4,30 +4,25 @@ players = {x: {"rest": False} for x in input().split(", ")}
 matrix = [input().split() for _ in range(MATRIX_SIZE)]
 
 
-def find_exit(row, col, player):
-    if matrix[row][col] == "E":
-        print(f"{player[0]} found the Exit and wins the game!")
-        exit()
+def find_exit(player):
+    print(f"{player[0]} found the Exit and wins the game!")
+    exit()
 
 
-def trap(row, col, player):
-    if matrix[row][col] == "T":
-        print(f"{player[0]} is out of the game! The winner is {player[1]}.")
-        exit()
+def trap(player):
+    print(f"{player[0]} is out of the game! The winner is {player[1]}.")
+    exit()
 
 
-def wall(row, col, player):
-    if matrix[row][col] == "W":
-        players[player[0]]["rest"] = True
-        print(f"{player[0]} hits a wall and needs to rest.")
+def wall(player):
+    players[player[0]]["rest"] = True
+    print(f"{player[0]} hits a wall and needs to rest.")
 
 
 commands = {"E": find_exit, "T": trap, "W": wall}
 
-
 player_one, player_two = list(players.keys())
 player_counter = 0
-
 
 while True:
     input_row, input_col = [int(x) for x in input().replace("(", "").replace(")", "").split(", ")]
@@ -41,7 +36,7 @@ while True:
         continue
     player_steps_on = matrix[input_row][input_col]
     if player_steps_on != ".":
-        commands[player_steps_on](input_row, input_col, player)
+        commands[player_steps_on](player)
 
 '''
 Tom, Jerry
