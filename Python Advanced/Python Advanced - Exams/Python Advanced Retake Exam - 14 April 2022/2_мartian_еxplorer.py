@@ -8,7 +8,7 @@ for row in range(MATRIX_SIZE):
         rouver_col = matrix[row].index("E")
 
 commands = deque(input().split(", "))
-directions = {"up": [-1, 0], "down": [1, 0], "left": [0, -1], "right": [0, 1]}
+directions = {"up": (-1, 0), "down": (1, 0), "left": (0, -1), "right": (0, 1)}
 found_materials = {"Water": False, "Concrete": False, "Metal": False}
 borders, alive_rover = ((-1, 5), (6, 0)), [True]
 
@@ -32,8 +32,8 @@ def rock(row, col, _):
     alive_rover[0] = False
 
 
-information = {"W": [getting_materials, "Water"], "M": [getting_materials, "Metal"],
-               "C": [getting_materials, "Concrete"], "R": [rock, "_"]}
+information = {"W": (getting_materials, "Water"), "M": (getting_materials, "Metal"),
+               "C": (getting_materials, "Concrete"), "R": (rock, "_")}
 
 while commands and alive_rover[0]:
     direction = commands.popleft()
