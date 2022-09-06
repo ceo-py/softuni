@@ -1,6 +1,6 @@
 MATRIX_SIZE = 8
 black_pawn_row, black_pawn_col, white_pawn_row, white_pawn_col = 0, 0, 0, 0
-matrix, pawns_info = [], {
+counter, matrix, pawns_info = 0, [], {
     "w": {"move": (-1, 0), "capture check": ((-1, -1), (-1, 1))},
     "b": {"move": (1, 0), "capture check": ((1, -1), (1, 1))},
     "pawns": {"w": "b", "b": "w"},
@@ -35,7 +35,9 @@ def check_valid_index(row, col, player, check_capture=True):
 
 def check_for_winner(row, col, player):
     print_row, print_col = get_position(row, col)
-    print(f"Game over! {pawns_info['print name'][player]} pawn is promoted to a queen at {chr(97 + print_col)}{print_row}.")
+    print(
+        f"Game over! {pawns_info['print name'][player]} pawn is promoted "
+        f"to a queen at {chr(97 + print_col)}{print_row}.")
     exit()
 
 
@@ -46,12 +48,12 @@ def pawn_movement(row, col, player):
 def check_for_capture(row, col, player):
     for capture_row, capture_col in pawns_info[player]["capture check"]:
         p_check_row, p_check_col = row + capture_row, col + capture_col
-        if check_valid_index(p_check_row, p_check_col, player) and matrix[p_check_row][p_check_col] == pawns_info["pawns"][player]:
-            print(f"Game over! {pawns_info['print name'][player]} win, capture on {chr(97 + p_check_col)}{abs(p_check_row - 8)}.")
+        if check_valid_index(p_check_row, p_check_col, player) and \
+                matrix[p_check_row][p_check_col] == pawns_info["pawns"][player]:
+            print(
+                f"Game over! {pawns_info['print name'][player]} win, "
+                f"capture on {chr(97 + p_check_col)}{abs(p_check_row - 8)}.")
             exit()
-
-
-counter = 0
 
 
 while True:
@@ -68,9 +70,6 @@ while True:
         black_pawn_row, black_pawn_col = pawn_movement(black_pawn_row, black_pawn_col, "b")
         check_valid_index(black_pawn_row, black_pawn_col, "b", False)
         matrix[black_pawn_row][black_pawn_col] = "b"
-
-
-
 
 '''
 - - - - - - b -
