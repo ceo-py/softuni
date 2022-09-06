@@ -1,3 +1,1 @@
-dicc = {"name": 1}
-
-print(dicc.getValue(name)))
+print(chr(100))

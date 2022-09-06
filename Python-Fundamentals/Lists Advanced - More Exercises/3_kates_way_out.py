@@ -4,12 +4,7 @@ def correct_lab_bounds(row, col):
 
 
 def check_wall(row, col):
-    if lab[row][col] == "#":
-        return True
-
-
-def check_already_visit(row, col):
-    if lab[row][col] == "v":
+    if lab[row][col] in "#v":
         return True
 
 
@@ -26,7 +21,7 @@ def find_starting_point():
 
 
 def find_the_lab_path(row, col, lab):
-    if correct_lab_bounds(row, col) or check_wall(row, col) or check_already_visit(row, col):
+    if correct_lab_bounds(row, col) or check_wall(row, col):
         return
 
     path_steps.append(1)
