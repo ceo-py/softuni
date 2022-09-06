@@ -10,7 +10,6 @@ def naughty_or_nice_list(*args, **kwargs):
                     total_numbers += 1
                     result[type_].append(name)
                     del list_with_names[pos]
-
     for k_name, v_type in kwargs.items():
         if sum(1 for num, name in list_with_names if k_name == name) == 1:
             for pos, (num, name) in enumerate(list_with_names):
