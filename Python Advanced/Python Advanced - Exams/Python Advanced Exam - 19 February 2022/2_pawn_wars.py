@@ -29,10 +29,10 @@ def check_valid_index(row, col, player, check_capture=True):
     if 0 <= row < MATRIX_SIZE and 0 <= col < MATRIX_SIZE:
         return True
     if not check_capture:
-        check_for_winner(row, col, player)
+        winner(row, col, player)
 
 
-def check_for_winner(row, col, player):
+def winner(row, col, player):
     print_row, print_col = get_position(row, col)
     print(
         f"Game over! {pawns_info['print name'][player]} pawn is promoted "
