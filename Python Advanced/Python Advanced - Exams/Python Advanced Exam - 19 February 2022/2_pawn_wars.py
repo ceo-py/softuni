@@ -1,5 +1,4 @@
-MATRIX_SIZE = 8
-black_pawn_row, black_pawn_col, white_pawn_row, white_pawn_col = 0, 0, 0, 0
+MATRIX_SIZE, black_pawn_row, black_pawn_col, white_pawn_row, white_pawn_col = 8, 0, 0, 0, 0
 counter, matrix, pawns_info = 0, [], {
     "w": {"move": (-1, 0), "capture check": ((-1, -1), (-1, 1))},
     "b": {"move": (1, 0), "capture check": ((1, -1), (1, 1))},
