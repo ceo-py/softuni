@@ -13,5 +13,5 @@
 |    |   | [Multidimensional Lists - Exercise 1](https://www.youtube.com/watch?v=urES25PvvrI&list=PLtrqz5Y_ckih9-hPctYlEH48EzEtu98G1) |
 |    |   | [Multidimensional Lists - Exercise 2](https://www.youtube.com/watch?v=T1KNPhswGjU&list=PLtrqz5Y_ckijzIkmxEdpxeKK6tQMLm9an) |
 |    |   | [Functions Advanced - Lab](https://www.youtube.com/watch?v=LilYoZPwV7Y&list=PLtrqz5Y_ckigkPl8FpCb60CI1-j0o5HeJ) |
-|    |   | [Python Advanced - Exercise](https://www.youtube.com/watch?v=tvkPmVVkDvE&list=PLtrqz5Y_ckigUjCvha54Rs4vHjCgZl3MX) |
+|    |   | [Functions Advanced - Exercise](https://www.youtube.com/watch?v=tvkPmVVkDvE&list=PLtrqz5Y_ckigUjCvha54Rs4vHjCgZl3MX) |
 </div>
