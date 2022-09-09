@@ -15,9 +15,7 @@
 
 
 def rectangle(length, width):
-    # if any([True for x in args if not isinstance(x, int)]):
-
-    if not all([True if isinstance(x, int) else False for x in (length, width)]):
+    if not all([isinstance(x, int) for x in [length, width]]):
         return "Enter valid values!"
 
     def area():
