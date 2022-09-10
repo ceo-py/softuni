@@ -15,4 +15,5 @@
 |    | [04. Programming Fundamentals Final Exam](https://youtu.be/1MQeaIeTuAU?t=2774) | [Functions Advanced - Lab](https://www.youtube.com/watch?v=LilYoZPwV7Y&list=PLtrqz5Y_ckigkPl8FpCb60CI1-j0o5HeJ) |
 |    | [05. Programming Fundamentals Final Exam](https://youtu.be/1MQeaIeTuAU?t=6774)  | [Functions Advanced - Exercise](https://www.youtube.com/watch?v=tvkPmVVkDvE&list=PLtrqz5Y_ckigUjCvha54Rs4vHjCgZl3MX) |
 |    |   | [Python Advanced Retake Exam - 18 August 2022](https://www.youtube.com/watch?v=00BhW-mICAc&list=PLtrqz5Y_ckih6uKRhOTl05R9ALpL6OlKJ) |
+|    |   | [Python Advanced Exam - 25 June 2022](https://www.youtube.com/watch?v=SLKiZmm9UE8&list=PLtrqz5Y_ckihTOWfXwb8wzeHSoZtWU7FO) |
 </div>
