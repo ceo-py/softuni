@@ -35,7 +35,7 @@ commands = {
     "Read": read,
     "Delete": delete
 }
-command, commands_no_create = input(), list(commands.keys())[1:]
+command, commands_no_create = input(), tuple(commands.keys())[1:]
 
 while command != "Stop":
     command_type, *info = command.split(", ")
