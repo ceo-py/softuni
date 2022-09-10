@@ -1,6 +1,6 @@
 MATRIX_SIZE = 6
 matrix = [input().split() for _ in range(MATRIX_SIZE)]
-row_position, col_position = [int(x) for x in input().replace("(", "").replace(")", "").split(",")]
+row_position, col_position = [int(x) for x in input()[1:-1].split(",")]
 directions = {"up": [-1, 0], "down": [1, 0], "left": [0, -1], "right": [0, 1]}
 
 
@@ -12,13 +12,13 @@ def number_or_letter():
     return matrix[row_position][col_position].isalpha() or matrix[row_position][col_position].isdigit()
 
 
-def create(args):
+def create(value):
     if matrix[row_position][col_position] == ".":
-        matrix[row_position][col_position] = args[1]
+        matrix[row_position][col_position] = value
 
 
-def update(args):
-    matrix[row_position][col_position] = args[1]
+def update(value):
+    matrix[row_position][col_position] = value
 
 
 def delete(_):
@@ -35,16 +35,16 @@ commands = {
     "Read": read,
     "Delete": delete
 }
-command = input()
+command, commands_no_create = input(), list(commands.keys())[1:]
 
 while command != "Stop":
     command_type, *info = command.split(", ")
     row_position, col_position = add_step(row_position, col_position, info[0])
-    if command_type in list(commands.keys())[1:]:
+    if command_type in commands_no_create:
         if number_or_letter():
-            commands[command_type](info)
+            commands[command_type](info[-1])
     else:
-        commands[command_type](info)
+        commands[command_type](info[-1])
     command = input()
 
 [print(*matrix[row]) for row in range(MATRIX_SIZE)]
