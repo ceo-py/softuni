@@ -4,7 +4,7 @@
 
 <div align="center"
 
-***ВИДЕО УРОЦИ:***
+***ВИДЕО УРОЦИ :***
 
 
 | Python Basics | Python Fundamentals | Python Advanced|
