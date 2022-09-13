@@ -44,7 +44,7 @@ while command[0] != "end":
                 print(odd[-int(command[1]):])
         else:
             print(f"Invalid count")
-    command = str(input()).split()
+    command = input().split()
 
 print(numbers)
 
@@ -60,9 +60,6 @@ print(numbers)
 
 
 
-#
-#
-#
 # main_list = [int(x) for x in input().split()]
 #
 #
@@ -72,22 +69,30 @@ print(numbers)
 #     print("Invalid index")
 #
 #
+# def generate_odd_even(type_number):
+#     if type_number == "even":
+#         return [x for x in main_list if x % 2 == 0]
+#     else:
+#         return [x for x in main_list if x % 2 != 0]
+#
+#
+# def check_count(number):
+#     if number > len(main_list):
+#         print("Invalid count")
+#         return
+#     return True
+#
+#
 # def exchange(_, info):
-#     index = info[0]
 #     global main_list
+#     index = info[0]
 #     if check_valid_index(index):
-#         part_one = main_list[:index + 1]
-#         part_two = main_list[index + 1:]
-#         main_list = part_two + part_one
+#         main_list = main_list[index + 1:] + main_list[:index + 1]
 #
 #
 # def max_min_even_odd(max_or_min, info):
-#     operation ={ "max":max, "min": min}
-#     type_number = info[0]
-#     if type_number == "even":
-#         result = [x for x in main_list if x % 2 == 0]
-#     else:
-#         result = [x for x in main_list if x % 2 != 0]
+#     type_number, operation = info[0], {"max": max, "min": min}
+#     result = generate_odd_even(type_number)
 #     if result:
 #         ind = operation[max_or_min](result)
 #         print(len(main_list) - main_list[::-1].index(ind) - 1)
@@ -97,25 +102,10 @@ print(numbers)
 #
 # def first_numbers(starting_from, info):
 #     number, number_type = info
-#     if number > len(main_list):
-#         print("Invalid count")
-#         return
-#     odd, even = [], []
-#     for num in main_list:
-#         if num % 2 != 0:
-#             odd.append(num)
-#         else:
-#             even.append(num)
-#     if starting_from == "first":
-#         if number_type == "even":
-#             print(even[:number])
-#         else:
-#             print(odd[:number])
-#     elif starting_from == "last":
-#         if number_type == "even":
-#             print(even[-number:])
-#         else:
-#             print(odd[-number:])
+#     if check_count(number):
+#         p_result = {"first": generate_odd_even(number_type)[:number],
+#                     "last": generate_odd_even(number_type)[-number:]}
+#         print(p_result[starting_from])
 #
 #
 # commands = {
@@ -135,9 +125,3 @@ print(numbers)
 #     command = input()
 #
 # print(main_list)
-#
-#
-#
-#
-#
-#
