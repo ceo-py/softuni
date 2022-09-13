@@ -17,4 +17,5 @@
 |    |   | [Python Advanced Retake Exam - 18 August 2022](https://www.youtube.com/watch?v=00BhW-mICAc&list=PLtrqz5Y_ckih6uKRhOTl05R9ALpL6OlKJ) |
 |    |   | [Python Advanced Exam - 25 June 2022](https://www.youtube.com/watch?v=SLKiZmm9UE8&list=PLtrqz5Y_ckihTOWfXwb8wzeHSoZtWU7FO) |
 |    |   | [Python Advanced Retake Exam - 14 April 2022](https://www.youtube.com/watch?v=kJNxIylD9AU&list=PLtrqz5Y_ckijZU7Fwfeekwx2DcuQRo_-i) |
+|    |   | [Python Advanced Exam - 19 February 2022](https://www.youtube.com/watch?v=0iNKJezGf3k&list=PLtrqz5Y_ckihZUpfbxWh2VrtEzrHoNzLg) |
 </div>
