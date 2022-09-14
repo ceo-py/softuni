@@ -1,4 +1,4 @@
-main_list = [int(x) for x in input().split(" ")]
+main_list = input().split()
 skip_number_k = int(input())
 
 final_numbers = list()
@@ -8,11 +8,11 @@ len_list = (len(main_list))
 
 while len_list > 0:
     index = (pos + index) % len_list
-    final_numbers.append(int(main_list.pop(index)))
+    final_numbers.append(main_list.pop(index))
     len_list -= 1
 
 
-print(f"[{','.join(str(x) for x in final_numbers)}]")
+print(f"[{','.join(final_numbers)}]")
 
 
 
