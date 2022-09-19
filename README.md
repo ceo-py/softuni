@@ -23,4 +23,5 @@
 |    |   | [Python Advanced Retake Exam - 14 April 2021](https://www.youtube.com/watch?v=9Qil1_106JI&list=PLtrqz5Y_ckiiaYMyn0SldOoty9WpO9xL2) |
 |    |   | [Python Advanced Exam - 14 February 2021](https://www.youtube.com/watch?v=V0ib67U9qo4&list=PLtrqz5Y_ckigEkHRq57c9d0fT4r7QlugR) |
 |    |   | [Python Advanced Retake Exam - 16 December 2020](https://www.youtube.com/watch?v=UKSH1h77zdc&list=PLtrqz5Y_ckigsjxFiwB_qvbgvW15yigzw) |
+|    |   | [Python Advanced Exam - 24 October 2020](https://www.youtube.com/watch?v=Rif6U2bnREw&list=PLtrqz5Y_ckijCu9inyi7oRF8kM-xcvMpn) |
 </div>
