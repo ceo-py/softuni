@@ -1,5 +1,5 @@
 def numbers_searching(*args):
-    return [sorted(set(range(min(args), max(args))) - set(args))[0], sorted(list(set([x for n, x in enumerate(args) if x in args[:n]])))]
+    return [list(set(range(min(args), max(args))) - set(args))[0], sorted(set(x for n, x in enumerate(args) if x in args[:n]))]
 
 
 
