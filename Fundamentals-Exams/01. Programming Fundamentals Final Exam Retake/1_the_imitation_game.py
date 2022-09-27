@@ -36,6 +36,53 @@ print(f"The decrypted message is: {encrypted_message[0]}")
 
 
 
+# encrypted_message = input()
+#
+# command = input()
+# while command != "Decode":
+#     command_type, *info = (int(x) if x.isdigit() else x for x in command.split("|"))
+#     if "Move" in command_type:
+#         number_of_letters = int(info[0])
+#         encrypted_message = f"{encrypted_message[number_of_letters:]}{encrypted_message[:number_of_letters]}"
+#     elif "Insert" in command_type:
+#         index_msg, value = info
+#         encrypted_message = f"{encrypted_message[:index_msg]}{value}{encrypted_message[index_msg:]}"
+#     elif "ChangeAll" in command_type:
+#         substring, replacement = info
+#         encrypted_message = encrypted_message.replace(substring, replacement)
+#     command = input()
+#
+# print(f"The decrypted message is: {encrypted_message}")
+#
+#
+# ####
+#
+#
+# encrypted = list(input())
+# command = input()
+#
+# while command != "Decode":
+#     command_type, *info = (int(x) if x.isdigit() else x for x in command.split("|"))
+#     if command_type == "Move":
+#         number_of_letters = int(info[0])
+#         encrypted = encrypted[number_of_letters:] + encrypted[:number_of_letters]
+#         # encrypted[number_of_letters:].extend(encrypted[:number_of_letters])
+#
+#     elif command_type == "Insert":
+#         index_msg, value = info
+#         encrypted.insert(index_msg, value)
+#
+#     elif command_type == "ChangeAll":
+#         substring, replacement = info
+#         for ind in range(len(encrypted)):
+#             if encrypted[ind] == substring:
+#                 encrypted[ind] = replacement
+#     command = input()
+#
+#
+# print("The decrypted message is: ", *encrypted, sep="")
+
+
 
 #
 # main_string = input()
