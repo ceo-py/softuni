@@ -17,7 +17,7 @@ while email != "End":
     if "@" not in email:
         raise MustContainAtSymbolError("Email must contain @")
 
-    elif email.index("@") < 5:
+    elif email.index("@") < 3:
         raise NameTooShortError("Name must be more than 4 characters")
 
     elif not any(email.endswith(x) for x in (".com", ".bg", ".org", ".net")):
