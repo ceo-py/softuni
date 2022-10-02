@@ -20,6 +20,9 @@ while line != "Remove":
         print(numbers_dictionary[searched])
     except KeyError:
         print("Number does not exist in dictionary")
+
+    #print(numbers_dictionary.get(searched, "Number does not exist in dictionary"))
+
     line = input()
 
 
