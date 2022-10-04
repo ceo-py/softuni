@@ -10,8 +10,7 @@ def check_if_file_exist(name):
         return False, 1
 
 
-def create_file(info):
-    file_name = info[0]
+def create_file(file_name):
     with open(f"{file_name}", "w+", encoding="utf-8") as file:
         return
 
@@ -23,21 +22,18 @@ def save_file(name, data, mode):
             file.write("\n")
 
 
-def add_text_to_file(info):
-    file_name, text = info
+def add_text_to_file(file_name, text):
     save_file(file_name, text, "a")
 
 
-def replace_text_in_file(info):
-    file_name, old_string, new_string = info
+def replace_text_in_file(file_name, old_string, new_string):
     file_exists, data = check_if_file_exist(file_name)
     if file_exists:
         data = data.replace(old_string, new_string)
         save_file(file_name, data, "w+")
 
 
-def delete_file(info):
-    file_name = info[0]
+def delete_file(file_name):
     file_exists, _ = check_if_file_exist(file_name)
     if file_exists:
         os.remove(file_name)
@@ -53,5 +49,5 @@ command = input()
 
 while command != "End":
     command_type, *data = command.split("-")
-    commands[command_type](data)
+    commands[command_type](*data)
     command = input()
