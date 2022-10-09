@@ -4,7 +4,7 @@ def open_file():
 
 
 def replace_elements(data):
-    for element in ["-", ",", ".", "!", "?"]:
+    for element in ("-", ",", ".", "!", "?"):
         data = data.replace(element, "@")
     return data.split("\n")[::2]
 

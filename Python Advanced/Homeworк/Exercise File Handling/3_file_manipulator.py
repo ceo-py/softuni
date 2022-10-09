@@ -4,10 +4,9 @@ import os
 def check_if_file_exist(name):
     try:
         with open(f"{name}", "r", encoding="utf-8") as file:
-            return True, file.read()
+            return file.read()
     except FileNotFoundError:
         print("An error occurred")
-        return False, 1
 
 
 def create_file(file_name):
@@ -27,14 +26,14 @@ def add_text_to_file(file_name, text):
 
 
 def replace_text_in_file(file_name, old_string, new_string):
-    file_exists, data = check_if_file_exist(file_name)
-    if file_exists:
+    data = check_if_file_exist(file_name)
+    if data:
         data = data.replace(old_string, new_string)
         save_file(file_name, data, "w+")
 
 
 def delete_file(file_name):
-    file_exists, _ = check_if_file_exist(file_name)
+    file_exists = check_if_file_exist(file_name)
     if file_exists:
         os.remove(file_name)
 
