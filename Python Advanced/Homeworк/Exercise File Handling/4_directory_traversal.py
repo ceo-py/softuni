@@ -4,7 +4,7 @@ result = {}
 
 
 def get_directory_files(directory):
-    return [x for x in os.listdir(directory) if os.path.isfile(x)]
+    return [x for x in os.listdir(rf"{directory}") if os.path.isfile(rf"{directory}\{x}")]
 
 
 def save_report(data, directory):
