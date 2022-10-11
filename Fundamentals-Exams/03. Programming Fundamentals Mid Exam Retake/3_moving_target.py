@@ -1,23 +1,33 @@
-initial_energy = int(input())
-distance = input()
-wins = 0
+targets = [int(x) for x in input().split()]
+data_info = input()
 
-while distance != "End of battle":
-    distance = int(distance)
-    initial_energy -= distance
+while data_info != "End":
+    command, index, value = [int(x) if x[-1].isdigit() else x for x in data_info.split()]
+    valid_index = True
+    if not 0 <= index < len(targets):
+        valid_index = False
 
-    if initial_energy < 0:
-        print(f"Not enough energy! Game ends with {wins} won battles and {initial_energy + distance} energy")
-        break
+    elif command == "Shoot":
+        targets[index] -= value
+        if targets[index] <= 0:
+            del targets[index]
 
-    wins += 1
-    if wins % 3 == 0:
-        initial_energy += wins
+    if command == "Add":
+        if valid_index:
+            targets.insert(index, value)
+        else:
+            print("Invalid placement!")
 
-    distance = input()
+    elif command == "Strike" and valid_index:
+        start_radius = index - value
+        end_radius = index + value + 1
+        if 0 <= start_radius < end_radius < len(targets):
+            del targets[start_radius:end_radius]
+        else:
+            print("Strike missed!")
+    data_info = input()
 
-else:
-    print(f"Won battles: {wins}. Energy left: {initial_energy}")
+print(*targets, sep="|")
 
 
 
