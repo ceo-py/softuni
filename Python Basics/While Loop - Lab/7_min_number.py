@@ -5,7 +5,7 @@ while number != "Stop":
     num = int(number)
 
     if num < min_number:
-        max_number = num
+        min_number = num
     number = input()
 
 print(min_number)
