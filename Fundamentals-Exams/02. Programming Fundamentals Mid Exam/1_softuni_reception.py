@@ -1,12 +1,14 @@
 employee_info = [int(input()) for num in range(4)]
-*total_answers_per_hour, students_in_q = employee_info
-time_needed = 1
+total_answers_per_hour, students_in_q = sum(employee_info[:-1]), employee_info[-1]
+time_needed = 0
 while students_in_q > 0:
-    if time_needed % 4 != 0:
-        students_in_q -= sum(total_answers_per_hour)
     time_needed += 1
+    if time_needed % 4 != 0:
+        students_in_q -= total_answers_per_hour
 
-print(f"Time needed: {time_needed - 1}h.")
+print(f"Time needed: {time_needed}h.")
+
+
 
 
 
@@ -14,6 +16,22 @@ print(f"Time needed: {time_needed - 1}h.")
 
 
 #
+# employee_info = [int(input()) for num in range(4)]
+# *total_answers_per_hour, students_in_q = employee_info
+# time_needed = 1
+# while students_in_q > 0:
+#     if time_needed % 4 != 0:
+#         students_in_q -= sum(total_answers_per_hour)
+#     time_needed += 1
+#
+# print(f"Time needed: {time_needed - 1}h.")
+#
+#
+#
+#
+#
+#
+# #
 #
 #
 # employee_one_efficiency = int(input())
