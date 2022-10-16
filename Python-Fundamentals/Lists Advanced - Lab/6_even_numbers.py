@@ -6,3 +6,8 @@ for n, index in enumerate(main_list):
         even_list.append(n)
 
 print(even_list)
+
+
+
+
+# print([p for p, i in enumerate([int(i) for i in input().split(', ')]) if i % 2 == 0])
