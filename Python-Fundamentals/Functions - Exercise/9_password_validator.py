@@ -1,23 +1,54 @@
-errors = {
-    "leng": "Password must be between 6 and 10 characters",
-    "consist": "Password must consist only of letters and digits",
-    "least": "Password must have at least 2 digits"
-}
+errors = []
 
 
 def password_validation(password):
     if not 6 <= len(password) <= 10:
-        print(errors.pop("leng"))
+        errors.append("Password must be between 6 and 10 characters")
     if not password.isalnum():
-        print(errors.pop("consist"))
+        errors.append("Password must consist only of letters and digits")
     if sum(1 for x in password if x.isdigit()) < 2:
-        print(errors.pop("least"))
+        errors.append("Password must have at least 2 digits")
 
 
 current_password = input()
 password_validation(current_password)
-if len(errors) == 3:
+if errors:
+    [print(show) for show in errors]
+else:
     print("Password is valid")
+
+
+
+
+
+
+
+
+#
+# errors = {
+#     "leng": "Password must be between 6 and 10 characters",
+#     "consist": "Password must consist only of letters and digits",
+#     "least": "Password must have at least 2 digits"
+# }
+#
+#
+# def password_validation(password):
+#     if not 6 <= len(password) <= 10:
+#         print(errors.pop("leng"))
+#     if not password.isalnum():
+#         print(errors.pop("consist"))
+#     if sum(1 for x in password if x.isdigit()) < 2:
+#         print(errors.pop("least"))
+#
+#
+# current_password = input()
+# password_validation(current_password)
+# if len(errors) == 3:
+#     print("Password is valid")
+
+
+
+
 #
 #
 # errors = {
