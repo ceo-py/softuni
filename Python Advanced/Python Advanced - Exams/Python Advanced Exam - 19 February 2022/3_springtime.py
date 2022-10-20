@@ -1,13 +1,27 @@
 def start_spring(**kwargs):
-    output, result = "", {}
+    result, output = {}, []
     for value, key in kwargs.items():
         result[key] = result.get(key, []) + [value]
-    for p_key, p_value in sorted(result.items(), key=lambda x: (-len(x[1]), x[0])):
-        output += f"{p_key}:\n"
-        for type_ in sorted(p_value):
-            output += f"-{type_}\n"
-    return output
+    for s_key, s_value in sorted(result.items(), key= lambda x: (-len(x[1]), x[0])):
+        output.append(f"{s_key}:")
+        for p_value in sorted(s_value):
+            output.append(f"-{p_value}")
 
+    return '\n'.join(output)
+
+
+
+#
+# def start_spring(**kwargs):
+#     output, result = "", {}
+#     for value, key in kwargs.items():
+#         result[key] = result.get(key, []) + [value]
+#     for p_key, p_value in sorted(result.items(), key=lambda x: (-len(x[1]), x[0])):
+#         output += f"{p_key}:\n"
+#         for type_ in sorted(p_value):
+#             output += f"-{type_}\n"
+#     return output
+#
 
 
 
