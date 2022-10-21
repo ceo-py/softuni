@@ -15,6 +15,12 @@ for number in range(number_one, number_two + 1):
         print(number, end=" ")
 
 
+
+# [print(num, end=" ") for num in range(int(input()), int(input()) + 1) if sum(list(map(int, str(num)))[::2]) == sum(list(map(int, str(num)))[1::2])]
+
+
+
+
 ###
 # number_one = int(input())
 # number_two = int(input())
