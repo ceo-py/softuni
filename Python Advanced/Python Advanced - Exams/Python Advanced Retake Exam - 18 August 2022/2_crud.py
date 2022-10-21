@@ -1,32 +1,51 @@
-from collections import deque
+'''
+никакви проверки за позиция в матрицата или команди коректни
+единственото правеното на командите
 
-seats = input().split(", ")
-first_number = deque(int(x) for x in input().split(", "))
-second_number = deque(int(x) for x in input().split(", "))
+'''
 
-rotations, matched_seats = 0, []
+matrix = [input().split() for _ in range(6)]
 
-while len(matched_seats) != 3 and rotations != 10:
-    first_num = first_number.popleft()
-    second_num = second_number.pop()
-    rotations += 1
+row, col = [int(x) for x in input()[1:-1].split(", ")]
+# info = input()
+# row, col = int(info[1]), int(info[-1])
+# row, col = [int(x) for x in input().replace("(", "").replace(")", "").split(", ")]
 
-    letter = chr(first_num + second_num)
-    found = False
-    for seat in (f"{first_num}{letter}", f"{second_num}{letter}"):
-        if seat in seats:
-            matched_seats.append(seat)
-            seats.remove(seat)
-            found = True
+command = input()
 
-    if found:
-        continue
+while command != "Stop":
+    command_type, direction, *value = command.split(", ")
 
-    first_number.append(first_num)
-    second_number.appendleft(second_num)
+    if direction == "up":
+        row -= 1
+    elif direction == "down":
+        row += 1
+    elif direction == "left":
+        col -= 1
+    elif direction == "right":
+        col += 1
 
-print(f"Seat matches: {', '.join(matched_seats)}")
-print(f"Rotations count: {rotations}")
+    step_on = matrix[row][col]
+
+    if command_type == "Create" and step_on == ".":
+        step_on = value[0]
+
+    elif not step_on.isalnum():
+        pass
+
+    elif command_type == "Update":
+        step_on = value[0]
+
+    elif command_type == "Delete":
+        step_on = "."
+
+    elif command_type == "Read":
+        print(step_on)
+
+    matrix[row][col] = step_on
+    command = input()
+
+[print(*row) for row in matrix]
 
 
 
