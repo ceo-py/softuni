@@ -6,7 +6,6 @@ class Rhombus:
         self.stars = stars
         self.draw = []
 
-
     def make_rhombus(self):
         for row in range(1, self.stars + 1):
             if row == 1:
@@ -21,7 +20,6 @@ class Rhombus:
 
     def __repr__(self):
         return '\n'.join(self.draw)
-
 
 
 r = Rhombus(number_of_rhombus)
