@@ -1,22 +1,22 @@
 class Player:
-    skills = {}
-    guild = "Unaffiliated"
 
-    def __init__(self, name, hp, mp):
+    def __init__(self, name: str, hp: int, mp: int):
         self.name = name
         self.hp = int(hp)
         self.mp = int(mp)
+        self.skills = {}
+        self.guild = "Unaffiliated"
 
     def add_skill(self, skill_name, mana_cost):
-        if self.name not in Player.skills:
-            Player.skills[self.name] = {}
-            Player.skills[self.name][skill_name] = mana_cost
+        if skill_name not in self.skills:
+            self.skills[skill_name] = int(mana_cost)
             return f"Skill {skill_name} added to the collection of the player {self.name}"
         return "Skill already added"
 
     def player_info(self):
-        text = f"Name: {self.name}\nGuild: {Player.guild}\nHP: {self.hp}\nMP: {self.mp}\n"
-        for name in Player.skills:
-            for key, value in Player.skills[name].items():
-                text += f"==={key} - {value}"
-        return text
+        output = [f"Name: {self.name}", f"Guild: {self.guild}", f"HP: {self.hp}", f"MP: {self.mp}"]
+        for skill_name, mana_cost in self.skills.items():
+            output.append(f"==={skill_name} - {mana_cost}")
+        return "\n".join(output)
+
+
