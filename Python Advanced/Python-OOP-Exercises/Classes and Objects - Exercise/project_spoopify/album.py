@@ -10,9 +10,9 @@ class Album:
     def add_song(self, song: Song):
         if song.single:
             return f"Cannot add {song.name}. It's a single"
-        elif self.published:
+        if self.published:
             return "Cannot add songs. Album is published."
-        elif song.name in [x.name for x in self.songs]:
+        if song.name in [x.name for x in self.songs]:
             return "Song is already in the album."
 
         self.songs.append(song)
@@ -21,7 +21,7 @@ class Album:
     def remove_song(self, song_name: str):
         if song_name not in [x.name for x in self.songs]:
             return "Song is not in the album."
-        elif self.published:
+        if self.published:
             return "Cannot remove songs. Album is published."
         for show in self.songs:
             if show.name == song_name:
