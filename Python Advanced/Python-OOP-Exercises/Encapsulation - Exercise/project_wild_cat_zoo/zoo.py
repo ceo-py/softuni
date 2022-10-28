@@ -52,30 +52,20 @@ class Zoo:
         self.__budget += int(amount)
 
     def animals_status(self):
-        cheetah, tigers, lions = [], [], []
-        for x in self.animals:
-            if x.__class__.__name__ == "Cheetah":
-                cheetah.append(str(x))
-            elif x.__class__.__name__ == "Tiger":
-                tigers.append(str(x))
-            elif x.__class__.__name__ == "Lion":
-                lions.append(str(x))
-        output = [f"You have {len(cheetah) + len(tigers) + len(lions)} animals",
-                  f"----- {len(lions)} Lions:", *lions, f"----- {len(tigers)} Tigers:", *tigers,
-                 f"----- {len(cheetah)} Cheetahs:", *cheetah]
+        info = {"Cheetah": [], "Tiger": [], "Lion": []}
+        [info[x.__class__.__name__].append(str(x)) for x in self.animals]
+        output = [f"You have {len(info['Cheetah']) + len(info['Tiger']) + len(info['Lion'])} animals",
+                  f"----- {len(info['Lion'])} Lions:", *info['Lion'],
+                  f"----- {len(info['Tiger'])} Tigers:", *info['Tiger'],
+                 f"----- {len(info['Cheetah'])} Cheetahs:", *info['Cheetah']]
         return "\n".join(output)
 
     def workers_status(self):
-        keeper, vet, caretaker = [], [], []
-        for x in self.workers:
-            if x.__class__.__name__ == "Keeper":
-                keeper.append(str(x))
-            elif x.__class__.__name__ == "Vet":
-                vet.append(str(x))
-            elif x.__class__.__name__ == "Caretaker":
-                caretaker.append(str(x))
-        output = [f"You have {len(keeper) + len(vet) + len(caretaker)} workers",
-                  f"----- {len(keeper)} Keepers:", *keeper, f"----- {len(caretaker)} Caretakers:", *caretaker,
-                 f"----- {len(vet)} Vets:", *vet]
+        info = {"Keeper": [], "Vet": [], "Caretaker": []}
+        [info[x.__class__.__name__].append(str(x)) for x in self.workers]
+        output = [f"You have {len(info['Keeper']) + len(info['Vet']) + len(info['Caretaker'])} workers",
+                  f"----- {len(info['Keeper'])} Keepers:", *info['Keeper'],
+                  f"----- {len(info['Caretaker'])} Caretakers:", *info['Caretaker'],
+                 f"----- {len(info['Vet'])} Vets:", *info['Vet']]
         return "\n".join(output)
 
