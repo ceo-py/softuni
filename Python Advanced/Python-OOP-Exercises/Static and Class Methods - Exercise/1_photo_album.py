@@ -9,8 +9,7 @@ class PhotoAlbum:
 
     @classmethod
     def from_photos_count(cls, photos_count: int):
-        pages = ceil(photos_count / 4)
-        return cls(pages)
+        return cls(ceil(photos_count / 4))
 
     def add_photo(self, label: str):
         for row in range(len(self.photos)):
