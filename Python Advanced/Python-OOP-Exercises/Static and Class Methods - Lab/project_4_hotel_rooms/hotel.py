@@ -19,10 +19,7 @@ class Hotel:
         [room.take_room(people) for room in self.rooms if room.number == room_number]
 
     def free_room(self, room_number):
-        for room in self.rooms:
-            if room_number == room.number:
-                room.is_taken = False
-                room.guests = 0
+        [room.free_room() for room in self.rooms if room.number == room_number]
 
     def status(self):
         self.guests = 0
