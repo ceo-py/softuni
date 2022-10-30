@@ -36,11 +36,11 @@ class Gym:
 
     def subscription_info(self, subscription_id: int):
 
-        output = []
-        for info in (self.subscriptions,self.customers, self.trainers, self.equipment, self.plans):
-            for x in info:
-                if x.id == subscription_id:
-                    output.append(str(x))
+        # output = []
+        # for info in (self.subscriptions,self.customers, self.trainers, self.equipment, self.plans):
+        #     for x in info:
+        #         if x.id == subscription_id:
+        #             output.append(str(x))
 
         # output = [[str(x) for x in self.subscriptions if x.id == subscription_id][0],
         #           [str(x) for x in self.customers if x.id == subscription_id][0],
