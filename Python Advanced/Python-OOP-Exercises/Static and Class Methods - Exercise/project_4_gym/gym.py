@@ -14,25 +14,25 @@ class Gym:
         self.plans = []
         self.subscriptions = []
 
+    @staticmethod
+    def __add_data(collection, item):
+        if item not in collection:
+            collection.append(item)
+
     def add_customer(self, customer: Customer):
-        if customer not in self.customers:
-            self.customers.append(customer)
+        Gym.__add_data(self.customers, customer)
 
     def add_trainer(self, trainer: Trainer):
-        if trainer not in self.trainers:
-            self.trainers.append(trainer)
+        Gym.__add_data(self.trainers, trainer)
 
     def add_equipment(self, equipment: Equipment):
-        if equipment not in self.equipment:
-            self.equipment.append(equipment)
+        Gym.__add_data(self.equipment, equipment)
 
     def add_plan(self, plan: ExercisePlan):
-        if plan not in self.plans:
-            self.plans.append(plan)
+        Gym.__add_data(self.plans, plan)
 
     def add_subscription(self, subscription: Subscription):
-        if subscription not in self.subscriptions:
-            self.subscriptions.append(subscription)
+        Gym.__add_data(self.subscriptions, subscription)
 
     def subscription_info(self, subscription_id: int):
 
