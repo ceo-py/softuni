@@ -22,7 +22,7 @@ class Group:
         return Group(f"{self.name} {obj.name}", self.people + obj.people)
 
     def __getitem__(self, index):
-        return f"Person {index}: {self.people[index].name} {self.people[index].surname}"
+        return f"Person {index}: {str(self.people[index])}"
 
     def __repr__(self):
         return f"Group {self.name} with members {', '.join(str(x) for x in self.people)}"
