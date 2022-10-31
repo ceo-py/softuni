@@ -14,6 +14,7 @@
 |    | 03. Programming Fundamentals Final Exam Retake <br />( [Part 1](https://youtu.be/1z0Kryvzyfo?t=11951) / [Part 2](https://youtu.be/1MQeaIeTuAU?t=5) )| [Multidimensional Lists - Exercise 2](https://www.youtube.com/watch?v=T1KNPhswGjU&list=PLtrqz5Y_ckijzIkmxEdpxeKK6tQMLm9an) |
 |    | [04. Programming Fundamentals Final Exam](https://youtu.be/1MQeaIeTuAU?t=2774) | [Functions Advanced - Lab](https://www.youtube.com/watch?v=LilYoZPwV7Y&list=PLtrqz5Y_ckigkPl8FpCb60CI1-j0o5HeJ) |
 |    | [05. Programming Fundamentals Final Exam](https://youtu.be/1MQeaIeTuAU?t=6774)  | [Functions Advanced - Exercise](https://www.youtube.com/watch?v=tvkPmVVkDvE&list=PLtrqz5Y_ckigUjCvha54Rs4vHjCgZl3MX) |
+|    |   | [Python Advanced Exam Preparation](https://www.youtube.com/watch?v=FmIusx0XyA0) |
 |    |   | [Python Advanced Retake Exam - 18 August 2022](https://www.youtube.com/watch?v=00BhW-mICAc&list=PLtrqz5Y_ckih6uKRhOTl05R9ALpL6OlKJ) |
 |    |   | [Python Advanced Exam - 25 June 2022](https://www.youtube.com/watch?v=SLKiZmm9UE8&list=PLtrqz5Y_ckihTOWfXwb8wzeHSoZtWU7FO) |
 |    |   | [Python Advanced Retake Exam - 14 April 2022](https://www.youtube.com/watch?v=kJNxIylD9AU&list=PLtrqz5Y_ckijZU7Fwfeekwx2DcuQRo_-i) |
