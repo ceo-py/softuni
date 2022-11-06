@@ -1,42 +1,82 @@
-contest_add = input()
+contests, users = {}, {}
+contest_data = input()
 
-exams_information = {"contest": {}, "students": {}}
-contest_d, students_d = "contest", "students"
+while contest_data != "end of contests":
+    contest, password = contest_data.split(":")
+    contests[contest] = password
+    contest_data = input()
 
-while contest_add != "end of contests":
-    contest, contest_pass = contest_add.split(":")
-    exams_information[contest_d][contest] = contest_pass
-    contest_add = input()
+submission_data = input()
 
-submissions = input()
-while submissions != "end of submissions":
-    contest, contest_pass, contest_user, contest_points = [int(x) if x.isdigit() else x for x in submissions.split("=>")]
-    if contest in exams_information[contest_d] and exams_information[contest_d][contest] == contest_pass:
-        exams_information[students_d][contest_user] = exams_information[students_d].get(contest_user, {})
-        exams_information[students_d][contest_user][contest] = exams_information[students_d][contest_user].get(contest, 0)
-        if exams_information[students_d][contest_user][contest] < contest_points:
-            exams_information[students_d][contest_user][contest] = contest_points
-    submissions = input()
-
-
-def show_result():
-    best_name = ""
-    total_points = 0
-    for name in exams_information[students_d]:
-        score_for_user = sum(exams_information[students_d][name].values())
-        if score_for_user > total_points:
-            total_points = score_for_user
-            best_name = name
-    print(f"Best candidate is {best_name} with total {total_points} points.\nRanking:")
-    for name in sorted(exams_information[students_d]):
-        print(name)
-        for contest, points in sorted(exams_information[students_d][name].items(), key=lambda item: -item[1]):
-            print(f"#  {contest} -> {points}")
+while submission_data != "end of submissions":
+    contest, password, username, points = [int(x) if x.isdigit() else x for x in submission_data.split("=>")]
+    if contests.get(contest, False) and contests[contest] == password:
+        users[username] = users.get(username, {})
+        users[username][contest] = users[username].get(contest, 0)
+        if users[username][contest] < points:
+            users[username][contest] = points
+    submission_data = input()
 
 
-show_result()
+candidates = {name:sum(users[name].values()) for name in users}
+best_candidate = max(candidates, key=candidates.get)
+print(f"Best candidate is {best_candidate} with total {candidates[best_candidate]} points."
+      f"\nRanking:")
+
+for name in sorted(users):
+    print(name)
+    for contest, points in sorted(users[name].items(), key=lambda item: -item[1]):
+        print(f"#  {contest} -> {points}")
 
 
+
+
+
+
+
+
+
+#
+#
+# contest_add = input()
+#
+# exams_information = {"contest": {}, "students": {}}
+# contest_d, students_d = "contest", "students"
+#
+# while contest_add != "end of contests":
+#     contest, contest_pass = contest_add.split(":")
+#     exams_information[contest_d][contest] = contest_pass
+#     contest_add = input()
+#
+# submissions = input()
+# while submissions != "end of submissions":
+#     contest, contest_pass, contest_user, contest_points = [int(x) if x.isdigit() else x for x in submissions.split("=>")]
+#     if contest in exams_information[contest_d] and exams_information[contest_d][contest] == contest_pass:
+#         exams_information[students_d][contest_user] = exams_information[students_d].get(contest_user, {})
+#         exams_information[students_d][contest_user][contest] = exams_information[students_d][contest_user].get(contest, 0)
+#         if exams_information[students_d][contest_user][contest] < contest_points:
+#             exams_information[students_d][contest_user][contest] = contest_points
+#     submissions = input()
+#
+#
+# def show_result():
+#     best_name = ""
+#     total_points = 0
+#     for name in exams_information[students_d]:
+#         score_for_user = sum(exams_information[students_d][name].values())
+#         if score_for_user > total_points:
+#             total_points = score_for_user
+#             best_name = name
+#     print(f"Best candidate is {best_name} with total {total_points} points.\nRanking:")
+#     for name in sorted(exams_information[students_d]):
+#         print(name)
+#         for contest, points in sorted(exams_information[students_d][name].items(), key=lambda item: -item[1]):
+#             print(f"#  {contest} -> {points}")
+#
+#
+# show_result()
+#
+#
 
 
 
