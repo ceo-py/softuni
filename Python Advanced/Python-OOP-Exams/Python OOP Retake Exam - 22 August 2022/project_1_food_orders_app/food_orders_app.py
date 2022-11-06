@@ -10,16 +10,13 @@ class FoodOrdersApp:
         self.receipt_id = 1
 
     def register_client(self, client_phone_number: str):
-        if any(x.phone_number == client_phone_number for x in self.clients_list):
-            raise Exception("The client has already been registered!")
+        Validation.existing_client(self.clients_list, client_phone_number)
 
         self.clients_list.append(Client(client_phone_number))
         return f"Client {client_phone_number} registered successfully."
 
     def add_meals_to_menu(self, *meals: Meal):
-        for meal in meals:
-            if meal.__class__.__name__ in ("Starter", "MainDish", "Dessert"):
-                self.menu.append(meal)
+        [self.menu.append(meal) for meal in meals if meal.__class__.__name__ in ("Starter", "MainDish", "Dessert")]
 
     def __get_or_create_client(self, client_phone_number):
         for client in self.clients_list:
@@ -49,14 +46,8 @@ class FoodOrdersApp:
         Validation.check_menu(self.menu)
         find_client = self.__get_or_create_client(client_phone_number)
         menu_info = self.__get_menu()
-
-        for meal in meal_names_and_quantities:
-            if meal not in menu_info:
-                raise Exception(f"{meal} is not on the menu!")
-
-        for meal, quantity in meal_names_and_quantities.items():
-            if menu_info[meal].quantity < quantity:
-                raise Exception(f"Not enough quantity of {menu_info[meal].__class__.__name__}: {meal}!")
+        Validation.meal_in_menu(meal_names_and_quantities, menu_info)
+        Validation.enough_quantity(meal_names_and_quantities, menu_info)
 
         for name, qty in meal_names_and_quantities.items():
             menu_info[name].quantity -= qty

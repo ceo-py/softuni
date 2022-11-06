@@ -31,4 +31,21 @@ class Validation:
         if not data:
             raise Exception("There are no ordered meals!")
 
+    @staticmethod
+    def existing_client(data_clients, client_phone_number):
+        if any(x.phone_number == client_phone_number for x in data_clients):
+            raise Exception("The client has already been registered!")
+
+    @staticmethod
+    def meal_in_menu(meal_names_and_quantities, menu_info):
+        for meal in meal_names_and_quantities:
+            if meal not in menu_info:
+                raise Exception(f"{meal} is not on the menu!")
+
+    @staticmethod
+    def enough_quantity(meal_names_and_quantities, menu_info):
+        for meal, quantity in meal_names_and_quantities.items():
+            if menu_info[meal].quantity < quantity:
+                raise Exception(f"Not enough quantity of {menu_info[meal].__class__.__name__}: {meal}!")
+
 
