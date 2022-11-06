@@ -10,7 +10,7 @@ submission_data = input()
 
 while submission_data != "end of submissions":
     contest, password, username, points = [int(x) if x.isdigit() else x for x in submission_data.split("=>")]
-    if contests.get(contest, False) and contests[contest] == password:
+    if contests.get(contest) == password:
         users[username] = users.get(username, {})
         users[username][contest] = users[username].get(contest, 0)
         if users[username][contest] < points:
@@ -18,7 +18,7 @@ while submission_data != "end of submissions":
     submission_data = input()
 
 
-candidates = {name:sum(users[name].values()) for name in users}
+candidates = {name: sum(users[name].values()) for name in users}
 best_candidate = max(candidates, key=candidates.get)
 print(f"Best candidate is {best_candidate} with total {candidates[best_candidate]} points."
       f"\nRanking:")
