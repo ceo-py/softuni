@@ -37,6 +37,7 @@ class FoodOrdersApp:
 
     def show_menu(self):
         Validation.check_menu(self.menu)
+        # return "\n".join(str(meal.details()) for meal in self.menu)
         output = []
         for meal in self.menu:
             output.append(str(meal.details()))
