@@ -16,6 +16,21 @@ for number_one in range(1, 9):
                                 print(f"{number_one}{number_two}{number_three}{number_four}", end=" ")
 
 
+
+#
+# number_to_check = int(input())
+#
+# for n in range(1111, 10_000):
+#     if all(x != "0" and number_to_check % int(x) == 0 for x in str(n)):
+#         print(n, end=" ")
+#
+#
+#
+#
+
+
+
+
 ###
 # n = int(input())
 #
