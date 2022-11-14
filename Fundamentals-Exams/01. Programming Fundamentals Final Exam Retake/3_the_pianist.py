@@ -7,8 +7,7 @@ for piece in range(number_pieces):
     pieces_info[piece_name] = info
 
 
-def add_piece(info):
-    piece, composer, key = info
+def add_piece(piece, composer, key):
     if piece in pieces_info:
         return f"{piece} is already in the collection!"
 
@@ -16,16 +15,14 @@ def add_piece(info):
     return f"{piece} by {composer} in {key} added to the collection!"
 
 
-def remove_piece(info):
-    piece = info[0]
+def remove_piece(piece):
     if piece in pieces_info:
         del pieces_info[piece]
         return f"Successfully removed {piece}!"
     return f"Invalid operation! {piece} does not exist in the collection."
 
 
-def change_key(info):
-    piece, new_key = info
+def change_key(piece, new_key):
     if piece in pieces_info:
         pieces_info[piece][1] = new_key
         return f"Changed the key of {piece} to {new_key}!"
@@ -33,8 +30,7 @@ def change_key(info):
 
 
 def show_result():
-    for piece in pieces_info:
-        print(f"{piece} -> Composer: {pieces_info[piece][0]}, Key: {pieces_info[piece][1]}")
+    [print(f"{piece} -> Composer: {pieces_info[piece][0]}, Key: {pieces_info[piece][1]}") for piece in pieces_info]
 
 
 command_func = {
@@ -46,10 +42,11 @@ command_func = {
 command = input()
 while command != "Stop":
     command_type, *info = command.split("|")
-    print(command_func[command_type](info))
+    print(command_func[command_type](*info))
     command = input()
 
 show_result()
+
 
 
 
