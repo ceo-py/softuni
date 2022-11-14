@@ -1,11 +1,20 @@
 def forecast(*аrgs):
-    output, result = [], {"Sunny" : [], "Cloudy": [], "Rainy": []}
+    output, result = [], {"Sunny": [], "Cloudy": [], "Rainy": []}
     [result[key].append(town) for town, key in аrgs]
-    for key_, town_ in result.items():
-        for names in sorted(town_):
-            output.append(f"{names} - {key_}")
-
+    [output.append(f"{names} - {key_}") for key_, town_ in result.items() for names in sorted(town_)]
     return "\n".join(output)
+
+
+
+
+# def forecast(*аrgs):
+#     output, result = [], {"Sunny" : [], "Cloudy": [], "Rainy": []}
+#     [result[key].append(town) for town, key in аrgs]
+#     for key_, town_ in result.items():
+#         for names in sorted(town_):
+#             output.append(f"{names} - {key_}")
+#
+#     return "\n".join(output)
 
 
 
