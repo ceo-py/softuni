@@ -1,43 +1,65 @@
-raw_string_stops = [input()]
+raw_string_stops = input()
 command = input()
-
-
-def valid_index(index):
-    if 0 <= index < len(raw_string_stops[0]):
-        return True
-
-
-def add_stop(index, string):
-    if valid_index(index):
-        raw_string_stops[0] = f"{raw_string_stops[0][:index]}{string}{raw_string_stops[0][index:]}"
-
-
-def remove_stop(start_index, end_index):
-    if valid_index(start_index) and valid_index(end_index):
-        raw_string_stops[0] = f"{raw_string_stops[0][:start_index]}{raw_string_stops[0][end_index + 1:]}"
-
-
-def switch(old_string, new_string):
-    if old_string in raw_string_stops[0]:
-        raw_string_stops[0] = raw_string_stops[0].replace(old_string, new_string)
-
-
-commands_func = {
-    "Add Stop": add_stop,
-    "Remove Stop": remove_stop,
-    "Switch": switch
-}
 
 while command != "Travel":
     command_type, index_or_old_string, end_index_or_string = [int(x) if x.isdigit() else x for x in command.split(":")]
-    commands_func[command_type](index_or_old_string, end_index_or_string)
-    print(raw_string_stops[0])
+    if "Switch" in command_type and index_or_old_string in raw_string_stops:
+        raw_string_stops = raw_string_stops.replace(index_or_old_string, end_index_or_string)
+    elif "Add Stop" in command_type and 0 <= index_or_old_string < len(raw_string_stops):
+        raw_string_stops = f"{raw_string_stops[:index_or_old_string]}{end_index_or_string}{raw_string_stops[index_or_old_string:]}"
+    elif "Remove Stop" in command_type and 0 <= index_or_old_string < len(raw_string_stops) and 0 <= end_index_or_string < len(raw_string_stops):
+        raw_string_stops = f"{raw_string_stops[:index_or_old_string]}{raw_string_stops[end_index_or_string + 1:]}"
+    print(raw_string_stops)
     command = input()
 
-print(f"Ready for world tour! Planned stops: {raw_string_stops[0]}")
+print(f"Ready for world tour! Planned stops: {raw_string_stops}")
 
 
 
+
+
+
+#
+# raw_string_stops = [input()]
+# command = input()
+#
+#
+# def valid_index(index):
+#     if 0 <= index < len(raw_string_stops[0]):
+#         return True
+#
+#
+# def add_stop(index, string):
+#     if valid_index(index):
+#         raw_string_stops[0] = f"{raw_string_stops[0][:index]}{string}{raw_string_stops[0][index:]}"
+#
+#
+# def remove_stop(start_index, end_index):
+#     if valid_index(start_index) and valid_index(end_index):
+#         raw_string_stops[0] = f"{raw_string_stops[0][:start_index]}{raw_string_stops[0][end_index + 1:]}"
+#
+#
+# def switch(old_string, new_string):
+#     if old_string in raw_string_stops[0]:
+#         raw_string_stops[0] = raw_string_stops[0].replace(old_string, new_string)
+#
+#
+# commands_func = {
+#     "Add Stop": add_stop,
+#     "Remove Stop": remove_stop,
+#     "Switch": switch
+# }
+#
+# while command != "Travel":
+#     command_type, index_or_old_string, end_index_or_string = [int(x) if x.isdigit() else x for x in command.split(":")]
+#     commands_func[command_type](index_or_old_string, end_index_or_string)
+#     print(raw_string_stops[0])
+#     command = input()
+#
+# print(f"Ready for world tour! Planned stops: {raw_string_stops[0]}")
+#
+#
+#
 
 
 
