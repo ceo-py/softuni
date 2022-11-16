@@ -59,7 +59,7 @@ class Email(IEmail):
         self.__content = content
 
     def __repr__(self):
-        template = "Sender: {sender}\nReceiver: {receiver}\nContent:\n{content}"
+        template = "Sender: I`m {sender}\nReceiver: I`m {receiver}\nContent:\n{content}"
 
         return template.format(sender=self.__sender, receiver=self.__receiver, content=self.__content.format())
 
