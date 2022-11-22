@@ -1,27 +1,17 @@
 import math
 
 word_enter = input()
-most_powerful_word = ""
-points = 0
-how_long_is_the_word = 0
+most_powerful_word, points, how_long_is_the_word, letters_ = "", 0, 0, "aeiouy"
+
 
 while word_enter != "End of words":
-    counter = 0
-    total_word_points = 0
-    bonus_points = False
-
+    total_word_points, first_letter = 0, word_enter[0]
     how_long_is_the_word = len(word_enter)
     for letter in word_enter:
-        counter += 1
-        letters_ = "aeiouy"
-        if (letter in letters_ or letter in letters_.upper()) and counter == 1:
-            bonus_points = True
-
         total_word_points += int(ord(letter))
 
-    if bonus_points:
+    if first_letter in letters_ or first_letter in letters_.upper():
         total_word_points *= how_long_is_the_word
-
     else:
         total_word_points = math.floor(total_word_points / how_long_is_the_word)
 
@@ -33,6 +23,53 @@ while word_enter != "End of words":
 
 print(f"The most powerful word is {most_powerful_word} - {points}")
 
+
+
+
+
+
+
+
+
+
+
+#
+#
+# import math
+#
+# word_enter = input()
+# most_powerful_word = ""
+# points = 0
+# how_long_is_the_word = 0
+#
+# while word_enter != "End of words":
+#     counter = 0
+#     total_word_points = 0
+#     bonus_points = False
+#
+#     how_long_is_the_word = len(word_enter)
+#     for letter in word_enter:
+#         counter += 1
+#         letters_ = "aeiouy"
+#         if (letter in letters_ or letter in letters_.upper()) and counter == 1:
+#             bonus_points = True
+#
+#         total_word_points += int(ord(letter))
+#
+#     if bonus_points:
+#         total_word_points *= how_long_is_the_word
+#
+#     else:
+#         total_word_points = math.floor(total_word_points / how_long_is_the_word)
+#
+#     if total_word_points > points:
+#         points = total_word_points
+#         most_powerful_word = word_enter
+#
+#     word_enter = input()
+#
+# print(f"The most powerful word is {most_powerful_word} - {points}")
+#
 
 
 
