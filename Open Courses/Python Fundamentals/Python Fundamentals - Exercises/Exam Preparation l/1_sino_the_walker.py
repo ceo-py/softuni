@@ -1,15 +1,18 @@
-import time
+import datetime as dt
 
-time_sino = input()
-number_steps = int(input())
-time_interval_steps = int(input())
-t = tuple(time_sino)
-time_format = "%H:%M:%S"
-a = time.strptime(time_sino, time_format)
-print(f"{a.tm_hour}:{a.tm_min}:{a.tm_sec}")
-convert_hours = (number_steps * time_interval_steps)/60
-convert_min = (number_steps * time_interval_steps)//60
-convert_sec = (number_steps * time_interval_steps)%60
+leaving_time_input = input()
+steps = int(input())
+secs_per_step = int(input())
+seconds = (steps * secs_per_step)
+seconds = seconds % (24 * 3600)
+hour = seconds // 3600
+seconds %= 3600
+minutes = seconds // 60
+seconds %= 60
+steps_time = dt.datetime(1, 1, 1, hour, minutes, seconds)
 
-b = time.strptime(time_sino, time_format)
 
+t1 = dt.datetime.strptime("".join(str(x) for x in leaving_time_input), '%H:%M:%S')
+t2 = dt.datetime.strptime("".join(str(x) for x in str(steps_time).split()[1]), '%H:%M:%S')
+time_zero = dt.datetime.strptime('00:00:00', '%H:%M:%S')
+print(f"Time Arrival: {(t1 - time_zero + t2).time()}")
