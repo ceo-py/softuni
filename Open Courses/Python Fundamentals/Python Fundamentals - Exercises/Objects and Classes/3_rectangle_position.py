@@ -2,25 +2,25 @@ rectangle = []
 
 
 class Point:
-    def __init__(self, top, left, width, height):
+    def __init__(self, left: int, top: int, width: int, height: int):
         self.top = int(top)
         self.left = int(left)
         self.width = int(width)
         self.height = int(height)
+        self.right = self.left + self.width
+        self.bottom = self.height - self.top
 
-
-    @staticmethod
-    def is_inside(rectangle_):
-        print(rectangle_[1].top)
-        if all([rectangle_[0].left >= rectangle_[1].left, rectangle_[0].right <= rectangle_[1].right,
-                rectangle_[0].top <= rectangle_[1].top, rectangle_[0].bottom <= rectangle_[1].bottom]):
+    def is_inside(self, rectangle_):
+        if self.left >= rectangle_.left \
+                and self.right <= rectangle_.right \
+                and self.top <= rectangle_.top \
+                and self.bottom <= rectangle_.bottom:
             return "Inside"
-        else:
-            return "Not Inside"
+
+        return "Not inside"
 
 
-for _ in range(2):
-    top, left, width, height = input().split()
-    rectangle.append(Point(top, left, width, height))
+r1 = Point(*input().split())
+r2 = Point(*input().split())
 
-print(Point.is_inside(rectangle))
+print(r1.is_inside(r2))
