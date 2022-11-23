@@ -3,7 +3,6 @@ import math
 word_enter = input()
 most_powerful_word, points, how_long_is_the_word, letters_ = "", 0, 0, "aeiouy"
 
-
 while word_enter != "End of words":
     total_word_points, first_letter = 0, word_enter[0]
     how_long_is_the_word = len(word_enter)
@@ -22,13 +21,6 @@ while word_enter != "End of words":
     word_enter = input()
 
 print(f"The most powerful word is {most_powerful_word} - {points}")
-
-
-
-
-
-
-
 
 
 
@@ -70,7 +62,6 @@ print(f"The most powerful word is {most_powerful_word} - {points}")
 #
 # print(f"The most powerful word is {most_powerful_word} - {points}")
 #
-
 
 
 #
