@@ -5,7 +5,6 @@ from project.func.validations import Validation
 
 class Meal(ABC):
 
-    @abstractmethod
     def __init__(self, name: str, price: float, quantity):
         self.quantity = quantity
         self.price = price
@@ -29,9 +28,6 @@ class Meal(ABC):
         if Validation.check_positive_number(value):
             self.__price = value
 
+    @abstractmethod
     def details(self):
-        name = self.__class__.__name__
-        if name == "MainDish":
-            name = "Main Dish"
-
-        return f"{name} {self.name}: {self.price:.2f}lv/piece"
+        ...
