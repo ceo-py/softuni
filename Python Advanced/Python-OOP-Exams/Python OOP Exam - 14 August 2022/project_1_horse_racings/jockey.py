@@ -14,7 +14,7 @@ class Jockey:
 
     @name.setter
     def name(self, value):
-        Validation.name_jockey(value)
+        Validation.name_empty_string_or_white_spaces(value, "Name should contain at least one character!")
         self.__name = value
 
     @property
@@ -23,6 +23,6 @@ class Jockey:
 
     @age.setter
     def age(self, value):
-        Validation.age_jockey(value)
+        Validation.jokey_age_over_17(value, "Jockeys must be at least 18 to participate in the race!")
         self.__age = value
 

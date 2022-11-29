@@ -13,5 +13,8 @@ class HorseRace:
 
     @race_type.setter
     def race_type(self, value):
-        Validation.race_type(value)
+        Validation.four_season_race(value, "Race type does not exist!")
         self.__race_type = value
+
+
+
