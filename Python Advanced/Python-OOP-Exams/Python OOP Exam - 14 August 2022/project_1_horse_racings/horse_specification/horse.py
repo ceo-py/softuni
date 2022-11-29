@@ -3,7 +3,7 @@ from project.validation.validation import Validation
 
 
 class Horse(ABC):
-    @abstractmethod
+
     def __init__(self, name: str, speed: int):
         self.name = name
         self.speed = speed
@@ -15,7 +15,7 @@ class Horse(ABC):
 
     @name.setter
     def name(self, value):
-        Validation.name_horse(value)
+        Validation.name_horse_less_than_4(value, f"Horse name {value} is less than 4 symbols!")
         self.__name = value
 
     @property
@@ -24,11 +24,12 @@ class Horse(ABC):
 
     @speed.setter
     def speed(self, value):
-        Validation.speed_horse(value, self.maximum_speed)
+        Validation.speed_limit(value, self.maximum_speed, "Horse speed is too high!")
         self.__speed = value
 
+    @abstractmethod
     def train(self):
-        if self.speed + self.train_gain > self.maximum_speed:
-            self.speed = self.maximum_speed
-        else:
-            self.speed += self.train_gain
+        ...
+
+
+
