@@ -76,3 +76,46 @@ if zoo["Area"]:
 #
 #
 #
+
+#
+# Examples
+# Input	Output
+# Add: Adam-4500-ByTheCreek
+# Add: Maya-7600-WaterfallArea
+# Add: Maya-1230-WaterfallArea
+# Feed: Jamie-2000
+# EndDay	Animals:
+#  Adam -> 4500g
+#  Maya -> 8830g
+# Areas with hungry animals:
+#  ByTheCreek: 1
+#  WaterfallArea: 1
+# Add: Jamie-600-WaterfallArea
+# Add: Maya-6570-WaterfallArea
+# Add: Adam-4500-ByTheCreek
+# Add: Bobbie-6570-WaterfallArea
+# Feed: Jamie-2000
+# Feed: Adam-2000
+# Feed: Adam-2500
+# EndDay	Jamie was successfully fed
+# Adam was successfully fed
+# Animals:
+#  Maya -> 6570g
+#  Bobbie -> 6570g
+# Areas with hungry animals:
+#  WaterfallArea: 2
+# Add: Bonie-3490-RiverArea
+# Add: Sam-5430-DeepWoodsArea
+# Add: Bonie-200-RiverArea
+# Add: Maya-4560-ByTheCreek
+# Feed: Maya-2390
+# Feed: Bonie-3500
+# Feed: Johny-3400
+# Feed: Sam-5500
+# EndDay	Sam was successfully fed
+# Animals:
+#  Bonie -> 190g
+#  Maya -> 2170g
+# Areas with hungry animals:
+#  RiverArea: 1
+#  ByTheCreek: 1
