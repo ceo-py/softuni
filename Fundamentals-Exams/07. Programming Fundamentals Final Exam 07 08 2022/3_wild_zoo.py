@@ -36,8 +36,6 @@ if zoo["Area"]:
 
 
 
-
-
 # zoo = {}
 # area = {}
 # data_input = input()
