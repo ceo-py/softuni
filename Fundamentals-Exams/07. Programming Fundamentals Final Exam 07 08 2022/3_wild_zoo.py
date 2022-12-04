@@ -17,7 +17,7 @@ while data_input != "EndDay":
             if zoo[animal_name] <= 0:
                 del zoo[animal_name]
                 for pet_names in zoo["Area"].values():
-                    if animal_name in pet_names:
+                    while animal_name in pet_names:
                         pet_names.remove(animal_name)
                 print(f"{animal_name} was successfully fed")
 
@@ -30,7 +30,6 @@ if zoo:
 if zoo["Area"]:
     print("Areas with hungry animals:")
     [print(f" {area_name}: {len(set(zoo['Area'][area_name]))}") for area_name in zoo["Area"] if zoo["Area"][area_name]]
-
 
 
 
