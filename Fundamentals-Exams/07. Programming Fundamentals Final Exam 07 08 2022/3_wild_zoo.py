@@ -8,7 +8,10 @@ while data_input != "EndDay":
     if command_ == "Add":
         animal_name, needed_food_quantity, area = data.split("-")
         zoo[animal_name] = zoo.get(animal_name, 0) + int(needed_food_quantity)
-        zoo["Area"][area] = zoo["Area"].get(area, []) + [animal_name]
+        if area not in zoo["Area"]:
+            zoo["Area"][area] = []
+        if animal_name not in zoo["Area"][area]:
+            zoo["Area"][area].append(animal_name)
 
     elif command_ == "Feed":
         animal_name, needed_food_quantity = data.split("-")
@@ -17,8 +20,9 @@ while data_input != "EndDay":
             if zoo[animal_name] <= 0:
                 del zoo[animal_name]
                 for pet_names in zoo["Area"].values():
-                    while animal_name in pet_names:
+                    if animal_name in pet_names:
                         pet_names.remove(animal_name)
+                        break
                 print(f"{animal_name} was successfully fed")
 
     data_input = input()
@@ -29,9 +33,45 @@ if zoo:
 
 if zoo["Area"]:
     print("Areas with hungry animals:")
-    [print(f" {area_name}: {len(set(zoo['Area'][area_name]))}") for area_name in zoo["Area"] if zoo["Area"][area_name]]
+    [print(f" {area_name}: {len(zoo['Area'][area_name])}") for area_name in zoo["Area"] if zoo["Area"][area_name]]
 
 
+
+
+# zoo = {"Area": {}}
+# data_input = input()
+#
+# while data_input != "EndDay":
+#
+#     command_, data = data_input.split(": ")
+#
+#     if command_ == "Add":
+#         animal_name, needed_food_quantity, area = data.split("-")
+#         zoo[animal_name] = zoo.get(animal_name, 0) + int(needed_food_quantity)
+#         zoo["Area"][area] = zoo["Area"].get(area, []) + [animal_name]
+#
+#     elif command_ == "Feed":
+#         animal_name, needed_food_quantity = data.split("-")
+#         if animal_name in zoo:
+#             zoo[animal_name] -= int(needed_food_quantity)
+#             if zoo[animal_name] <= 0:
+#                 del zoo[animal_name]
+#                 for pet_names in zoo["Area"].values():
+#                     while animal_name in pet_names:
+#                         pet_names.remove(animal_name)
+#                 print(f"{animal_name} was successfully fed")
+#
+#     data_input = input()
+#
+# if zoo:
+#     print("Animals:")
+#     [print(f" {name} -> {quantity}g") for name, quantity in zoo.items() if name != "Area"]
+#
+# if zoo["Area"]:
+#     print("Areas with hungry animals:")
+#     [print(f" {area_name}: {len(set(zoo['Area'][area_name]))}") for area_name in zoo["Area"] if zoo["Area"][area_name]]
+#
+#
 
 
 
