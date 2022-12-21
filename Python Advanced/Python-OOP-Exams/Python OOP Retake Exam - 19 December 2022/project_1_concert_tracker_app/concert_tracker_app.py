@@ -34,19 +34,19 @@ class ConcertTrackerApp:
     
     def create_musician(self, musician_type: str, name: str, age: int):
         Validation.check_if_item_is_in_items(musician_type, self.correct_musicians,  "Invalid musician type!")
-        Validation.check_for_name_duplicity(name, self.musicians, f"{name} is already a musician!")
+        Validation.check_for_duplicity(name, self.musicians, "name", f"{name} is already a musician!")
 
         self.musicians.append(self.correct_musicians[musician_type](name, age))
         return f"{name} is now a {musician_type}."
 
     def create_band(self, name: str):
-        Validation.check_for_name_duplicity(name, self.bands, f"{name} band is already created!")
+        Validation.check_for_duplicity(name, self.bands, "name", f"{name} band is already created!")
 
         self.bands.append(Band(name))
         return f"{name} was created."
 
     def create_concert(self, genre: str, audience: int, ticket_price: float, expenses: float, place: str):
-        Validation.check_for_concert_place_duplicity(place, self.concerts, f"{place} is already registered for {genre} concert!")
+        Validation.check_for_duplicity(place, self.concerts, "place", f"{place} is already registered for {genre} concert!")
 
         self.concerts.append(Concert(genre, audience, ticket_price, expenses, place))
         return f"{genre} concert in {place} was added."

@@ -6,8 +6,8 @@ class Validation:
             raise ValueError(message)
 
     @staticmethod
-    def number_under_16(number: int, message: str):
-        if number < 16:
+    def check_number_less_than(number: float, number_to_be_less: float, message: str):
+        if number < number_to_be_less:
             raise ValueError(message)
 
     @staticmethod
@@ -26,28 +26,13 @@ class Validation:
             raise ValueError(message)
 
     @staticmethod
-    def check_number_less_than_one(number: float, message: str):
-        if number < 1:
-            raise ValueError(message)
-
-    @staticmethod
-    def check_if_number_is_negative(number: float, message: str):
-        if number < 0:
-            raise ValueError(message)
-
-    @staticmethod
     def check_if_string_is_two_characters_long(text: str, message: str):
         if len(text) < 2:
             raise ValueError(message)
 
     @staticmethod
-    def check_for_name_duplicity(name: str, names: list, message: str):
-        if any(i.name == name for i in names):
-            raise Exception(message)
-
-    @staticmethod
-    def check_for_concert_place_duplicity(place: str, places: list, message: str):
-        if any(p.place == place for p in places):
+    def check_for_duplicity(search_for: str, objects: list, attrib_check: str, message: str):
+        if any(getattr(i, attrib_check) == search_for for i in objects):
             raise Exception(message)
 
     @staticmethod

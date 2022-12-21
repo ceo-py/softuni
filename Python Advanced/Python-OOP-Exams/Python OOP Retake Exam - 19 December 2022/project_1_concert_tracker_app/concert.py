@@ -44,7 +44,7 @@ class Concert:
 
     @audience.setter
     def audience(self, value):
-        Validation.check_number_less_than_one(value, "At least one person should attend the concert!")
+        Validation.check_number_less_than(value, 1, "At least one person should attend the concert!")
         self.__audience = value
 
     @property
@@ -53,7 +53,7 @@ class Concert:
 
     @ticket_price.setter
     def ticket_price(self, value):
-        Validation.check_number_less_than_one(value, "Ticket price must be at least 1.00$!")
+        Validation.check_number_less_than(value, 1, "Ticket price must be at least 1.00$!")
         self.__ticket_price = value
 
     @property
@@ -62,7 +62,7 @@ class Concert:
 
     @expenses.setter
     def expenses(self, value):
-        Validation.check_if_number_is_negative(value, "Expenses cannot be a negative number!")
+        Validation.check_number_less_than(value, 0,"Expenses cannot be a negative number!")
         self.__expenses = value
 
     @property

@@ -24,7 +24,7 @@ class Musician(ABC):
 
     @age.setter
     def age(self, value):
-        Validation.number_under_16(value, "Musicians should be at least 16 years old!")
+        Validation.check_number_less_than(value, 16, "Musicians should be at least 16 years old!")
         self.__age = value
 
     @abstractmethod
