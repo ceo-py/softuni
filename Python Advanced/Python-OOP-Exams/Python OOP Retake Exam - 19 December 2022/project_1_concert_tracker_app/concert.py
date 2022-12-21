@@ -29,6 +29,10 @@ class Concert:
             }
 
     @property
+    def profit(self):
+        return (self.audience * self.ticket_price) - self.expenses
+
+    @property
     def genre(self):
         return self.__genre
 
