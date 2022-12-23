@@ -41,9 +41,8 @@ class Validation:
             raise Exception(message)
 
     @staticmethod
-    def check_band_one_of_each_type_musician(members: list, message: str):
-        if len(members) < 3:
-            raise Exception(message)
+    def check_band_one_of_each_type_musician(message: str):
+        raise Exception(message)
 
     @staticmethod
     def check_band_members_have_the_skills(members: list, all_members: list, message: str):

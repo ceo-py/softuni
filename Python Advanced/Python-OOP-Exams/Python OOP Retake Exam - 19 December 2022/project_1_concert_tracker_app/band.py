@@ -30,14 +30,11 @@ class Band:
         return f"{musician.name} was removed from {self.name}."
 
     def have_enough_members_to_play_concert(self, correct_musicians):
-        one_of_each_type_musician = []
-        for m in self.members:
-            if m not in one_of_each_type_musician and type(m).__name__ in correct_musicians:
-                one_of_each_type_musician.append(m)
-
-        Validation.check_band_one_of_each_type_musician(one_of_each_type_musician,
-                                                        f"{self.name} can't start the concert because "
-                                                        f"it doesn't have enough members!")
+        all_types_musician_in_band = {type(m).__name__ for m in self.members}
+        for type_musician in correct_musicians:
+            if type_musician not in all_types_musician_in_band:
+                Validation.check_band_one_of_each_type_musician(f"{self.name} can't start the concert because "
+                                                                f"it doesn't have enough members!")
 
     def can_band_play_concert(self, musician_skills_needed: dict):
         all_musicians = []

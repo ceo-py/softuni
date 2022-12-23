@@ -1,6 +1,6 @@
 from unittest import TestCase, main
 
-# from project.car import Car
+# from 1_christmas_pastry_shop.car import Car
 
 
 class TestGunitSquad(TestCase):
