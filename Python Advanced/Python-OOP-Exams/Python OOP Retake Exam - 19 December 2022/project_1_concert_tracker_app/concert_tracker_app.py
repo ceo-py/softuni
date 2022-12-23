@@ -71,6 +71,4 @@ class ConcertTrackerApp:
         band.have_enough_members_to_play_concert(self.correct_musicians)
         band.can_band_play_concert(concert.needed_musicians_and_skills[concert.genre])
 
-        profit = (concert.audience * concert.ticket_price) - concert.expenses
-
-        return f"{band_name} gained {profit:.2f}$ from the {concert.genre} concert in {concert_place}."
+        return f"{band_name} gained {concert.profit:.2f}$ from the {concert.genre} concert in {concert_place}."

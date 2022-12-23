@@ -11,6 +11,10 @@ class Concert:
         self.place = place
 
     @property
+    def profit(self):
+        return (self.audience * self.ticket_price) - self.expenses
+
+    @property
     def needed_musicians_and_skills(self):
         return \
             {"Metal": {
