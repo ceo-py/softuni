@@ -1,30 +1,28 @@
 schedule_of_lessons = input().split(", ")
 
 
-def check_correct_index(index):
-    if 0 <= index < len(schedule_of_lessons):
-        return True
+def check_correct_index(index: int) -> bool:
+    return 0 <= index < len(schedule_of_lessons)
 
 
-def check_for_exercise(find_index):
+def check_for_exercise(find_index: int) -> bool:
     try:
-        if "Exercise" in schedule_of_lessons[find_index + 1]:
-            return True
+        return "Exercise" in schedule_of_lessons[find_index + 1]
     except IndexError:
-        return False
+        return
 
 
-def add_lesson(lesson_title):
+def add_lesson(lesson_title: str) -> None:
     if lesson_title not in schedule_of_lessons:
         schedule_of_lessons.append(lesson_title)
 
 
-def insert_lesson(lesson_title, index):
+def insert_lesson(lesson_title: str, index: int) -> None:
     if lesson_title not in schedule_of_lessons:
         schedule_of_lessons.insert(index, lesson_title)
 
 
-def remove_lesson(lesson_title):
+def remove_lesson(lesson_title: str) -> None:
     if lesson_title in schedule_of_lessons:
         find_index = schedule_of_lessons.index(lesson_title)
         if check_for_exercise(find_index):
@@ -32,7 +30,7 @@ def remove_lesson(lesson_title):
         del schedule_of_lessons[find_index]
 
 
-def swap_lesson(lesson_title, lesson_title_swap):
+def swap_lesson(lesson_title: str, lesson_title_swap: str) -> None:
     if lesson_title in schedule_of_lessons and lesson_title_swap in schedule_of_lessons:
         index_lesson_one = schedule_of_lessons.index(lesson_title)
         index_lesson_two = schedule_of_lessons.index(lesson_title_swap)
@@ -44,7 +42,7 @@ def swap_lesson(lesson_title, lesson_title_swap):
             schedule_of_lessons.insert(index_lesson_one + 1, schedule_of_lessons.pop(index_lesson_two + 1))
 
 
-def exercise_lesson(lesson_title):
+def exercise_lesson(lesson_title: str) -> bool:
     if lesson_title in schedule_of_lessons:
         find_index = schedule_of_lessons.index(lesson_title)
         if not check_for_exercise(find_index):
@@ -54,29 +52,26 @@ def exercise_lesson(lesson_title):
         schedule_of_lessons.append(f"{lesson_title}-Exercise")
 
 
+commands = {
+    "Add": add_lesson,
+    "Insert": insert_lesson,
+    "Remove": remove_lesson,
+    "Swap": swap_lesson,
+    "Exercise": exercise_lesson
+}
+
 command = input()
 
 while command != "course start":
     command_type, *info = [int(x) if x.isdigit() else x for x in command.split(":")]
-    if command_type == "Add":
-        lesson_title = info[0]
-        add_lesson(lesson_title)
-    elif command_type == "Insert":
-        lesson_title, index_ = info
-        insert_lesson(lesson_title, index_)
-    elif command_type == "Remove":
-        lesson_title = info[0]
-        remove_lesson(lesson_title)
-    elif command_type == "Swap":
-        lesson_title, lesson_title_swap = info
-        swap_lesson(lesson_title, lesson_title_swap)
-    elif command_type == "Exercise":
-        lesson_title = info[0]
-        exercise_lesson(lesson_title)
+    commands[command_type](*info)
     command = input()
 
 for pos, lesson in enumerate(schedule_of_lessons, 1):
     print(f"{pos}.{lesson}")
+
+
+
 
 #
 # lessons = input().split(", ")
