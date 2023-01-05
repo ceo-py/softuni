@@ -1,10 +1,6 @@
 schedule_of_lessons = input().split(", ")
 
 
-def check_correct_index(index: int) -> bool:
-    return 0 <= index < len(schedule_of_lessons)
-
-
 def check_for_exercise(find_index: int) -> bool:
     try:
         return "Exercise" in schedule_of_lessons[find_index + 1]
