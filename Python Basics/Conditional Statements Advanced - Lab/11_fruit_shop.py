@@ -58,23 +58,22 @@ else:
 # day_of_week = input()
 # quantity = float(input())
 #
-# fruits = {
-#     "banana": [2.50, 2.70],
-#     "apple": [1.20, 1.25],
-#     "grapefruit": [1.45, 1.60],
-#     "kiwi": [2.70, 3.00],
-#     "grapes": [3.85, 4.20],
-#     "orange": [0.85, 0.90],
-#     "pineapple": [5.50, 5.60],
-#     'Sunday': 1,
-#     'Saturday': 1,
+# data_for = {
+#     "banana": (2.50, 2.70),
+#     "apple": (1.20, 1.25),
+#     "grapefruit": (1.45, 1.60),
+#     "kiwi": (2.70, 3.00),
+#     "grapes": (3.85, 4.20),
+#     "orange": (0.85, 0.90),
+#     "pineapple": (5.50, 5.60),
+#     "Sunday": 1,
+#     "Saturday": 1,
+#     "week days": ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
 # }
 #
-# week_days = "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday"
 #
-# if day_of_week not in week_days or fruit not in fruits:
+# if day_of_week not in data_for["week days"] or fruit not in data_for:
 #     print('error')
 # else:
-#     price = fruits[fruit][fruits.get(day_of_week, 0)]
-#     total_price = quantity * price
+#     total_price = quantity * data_for[fruit][data_for.get(day_of_week, 0)]
 #     print(f'{total_price:.2f}')
