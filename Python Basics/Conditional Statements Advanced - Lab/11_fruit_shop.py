@@ -71,7 +71,6 @@ else:
 # }
 #
 # week_days = "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday"
-# correct_fruits = "banana, apple, grapefruit, kiwi, grapes, orange, pineapple"
 #
 # if day_of_week not in week_days or fruit not in fruits:
 #     print('error')
