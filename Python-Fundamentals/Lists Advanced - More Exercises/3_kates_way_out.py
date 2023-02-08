@@ -39,18 +39,18 @@ else:
 #
 #
 # def correct_lab_bounds(row, col):
-#     if row < 0 or col < 0 or row >= len(lab) or col >= len(lab[0]):
-#         return True
+#     return row < 0 or col < 0 or row >= len(lab) or col >= len(lab[0])
+#
 #
 #
 # def check_wall(row, col):
-#     if lab[row][col] in "#v":
-#         return True
+#     return lab[row][col] in "#v"
+#
 #
 #
 # def find_exit(row, col):
-#     if row == 0 or row == len(lab) - 1 or col == 0 or col == len(lab[0]):
-#         return True
+#     return row == 0 or row == len(lab) - 1 or col == 0 or col == len(lab[0])
+#
 #
 #
 # def find_starting_point():

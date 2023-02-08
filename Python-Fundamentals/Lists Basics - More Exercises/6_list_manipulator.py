@@ -56,11 +56,9 @@ print(numbers)
 
 
 
-
-
-
-
 # main_list = [int(x) for x in input().split()]
+#
+# operation = {"max": max, "min": min}
 #
 #
 # def check_valid_index(index):
@@ -72,26 +70,25 @@ print(numbers)
 # def generate_odd_even(type_number):
 #     if type_number == "even":
 #         return [x for x in main_list if x % 2 == 0]
-#     else:
-#         return [x for x in main_list if x % 2 != 0]
+#
+#     return [x for x in main_list if x % 2 != 0]
 #
 #
 # def check_count(number):
 #     if number > len(main_list):
 #         print("Invalid count")
 #         return
+#
 #     return True
 #
 #
-# def exchange(_, info):
+# def exchange(_, index):
 #     global main_list
-#     index = info[0]
 #     if check_valid_index(index):
 #         main_list = main_list[index + 1:] + main_list[:index + 1]
 #
 #
-# def max_min_even_odd(max_or_min, info):
-#     type_number, operation = info[0], {"max": max, "min": min}
+# def max_min_even_odd(max_or_min, type_number):
 #     result = generate_odd_even(type_number)
 #     if result:
 #         ind = operation[max_or_min](result)
@@ -100,8 +97,7 @@ print(numbers)
 #         print("No matches")
 #
 #
-# def first_numbers(starting_from, info):
-#     number, number_type = info
+# def first_numbers(starting_from, number, number_type):
 #     if check_count(number):
 #         p_result = {"first": generate_odd_even(number_type)[:number],
 #                     "last": generate_odd_even(number_type)[-number:]}
@@ -121,7 +117,7 @@ print(numbers)
 #
 # while command != "end":
 #     command_type, *info = [x if x.isalpha() else int(x) for x in command.split()]
-#     commands[command_type](command_type, info)
+#     commands[command_type](command_type, *info)
 #     command = input()
 #
 # print(main_list)
