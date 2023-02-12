@@ -1,3 +1,6 @@
+from project.validation.validation import Validation
+
+
 class Topping:
     def __init__(self, topping_type: str, weight: float):
         self.topping_type = topping_type
@@ -9,8 +12,7 @@ class Topping:
 
     @topping_type.setter
     def topping_type(self, value):
-        if value == "":
-            raise ValueError("The topping type cannot be an empty string")
+        Validation.empty_string(value, "The topping type cannot be an empty string")
         self.__topping_type = value
 
     @property
@@ -19,16 +21,6 @@ class Topping:
 
     @weight.setter
     def weight(self, value):
-        value = float(value)
-        if value <= 0:
-            raise ValueError("The weight cannot be less or equal to zero")
+        Validation.number_less_than_to(value, 0, "The weight cannot be less or equal to zero")
         self.__weight = value
 
-
-'''
-topping_type: str - if the topping is an empty string, raise a 
-ValueError with the message "The topping type cannot be an empty string"
-weight: float - if the weight is 0 or less, raise a ValueError with the message 
-"The weight cannot be less or equal to zero"
-
-'''
