@@ -1,6 +1,6 @@
 from unittest import TestCase, main
 
-# from project.list import IntegerList
+# from 1_christmas_pastry_shop.list import IntegerList
 
 
 class TestGunitSquad(TestCase):

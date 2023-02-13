@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-# from project.cat import Cat
+# from 1_christmas_pastry_shop.cat import Cat
 
 
 class TestGunitSquad(TestCase):

@@ -1,7 +1,7 @@
 from unittest import TestCase, main
 
 
-# from project.worker import Worker
+# from 1_christmas_pastry_shop.worker import Worker
 
 
 class TestGunitSquad(TestCase):

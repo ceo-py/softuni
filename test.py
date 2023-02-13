@@ -1,23 +1,14 @@
-import re
+numbers = [int(x) for x in input().split()]
 
-data = {}
-pattern = r"(?P<username>[A-Za-z]{5,})@(?P<domain>[a-z]{3,}(\.com|\.bg|\.org))$"
-count_of_mails = int(input())
+result = sorted(x for x in numbers if x > sum(numbers)/len(numbers))
 
-for _ in range(count_of_mails):
-    current_email = input()
-    match = re.match(pattern, current_email)
+if result:
+    print(*result[-5:][-1::-1])
+else:
+    print("No")
 
-    if match:
-        username = match.group('username')
-        domain = match.group('domain')
 
-        if domain not in data:
-            data[domain] = []
-        if username not in data[domain]:
-            data[domain].append(username)
 
-for domain, usernames in sorted(data.items(), key=lambda x: -len(x[1])):
-    print(f"{domain}:")
-    for name in usernames:
-        print(f"### {name}")
+'''
+564 47 -1 654 2 7
+'''

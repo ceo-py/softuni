@@ -101,7 +101,7 @@ if __name__ == "__main__":
 
 #
 #
-# from project.shopping_cart import ShoppingCart
+# from 1_christmas_pastry_shop.shopping_cart import ShoppingCart
 # from unittest import TestCase, main
 #
 #
