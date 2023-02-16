@@ -1,16 +1,15 @@
-minutes_controla = int(input())
-secondes_controla = int(input())
-length_hive_meters = float(input())
-seconds_for_sto_meters = int(input())
+minutes_control = int(input())
+seconds_control = int(input())
+length_chute = float(input())
+seconds_per_100_meters = int(input())
 
-time_controla = minutes_controla * 60 + secondes_controla
-time_decrease = length_hive_meters / 120
-total_decrease_time = time_decrease * 2.5
-martin_time = (length_hive_meters / 100) * seconds_for_sto_meters - total_decrease_time
-control_time = martin_time - time_controla
+control_time = minutes_control * 60 + seconds_control
+slowing_time = length_chute / 120
+total_slowing_time = slowing_time * 2.5
+marin_time = (length_chute / 100) * seconds_per_100_meters - total_slowing_time
 
-if martin_time <= time_controla:
-    print(f"Marin Bangiev won an Olympic quota!\nHis time is {martin_time:.3f}.")
-
+if marin_time <= control_time:
+    print("Marin Bangiev won an Olympic quota!")
+    print(f"His time is {marin_time:.3f}.")
 else:
-    print(f"No, Marin failed! He was {control_time:.3f} second slower.")
+    print(f"No, Marin failed! He was {marin_time - control_time:.3f} second slower.")
