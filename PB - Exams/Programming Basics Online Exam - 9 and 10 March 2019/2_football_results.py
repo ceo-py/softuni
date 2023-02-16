@@ -1,53 +1,53 @@
-wins, losses, draw = 0, 0, 0
+game_one_result = input()
+game_two_result = input()
+game_three_result = input()
 
-for _ in range(3):
-    home_team, away_team = input().split(":")
-    if home_team > away_team:
-        wins += 1
-    elif home_team == away_team:
-        draw += 1
-    else:
-        losses += 1
+
+wins = 0
+loses = 0
+draws = 0
+
+if int(game_one_result[0]) > int(game_one_result[-1]):
+    wins += 1
+elif int(game_one_result[0]) < int(game_one_result[-1]):
+    loses += 1
+else:
+    draws += 1
+
+if int(game_two_result[0]) > int(game_two_result[-1]):
+    wins += 1
+elif int(game_two_result[0]) < int(game_two_result[-1]):
+    loses += 1
+else:
+    draws += 1
+
+if int(game_three_result[0]) > int(game_three_result[-1]):
+    wins += 1
+elif int(game_three_result[0]) < int(game_three_result[-1]):
+    loses += 1
+else:
+    draws += 1
 
 print(f"Team won {wins} games.")
-print(f"Team lost {losses} games.")
-print(f"Drawn games: {draw}")
+print(f"Team lost {loses} games.")
+print(f"Drawn games: {draws}")
 
-# first_game_result = input()
-# second_game_result = input()
-# third_game_result = input()
-#
+
+
+
 # wins = 0
-# losses = 0
-# draw = 0
-#
-# if int(first_game_result[0]) > int(first_game_result[2]):
-#     wins += 1
-#
-# elif int(first_game_result[0]) == int(first_game_result[2]):
-#     draw += 1
-#
-# else:
-#     losses += 1
-#
-# if int(second_game_result[0]) > int(second_game_result[2]):
-#     wins += 1
-#
-# elif int(second_game_result[0]) == int(second_game_result[2]):
-#     draw += 1
-#
-# else:
-#     losses += 1
-#
-# if int(third_game_result[0]) > int(third_game_result[2]):
-#     wins += 1
-#
-# elif int(third_game_result[0]) == int(third_game_result[2]):
-#     draw += 1
-#
-# else:
-#     losses += 1
-#
+# loses = 0
+# draws = 0
+# 
+# for games in range(3):
+#     game_result = input()
+#     if int(game_result[0]) > int(game_result[-1]):
+#         wins += 1
+#     elif int(game_result[0]) < int(game_result[-1]):
+#         loses += 1
+#     else:
+#         draws += 1
+# 
 # print(f"Team won {wins} games.")
-# print(f"Team lost {losses} games.")
-# print(f"Drawn games: {draw}")
+# print(f"Team lost {loses} games.")
+# print(f"Drawn games: {draws}")
