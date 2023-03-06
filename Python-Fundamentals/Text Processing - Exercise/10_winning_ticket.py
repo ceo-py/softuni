@@ -5,7 +5,7 @@ symbols = ('@', '#', '$', '^')
 
 
 def find_most_symbols(ticket):
-    return max({s: ticket.count(s) for s in symbols}.items(), key=lambda x: x[1])
+    return max({s: ticket.count(s) for s in symbols}.items(), key=lambda x: x[1])[0]
 
 def find_most_in_a_row(ticket, symbol):
     return max([len(run) for run in "".join([symbol if char == symbol else " " for char in ticket]).split()] or [0])
@@ -18,7 +18,7 @@ for ticket in tickets:
         continue
 
     ticket_len = int(len(ticket) / 2)
-    type_symbol, most_symbols = find_most_symbols(ticket[:ticket_len])
+    type_symbol = find_most_symbols(ticket[:ticket_len])
     winnings = min([find_most_in_a_row(ticket[:ticket_len], type_symbol),
                     find_most_in_a_row(ticket[ticket_len:], type_symbol)])
 
@@ -30,6 +30,8 @@ for ticket in tickets:
 
     else:
         print(f'ticket "{ticket}" - no match')
+
+
 
 
 # tickets_sting = input().split(", ")
