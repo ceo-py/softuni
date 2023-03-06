@@ -1,6 +1,7 @@
 
 tickets = input().split(", ")
 symbols = ('@', '#', '$', '^')
+correct_ticket_len = 10
 
 
 
@@ -17,10 +18,9 @@ for ticket in tickets:
         print("invalid ticket")
         continue
 
-    ticket_len = int(len(ticket) / 2)
-    type_symbol = find_most_symbols(ticket[:ticket_len])
-    winnings = min([find_most_in_a_row(ticket[:ticket_len], type_symbol),
-                    find_most_in_a_row(ticket[ticket_len:], type_symbol)])
+    type_symbol = find_most_symbols(ticket[:correct_ticket_len])
+    winnings = min([find_most_in_a_row(ticket[:correct_ticket_len], type_symbol),
+                    find_most_in_a_row(ticket[correct_ticket_len:], type_symbol)])
 
     if winnings == 10:
         print(f'ticket "{ticket}" - 10{type_symbol} Jackpot!')
