@@ -1,40 +1,74 @@
-tickets_sting = input().split(", ")
-symbols = ['@', '#', '$', '^']
+
+tickets = input().split(", ")
+symbols = ('@', '#', '$', '^')
 
 
-def get_max_in_a_row(string, symbol):
-    next_, current = 0, 0
-    for x in range(len(string)):
-        if string[x] == symbol:
-            next_ += 1
-            if x == len(string) - 1:
-                if current < next_:
-                    current = next_
-        else:
-            if current < next_:
-                current = next_
-            next_ = 0
-    return current
 
+def find_most_symbols(ticket):
+    return max({s: ticket.count(s) for s in symbols}.items(), key=lambda x: x[1])
 
-for ticket_characters in tickets_sting:
-    ticket_characters = ticket_characters.replace(" ", "")
-    if len(ticket_characters) == 20:
-        how_long = int(len(ticket_characters) / 2)
-        left_side, right_side = ticket_characters[:how_long], ticket_characters[how_long:]
-        for symbol in symbols:
-            sum_of_l, sum_of_r = get_max_in_a_row(left_side, symbol), get_max_in_a_row(right_side, symbol)
-            if sum_of_l == sum_of_r == 10:
-                print(f'ticket "{ticket_characters}" - 10{symbol} Jackpot!')
-                break
-            winners_price = min(sum_of_l, sum_of_r)
-            if winners_price >= 6:
-                print(f'ticket "{ticket_characters}" - {winners_price}{symbol}')
-                break
-        else:
-            print(f'ticket "{ticket_characters}" - no match')
-    else:
+def find_most_in_a_row(ticket, symbol):
+    return max([len(run) for run in "".join([symbol if char == symbol else " " for char in ticket]).split()] or [0])
+
+for ticket in tickets:
+    ticket = ticket.strip()
+
+    if len(ticket) != 20:
         print("invalid ticket")
+        continue
+
+    ticket_len = int(len(ticket) / 2)
+    type_symbol, most_symbols = find_most_symbols(ticket[:ticket_len])
+    winnings = min([find_most_in_a_row(ticket[:ticket_len], type_symbol),
+                    find_most_in_a_row(ticket[ticket_len:], type_symbol)])
+
+    if winnings == 10:
+        print(f'ticket "{ticket}" - 10{type_symbol} Jackpot!')
+
+    elif winnings >= 6:
+        print(f'ticket "{ticket}" - {winnings}{type_symbol}')
+
+    else:
+        print(f'ticket "{ticket}" - no match')
+
+
+# tickets_sting = input().split(", ")
+# symbols = ['@', '#', '$', '^']
+#
+#
+# def get_max_in_a_row(string, symbol):
+#     next_, current = 0, 0
+#     for x in range(len(string)):
+#         if string[x] == symbol:
+#             next_ += 1
+#             if x == len(string) - 1:
+#                 if current < next_:
+#                     current = next_
+#         else:
+#             if current < next_:
+#                 current = next_
+#             next_ = 0
+#     return current
+#
+#
+# for ticket_characters in tickets_sting:
+#     ticket_characters = ticket_characters.replace(" ", "")
+#     if len(ticket_characters) == 20:
+#         how_long = int(len(ticket_characters) / 2)
+#         left_side, right_side = ticket_characters[:how_long], ticket_characters[how_long:]
+#         for symbol in symbols:
+#             sum_of_l, sum_of_r = get_max_in_a_row(left_side, symbol), get_max_in_a_row(right_side, symbol)
+#             if sum_of_l == sum_of_r == 10:
+#                 print(f'ticket "{ticket_characters}" - 10{symbol} Jackpot!')
+#                 break
+#             winners_price = min(sum_of_l, sum_of_r)
+#             if winners_price >= 6:
+#                 print(f'ticket "{ticket_characters}" - {winners_price}{symbol}')
+#                 break
+#         else:
+#             print(f'ticket "{ticket_characters}" - no match')
+#     else:
+#         print("invalid ticket")
 
 
 
