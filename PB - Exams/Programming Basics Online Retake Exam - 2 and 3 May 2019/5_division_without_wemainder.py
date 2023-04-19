@@ -23,3 +23,14 @@ print(f"{divide_three:.2f}%")
 print(f"{divide_four:.2f}%")
 
 
+
+
+# full_numbers = int(input())
+#
+# numbers = [int(input()) for _ in range(full_numbers)]
+#
+# print(f"{sum(1 for n in numbers if n % 2 == 0) / full_numbers * 100:.2f}%")
+# print(f"{sum(1 for n in numbers if n % 3 == 0) / full_numbers * 100:.2f}%")
+# print(f"{sum(1 for n in numbers if n % 4 == 0) / full_numbers * 100:.2f}%")
+
+
