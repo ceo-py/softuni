@@ -1,12 +1,25 @@
-main_list = input().split(", ")
-
-
 def check_palindrome(numbers):
-    for n in numbers:
-        if n == n[::-1]:
-            print("True")
-        else:
-            print("False")
+    [print(n == n[::-1]) for n in numbers]
+
+check_palindrome(input().split(", "))
 
 
-check_palindrome(main_list)
+
+
+# [print(n == n[::-1]) for n in input().split(", ")]
+
+
+
+
+# main_list = input().split(", ")
+#
+#
+# def check_palindrome(numbers):
+#     for n in numbers:
+#         if n == n[::-1]:
+#             print("True")
+#         else:
+#             print("False")
+#
+#
+# check_palindrome(main_list)
