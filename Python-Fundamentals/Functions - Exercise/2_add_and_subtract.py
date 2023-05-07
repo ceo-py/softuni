@@ -4,13 +4,10 @@ number_three = int(input())
 
 
 def sum_numbers(one, two):
-    result = one + two
-    return result
-
+    return one + two
 
 def subtract(three):
-    result = sum_numbers(number_one, number_two) - three
-    return result
-
+    return sum_numbers(number_one, number_two) - three
 
 print(subtract(number_three))
+
