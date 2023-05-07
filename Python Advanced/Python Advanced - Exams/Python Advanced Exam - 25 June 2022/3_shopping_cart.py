@@ -5,15 +5,15 @@ def shopping_cart(*args):
             break
         meal, product = info
 
-        if product not in result[meal]:
-            if meal == "Soup" and len(result[meal]) != 3:
-                result[meal].append(product)
-            elif meal == "Pizza" and len(result[meal]) != 4:
-                result[meal].append(product)
-            elif meal == "Dessert" and len(result[meal]) != 2:
-                result[meal].append(product)
+        if product in result[meal]:
+            continue
 
-    for s_meal, s_product in sorted(result.items(), key= lambda x: (-len(x[1]), x[0])):
+        if any((meal == "Soup" and len(result[meal]) != 3,
+                meal == "Pizza" and len(result[meal]) != 4,
+                meal == "Dessert" and len(result[meal]) != 2)):
+            result[meal].append(product)
+
+    for s_meal, s_product in sorted(result.items(), key=lambda x: (-len(x[1]), x[0])):
         output.append(f"{s_meal}:")
         for a_product in sorted(s_product):
             output.append(f" - {a_product}")
@@ -22,10 +22,6 @@ def shopping_cart(*args):
         return '\n'.join(output)
 
     return "No products in the cart!"
-
-
-
-
 
 
 
@@ -73,8 +69,6 @@ def shopping_cart(*args):
 #     return output
 #
 #
-
-
 
 
 '''
