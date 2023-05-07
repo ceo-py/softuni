@@ -10,3 +10,12 @@ def find_range_of_characters(one, two):
 
 
 find_range_of_characters(character_one, character_two)
+
+
+
+
+#
+# def find_range_of_characters(one, two):
+#     print(' '.join(chr(n) for n in range(int(ord(one) + 1), int(ord(two)))))
+#
+# find_range_of_characters(input(), input())
