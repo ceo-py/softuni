@@ -11,3 +11,10 @@ def find_smallest_number(list_of_numbers):
 
 
 print(find_smallest_number(numbers))
+
+
+
+
+
+
+# print(min(int(input()) for x in range(3)))
