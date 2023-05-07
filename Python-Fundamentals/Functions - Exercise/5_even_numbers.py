@@ -11,3 +11,12 @@ def filter(numbers):
 
 
 print(filter(main_list))
+
+
+
+
+
+# def filter(numbers):
+#     return list(n for n in numbers if n % 2 == 0)
+#
+# print(filter(int(n) for n in input().split()))
