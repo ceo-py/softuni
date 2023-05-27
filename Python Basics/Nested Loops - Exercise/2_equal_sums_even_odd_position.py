@@ -16,6 +16,22 @@ for number in range(number_one, number_two + 1):
 
 
 
+
+
+# six_num_s = int(input())
+# six_num_e = int(input())
+# for num in range(six_num_s, six_num_e + 1):
+#     num_l = list(map(int, str(num)))
+#     odd_sum = num_l[0] + num_l[2] + num_l[4]
+#     even_sum = num_l[1] + num_l[3] + num_l[5]
+#     if odd_sum == even_sum:
+#         print(num ,end=" ")
+
+
+
+
+
+
 # [print(num, end=" ") for num in range(int(input()), int(input()) + 1) if sum(list(map(int, str(num)))[::2]) == sum(list(map(int, str(num)))[1::2])]
 
 
