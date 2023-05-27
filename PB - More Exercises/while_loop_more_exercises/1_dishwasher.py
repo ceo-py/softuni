@@ -1,35 +1,101 @@
-vero = int(input()) * 750
-counter = 0
-vero_needed = 0
-pots = 0
-plates = 0
-
-input_line = input()
-while input_line != "End":
-    dishes = int(input_line)
-    if dishes == int(input_line):
-        counter += 1
-
-    if counter % 3 == 0:
-        pots += dishes
-        vero_needed += dishes * 15
+quantity_of_bottles_of_cleaning_detergent = int(input())
+command = input()
+stuff_load_counter = 0
+dishes_counter = 0
+pan_counter = 0
+total_quantity = 750 * quantity_of_bottles_of_cleaning_detergent
+while command != "End":
+    number_of_stuff_to_wash = int(command)
+    stuff_load_counter += 1
+    if stuff_load_counter % 3 == 0:
+        pan_counter += number_of_stuff_to_wash
+        total_quantity -= number_of_stuff_to_wash * 15
     else:
-        plates += dishes
-        vero_needed += dishes * 5
-
-    if vero_needed > vero:
+        dishes_counter += number_of_stuff_to_wash
+        total_quantity -= number_of_stuff_to_wash * 5
+    if total_quantity < 0:
+        print(f"Not enough detergent, {abs(total_quantity)} ml. more necessary!")
         break
 
-    input_line = input()
+    command = input()
 
-diff = abs(vero - vero_needed)
-if vero_needed <= vero:
+if command == "End":
     print("Detergent was enough!")
-    print(f"{plates} dishes and {pots} pots were washed.")
-    print(f"Leftover detergent {diff} ml.")
-else:
-    print(f"Not enough detergent, {diff} ml. more necessary!")
+    print(f"{dishes_counter} dishes and {pan_counter} pots were washed.")
+    print(f"Leftover detergent {total_quantity} ml.")
 
+
+
+
+
+#
+# number_detergents = int(input())
+# total_detergents = number_detergents * 750
+# command = input()
+# counter, pots, dishes, needed_detergent, detergent_is_finished = 0, 0, 0, 0,False
+#
+# while command != "End":
+#
+#     total_dishes = int(command)
+#     counter += 1
+#     if counter % 3 == 0:
+#         pots += total_dishes
+#         needed_detergent += total_dishes * 15
+#     else:
+#         dishes += total_dishes
+#         needed_detergent += total_dishes * 5
+#     if needed_detergent > total_detergents:
+#         detergent_is_finished = True
+#         break
+#     command = input()
+#
+# difference = abs(needed_detergent - total_detergents)
+#
+# if detergent_is_finished:
+#     print(f"Not enough detergent, {difference} ml. more necessary!")
+# else:
+#     print("Detergent was enough!")
+#     print(f"{dishes} dishes and {pots} pots were washed.")
+#     print(f"Leftover detergent {difference} ml.")
+#
+#
+
+
+
+
+
+# vero = int(input()) * 750
+# counter = 0
+# vero_needed = 0
+# pots = 0
+# plates = 0
+#
+# input_line = input()
+# while input_line != "End":
+#     dishes = int(input_line)
+#     if dishes == int(input_line):
+#         counter += 1
+#
+#     if counter % 3 == 0:
+#         pots += dishes
+#         vero_needed += dishes * 15
+#     else:
+#         plates += dishes
+#         vero_needed += dishes * 5
+#
+#     if vero_needed > vero:
+#         break
+#
+#     input_line = input()
+#
+# diff = abs(vero - vero_needed)
+# if vero_needed <= vero:
+#     print("Detergent was enough!")
+#     print(f"{plates} dishes and {pots} pots were washed.")
+#     print(f"Leftover detergent {diff} ml.")
+# else:
+#     print(f"Not enough detergent, {diff} ml. more necessary!")
+#
 
 
 #
