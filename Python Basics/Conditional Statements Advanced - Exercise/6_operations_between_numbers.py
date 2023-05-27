@@ -25,6 +25,80 @@ else:
 
 
 
+
+#
+#
+# number_one = int(input())
+# number_two = int(input())
+# operator = input()
+#
+# if number_one == 0:
+#      print(f"Cannot divide {number_one} by zero")
+# elif number_two == 0:
+#      print(f"Cannot divide {number_one} by zero")
+# elif operator == "+":
+#     total = number_one + number_two
+#     if total % 2 == 0:
+#         print(f"{number_one} + {number_two} = {total} - even")
+#     else:
+#         print(f"{number_one} + {number_two} = {total} - odd")
+# elif operator == "-":
+#     total = number_one - number_two
+#     if total % 2 == 0:
+#         print(f"{number_one} - {number_two} = {total} - even")
+#     else:
+#         print(f"{number_one} - {number_two} = {total} - odd")
+# elif operator == "*":
+#     total = number_one * number_two
+#     if total % 2 == 0:
+#         print(f"{number_one} * {number_two} = {total} - even")
+#     else:
+#         print(f"{number_one} * {number_two} = {total} - odd")
+# elif operator == "/":
+#     total = number_one / number_two
+#     print(f"{number_one} / {number_two} = {total:.2f}")
+# elif operator == "%":
+#     total = number_one % number_two
+#     print(f"{number_one} % {number_two} = {total}")
+#
+
+
+
+
+# num_1 = int(input())
+# num_2 = int(input())
+# operator = input()
+#
+# result = 0
+#
+# if num_1 == 0 or num_2 == 0:
+#     print(f'Cannot divide {num_1} by zero')
+# else:
+#     if operator == '+':
+#         result = num_1 + num_2
+#     elif operator == '-':
+#         result = num_1 - num_2
+#     elif operator == '*':
+#         result = num_1 * num_2
+#     elif operator == '/':
+#         result = num_1 / num_2
+#     elif operator == '%':
+#         result = num_1 % num_2
+#     if operator == '+' or operator == '-' or operator == '*':
+#         if result % 2 != 0:
+#             print(f'{num_1} {operator} {num_2} = {result} - odd')
+#         else:
+#             print(f'{num_1} {operator} {num_2} = {result} - even')
+#     elif operator == '/':
+#             print(f"{num_1} / {num_2} = {result:.2f}")
+#     elif operator == '%':
+#             print(f"{num_1} % {num_2} = {result}")
+#
+
+
+
+
+
 # number_one = int(input())
 # number_two = int(input())
 # operator = input()
