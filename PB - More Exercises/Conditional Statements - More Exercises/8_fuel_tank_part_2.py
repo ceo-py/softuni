@@ -57,3 +57,50 @@ print(f"{total:.2f} lv.")
 #     total += - (total * off_over_twenty_five_liters)
 #
 # print(f"{total:.2f} lv.")
+
+
+
+
+# fuel = input()
+# quantity_fuel = float(input())
+# card = input()
+#
+# type_fuel = fuel.lower()
+# card = card.lower()
+#
+# fuel_type = {"diesel": {
+#     "diesel": 2.33,
+#     "yes": 0.12,
+#     "no": 0},
+#     "gas": {
+#         "gas": 0.93,
+#         "yes": 0.08,
+#         "no": 0},
+#     "gasoline": {
+#         "gasoline": 2.22,
+#         "yes": 0.18,
+#         "no": 0}
+# }
+# off_over_twenty_five_liters = 0.10
+# off_between_twenty_and_twenty_five = 0.08
+#
+# between_twenty_and_twenty_five_check = [*range(20, 25, 1)]
+#
+# if quantity_fuel in between_twenty_and_twenty_five_check and card == "yes":
+#     total = (fuel_type[type_fuel][type_fuel] - fuel_type[type_fuel][card]) * quantity_fuel
+#     total += - (total * off_between_twenty_and_twenty_five)
+# elif quantity_fuel > 25 and card == "yes":
+#     total = (fuel_type[type_fuel][type_fuel] - fuel_type[type_fuel][card]) * quantity_fuel
+#     total += - (total * off_over_twenty_five_liters)
+# elif 0 <= quantity_fuel <= 19 and card == "yes":
+#     total = (fuel_type[type_fuel][type_fuel] - fuel_type[type_fuel][card]) * quantity_fuel
+# elif 0 <= quantity_fuel <= 19 and card == "no":
+#     total = fuel_type[type_fuel][type_fuel] * quantity_fuel
+# elif 20 <= quantity_fuel <= 25 and card == "no":
+#     total = fuel_type[type_fuel][type_fuel] * quantity_fuel
+#     total += - (total * off_between_twenty_and_twenty_five)
+# elif quantity_fuel > 25 and card == "no":
+#     total = fuel_type[type_fuel][type_fuel] * quantity_fuel
+#     total += - (total * off_over_twenty_five_liters)
+#
+# print(f"{total:.2f} lv.")
