@@ -22,3 +22,29 @@ for x1 in range(number, number_end + 1):
 
 if stop != 2:
     print(f"{combinations_count} combinations - neither equals {magic_number}")
+
+
+
+
+
+
+
+# n_begin = int(input())
+# n_end = int(input())
+# magic = int(input())
+# coun = 0
+# found_combo = False
+# for i in range(n_begin, n_end + 1):
+#     for j in range(n_begin, n_end + 1):
+#         coun += 1
+#         if i + j == magic:
+#             found_combo = True
+#             break
+#     if found_combo:
+#         break
+#
+# if found_combo:
+#     print(f'Combination N:{coun} ({i} + {j} = {magic})')
+# else:
+#     print(f'{coun} combinations - neither equals {magic}')
+#
