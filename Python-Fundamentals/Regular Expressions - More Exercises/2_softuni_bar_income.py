@@ -61,3 +61,60 @@ print(f"Total income: {total_income:.2f}")
 #     customers = input()
 #
 # print(f"Total income: {total_income:.2f}")
+
+
+
+
+
+# import re
+#
+# customers = input()
+#
+# customer_name = re.compile(r"\%{1}([A-Z]{1}[a-z]{1,})\%{1}")
+# product_name = re.compile(r"\<{1}([\w]{1,})\>{1}")
+# price_product = re.compile(r"\|{1}(\d{1,})\|{1}")
+# value_product = re.compile(r"(\d+\.\d+)\b([$]){1}|(\d+\d+)\b([$]){1}")
+#
+# total_income = 0
+# while customers != "end of shift":
+#
+#     name_d = re.finditer(customer_name, customers)
+#     product_d = re.finditer(product_name, customers)
+#     price_d = re.finditer(price_product, customers)
+#     value_d = re.finditer(value_product, customers)
+#     name_find = None
+#     product_find = None
+#     price_find = None
+#     value_find = None
+#     for show in name_d:
+#         # print(show[0])
+#         name_find = show[1]
+#         # print(show[1])
+#     for p_name in product_d:
+#         # print(p_name[0])
+#         product_find = p_name[1]
+#         # print(p_name[1])
+#
+#     for p_price in price_d:
+#         # print(p_price[0])
+#         price_find = float(p_price[1])
+#         # print(p_price[1])
+#
+#     for p_value in value_d:
+#         # print(p_value[0])
+#         if p_value[1] is None:
+#             value_find = float(p_value[3])
+#         elif p_value[3] is None:
+#             value_find = float(p_value[1])
+#         # print(p_value[1])
+#         # # print(p_value[2])
+#         # print(p_value[3])
+#
+#     if all([name_find != None, product_find != None, price_find != None, value_find != None]):
+#         print(f"{name_find}: {product_find} - {(price_find * value_find):.2f}")
+#         total_income += (price_find * value_find)
+#
+#     customers = input()
+#
+# print(f"Total income: {total_income:.2f}")
+
