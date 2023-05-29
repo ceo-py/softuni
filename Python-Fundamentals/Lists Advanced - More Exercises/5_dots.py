@@ -50,6 +50,71 @@ print(max(max_connected_points))
 
 
 
+
+
+
+
+
+
+# from copy import deepcopy
+#
+#
+# def count_dots(grid):
+#     dots = [(r, c) for r in range(len(grid)) for c in range(len(grid[0])) if grid[r][c] == '.']
+#     list_of_groups = []
+#
+#     for dot in dots:
+#         group = set()
+#         group.add(dot)
+#
+#         for _dot in dots:
+#             if (dot[0] == _dot[0] and (dot[1] == _dot[1] + 1 or dot[1] == _dot[1] - 1)) \
+#                     or (dot[1] == _dot[1] and (dot[0] == _dot[0] + 1 or dot[0] == _dot[0] - 1)):
+#                 group.add(_dot)
+#         list_of_groups.append(group)
+#
+#     return dots, list_of_groups
+#
+#
+# def extract_groups(dots, list_of_groups):
+#     change = False
+#     while change is False:
+#         change = False
+#
+#         for g in range(len(deepcopy(list_of_groups))):
+#             for _g in range(len(list_of_groups)):
+#
+#                 if list_of_groups[g] is not None and list_of_groups[_g] is not None:
+#                     if list_of_groups[g] != list_of_groups[_g] and not list_of_groups[g].isdisjoint(list_of_groups[_g]):
+#                         list_of_groups[g] = list_of_groups[g] | list_of_groups[_g]
+#                         list_of_groups[_g] = None
+#                         change = True
+#
+#         list_of_groups = [group for group in list_of_groups if group != None]
+#
+#     return list_of_groups
+#
+#
+# def main():
+#     grid = []
+#     for _ in range(int(input())):
+#         grid.append(input().split())
+#
+#     dots, list_of_groups = count_dots(grid)
+#     groups = extract_groups(dots, list_of_groups)
+#     the_group = max([len(group) for group in groups])
+#     print(the_group)
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+
+
+
+
+
+
 #
 # def dfs(i, j, n, m, grid, visited):
 #     count = 0
