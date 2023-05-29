@@ -1,13 +1,23 @@
 key = int(input())
-line = int(input())
+print(*[chr(ord(input()) + key) for _ in range(int(input()))], sep ="")
 
-word = list()
 
-for _ in range(line):
-    letter = input()
-    word.append(chr(ord(letter) + key))
+#
+# key = int(input())
+# line = int(input())
+#
+# word = list()
+#
+# for _ in range(line):
+#     letter = input()
+#     word.append(chr(ord(letter) + key))
+#
+# print(*word, sep="")
+#
 
-print(*word, sep="")
+
+
+
 
 # key = int(input())
 # line = int(input())
