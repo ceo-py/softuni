@@ -114,3 +114,30 @@ for pos, (user, score) in enumerate(sorted(individual.items(), key=lambda x: (-x
 #
 #
 # show_result()
+
+
+
+# contests = {}
+# users = {}
+# while True:
+#     command = input()
+#     if command == "no more time":
+#         break
+#     username, contest, points = command.split(" -> ")
+#     if contest not in contests:
+#         contests[contest] = {}
+#     if username not in contests[contest]:
+#         contests[contest][username] = 0
+#     if contests[contest][username] < int(points):
+#         contests[contest][username] = int(points)
+# for contest in contests.keys():
+#     print(f"{contest}: {len(contests[contest].keys())} participants")
+#     for i, (username, points) in enumerate(sorted(contests[contest].items(), key=lambda x: (-x[1], x[0])), 1):
+#         if username not in users:
+#             users[username] = 0
+#         users[username] += points
+#         print(f"{i}. {username} <::> {points}")
+# print("Individual standings:")
+# for i, (key, value) in enumerate(sorted(users.items(), key=lambda x: (-x[1], x[0])), 1):
+#     print(f"{i}. {key} -> {value}")
+#
