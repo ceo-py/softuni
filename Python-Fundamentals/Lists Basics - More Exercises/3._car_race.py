@@ -14,6 +14,42 @@ else:
 
 
 
+
+
+
+
+# sequence_of_timers = input().split()
+# timers_as_integers = []
+# for timer in sequence_of_timers:
+#     timers_as_integers.append(int(timer))
+# middle_timer = len(timers_as_integers)//2
+# left_side = timers_as_integers[0:middle_timer]
+# right_side = timers_as_integers[middle_timer+1:][::-1]
+#
+# left_time = 0
+# right_time = 0
+# for seconds in left_side:
+#     left_time += seconds
+#     if seconds == 0:
+#         left_time -= 0.2*left_time
+# for seconds2 in right_side:
+#     right_time += seconds2
+#     if seconds2 == 0:
+#         right_time -= 0.2 * right_time
+#
+# if left_time > right_time:
+#     print(f'The winner is right with total time: {right_time:.1f}')
+# elif left_time<right_time:
+#     print(f'The winner is left with total time: {left_time:.1f}')
+
+
+
+
+
+
+
+
+
 #
 # sequence_of_numbers = input().split(" ")
 #
