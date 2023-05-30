@@ -42,3 +42,63 @@ else:
         total = (days_to_stay * 130)
 
     print(f"The price is {total:.2f}lv! Have a nice time!")
+
+
+
+
+
+
+
+
+# name_of_town = input()  #  ("Bansko",  "Borovets", "Varna" или "Burgas")
+# type_of_package = input()  # "noEquipment",  "withEquipment", "noBreakfast" или "withBreakfast")
+# vip_discount = input()  # "yes" or "no"
+# days_of_stay = int(input())
+# price_per_day = 0
+# correctly_inputted_name = True
+#
+# towns = ["Varna", "Burgas", "Bansko", "Borovets"]
+# packets_type = ["withEquipment", "noEquipment", "withBreakfast", "noBreakfast"]
+# total = 0
+#
+# if name_of_town not in towns or type_of_package not in packets_type:
+#     print(f"Invalid input!")
+#
+#
+# elif days_of_stay < 1:
+#     print("Days must be positive number!")
+# else:
+#     if days_of_stay > 7:
+#         days_of_stay -= 1
+#     if name_of_town == "Bansko" or name_of_town == "Borovets":
+#         if type_of_package == "noEquipment":
+#             if vip_discount == "no":
+#                 price_per_day = 80
+#             elif vip_discount == "yes":
+#                 price_per_day = 80 * 0.95
+#         elif type_of_package == "withEquipment":
+#             if vip_discount == "no":
+#                 price_per_day = 100
+#             elif vip_discount == "yes":
+#                 price_per_day = 100 * 0.90
+#     elif name_of_town == "Varna" or name_of_town == "Burgas":
+#         if type_of_package == "noBreakfast":
+#             if vip_discount == "no":
+#                 price_per_day = 100
+#             elif vip_discount == "yes":
+#                 price_per_day = 100 * 0.93
+#         elif type_of_package == "withBreakfast":
+#             if vip_discount == "no":
+#                 price_per_day = 130
+#             elif vip_discount == "yes":
+#                 price_per_day = 130 * 0.88
+#     else:
+#         correctly_inputted_name = False
+#
+#     if correctly_inputted_name:
+#         total_price = price_per_day * days_of_stay
+#         print(f"The price is {total_price:.2f}lv! Have a nice time!")
+#     # else:
+#     #     print("Invalid input!")
+#
+#
