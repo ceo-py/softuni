@@ -61,3 +61,32 @@ print(f"Max eggs: {max_eggs_number_from_color} -> {color}")
 #     print(f"{color.capitalize()} eggs: {number}")
 #
 # print(f"Max eggs: {eggs_info[max_eggs]} -> {max_eggs}")
+
+
+
+
+#
+# red = 0
+# ora = 0
+# blue = 0
+# green = 0
+# quant = int(input())
+# for i in range(quant):
+#     col = input()
+#     if col == 'red':
+#         red += 1
+#     elif col == 'orange':
+#         ora += 1
+#     elif col == 'blue':
+#         blue += 1
+#     elif col == 'green':
+#         green += 1
+# col_list = ['', 'red', 'orange', 'blue', 'green']
+# quan_list = [0, red, ora, blue, green]
+# x = max(quan_list)
+# print(f'Red eggs: {red}')
+# print(f'Orange eggs: {ora}')
+# print(f'Blue eggs: {blue}')
+# print(f'Green eggs: {green}')
+# max_n = max(quan_list)
+# print(f'Max eggs: {max_n} -> {col_list[quan_list.index(max_n)]}')
