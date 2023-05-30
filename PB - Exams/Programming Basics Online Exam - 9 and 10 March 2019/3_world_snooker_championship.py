@@ -90,3 +90,72 @@ print(f"{total_sum:.2f}")
 #
 #
 # print(f"{total:.2f}")
+
+
+
+# competitions_type = input()
+# ticket_type = input()
+# number_tickets = int(input())
+# picture_with_trophy = input()
+#
+# if competitions_type == "Quarter final":
+#
+#     if ticket_type == "Standard":
+#
+#         total = number_tickets * 55.50
+#
+#     elif ticket_type == "Premium":
+#
+#         total = number_tickets * 105.20
+#
+#     elif ticket_type == "VIP":
+#
+#         total = number_tickets * 118.90
+#
+#
+# elif competitions_type == "Semi final":
+#
+#     if ticket_type == "Standard":
+#
+#         total = number_tickets * 75.88
+#
+#     elif ticket_type == "Premium":
+#
+#         total = number_tickets * 125.22
+#
+#     elif ticket_type == "VIP":
+#
+#         total = number_tickets * 300.40
+#
+# elif competitions_type == "Final":
+#
+#     if ticket_type == "Standard":
+#
+#         total = number_tickets * 110.10
+#
+#     elif ticket_type == "Premium":
+#
+#         total = number_tickets * 160.66
+#
+#     elif ticket_type == "VIP":
+#
+#         total = number_tickets * 400
+#
+# if total > 4000 and picture_with_trophy == "Y":
+#     total = total - (total * 0.25)
+#
+# elif total > 4000 and picture_with_trophy == "N":
+#     total = total - (total * 0.25)
+#
+# elif total > 2500 and picture_with_trophy == "Y":
+#     total = total - (total * 0.10)
+#     total = total + (40 * number_tickets)
+#
+# elif total > 2500 and picture_with_trophy == "N":
+#     total = total - (total * 0.10)
+#
+# elif picture_with_trophy == "Y":
+#     total = total + (40 * number_tickets)
+#
+# print(f"{total:.2f}")
+
