@@ -17,3 +17,26 @@ if movie_budget > total_movie_cost and total_movie_cost >= 0:
 
 else:
     print(f"Not enough money!\nWingard needs {abs(total_movie_cost):.2f} leva more.")
+
+
+
+# film_budget = float(input())
+# num_extra_people = int(input())
+# price_per_person_clothing = float(input())
+# decor = film_budget * 0.1
+#
+# if num_extra_people > 150:
+#     full_price_clothing = (num_extra_people * price_per_person_clothing) * 0.9
+# else:
+#     full_price_clothing = num_extra_people * price_per_person_clothing
+#
+# total_price = full_price_clothing + decor
+# rest = film_budget - total_price
+# rest_printed = abs(rest)
+# if total_price > film_budget:
+#     print("Not enough money!")
+#     print(f'Wingard needs {rest_printed:.2f} leva more.')
+# elif total_price <= film_budget:
+#     print("Action!")
+#     print(f'Wingard starts filming with {rest_printed:.2f} leva left.')
+#
