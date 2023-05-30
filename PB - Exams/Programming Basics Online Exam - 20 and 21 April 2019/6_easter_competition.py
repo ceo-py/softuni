@@ -27,3 +27,28 @@ for _ in range(0, easter_cake_number):
             score += int(score_number)
 
 print(f"{best_baker} won competition with {best_score} points!")
+
+
+
+
+# import sys
+#
+# breads = int(input())
+# highest_points = -sys.maxsize
+# best = ""
+# for i in range(breads):
+#     name_of_baker = input()
+#     grade_per_person = input()
+#     grade_per_baker = 0
+#     while grade_per_person != 'Stop':
+#         grade = int(grade_per_person)
+#         grade_per_baker += grade
+#         grade_per_person = input()
+#
+#     print(f"{name_of_baker} has {grade_per_baker} points.")
+#     if grade_per_baker > highest_points:
+#         highest_points = grade_per_baker
+#         best = name_of_baker
+#         print(f'{name_of_baker} is the new number 1!')
+#
+# print(f"{best} won competition with {highest_points} points!")
