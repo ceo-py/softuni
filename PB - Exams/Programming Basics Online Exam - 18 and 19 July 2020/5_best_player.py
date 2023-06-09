@@ -1,24 +1,51 @@
-max_goals = 0
-max_goals_player = ""
-
+player_name = ''
+player_goals = 0
 
 player = input()
-while player != "END":
+
+while player != 'END':
     goals = int(input())
-    if goals > max_goals:
-        max_goals = goals
-        max_goals_player = player
+
+    if goals > player_goals:
+        player_name = player
+        player_goals = goals
+
     if goals >= 10:
         break
+
     player = input()
 
-print(f"{max_goals_player} is the best player!")
-if 3 <= max_goals:
-    print(f"He has scored {max_goals} goals and made a hat-trick !!!")
+print(f'{player_name} is the best player!')
+
+if player_goals >= 3:
+    print(f'He has scored {player_goals} goals and made a hat-trick !!!')
 else:
-    print(f"He has scored {max_goals} goals.")
+    print(f'He has scored {player_goals} goals.')
 
 
+
+
+# max_goals = 0
+# max_goals_player = ""
+
+
+# player = input()
+# while player != "END":
+#     goals = int(input())
+#     if goals > max_goals:
+#         max_goals = goals
+#         max_goals_player = player
+#     if goals >= 10:
+#         break
+#     player = input()
+#
+# print(f"{max_goals_player} is the best player!")
+# if 3 <= max_goals:
+#     print(f"He has scored {max_goals} goals and made a hat-trick !!!")
+# else:
+#     print(f"He has scored {max_goals} goals.")
+#
+#
 
 
 
@@ -48,3 +75,4 @@ else:
 #
 #         print(f"He has scored {goal} goals.")
 #     break
+
