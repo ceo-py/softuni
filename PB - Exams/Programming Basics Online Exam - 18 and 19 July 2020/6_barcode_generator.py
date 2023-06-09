@@ -1,15 +1,27 @@
-start = int(input())
-end = int(input())
+start = input()
+end = input()
 
-first_start = int(start / 1000)
-second_start = int((start / 100) % 10)
-third_start = int((start / 10) % 10)
-fourth_start = int(start % 10)
 
-first_end = int(end / 1000)
-second_end = int((end / 100) % 10)
-third_end = int((end / 10) % 10)
-fourth_end = int(end % 10)
+# first_start = int(start / 1000)
+# second_start = int((start / 100) % 10)
+# third_start = int((start / 10) % 10)
+# fourth_start = int(start % 10)
+#
+# first_end = int(end / 1000)
+# second_end = int((end / 100) % 10)
+# third_end = int((end / 10) % 10)
+# fourth_end = int(end % 10)
+
+
+first_start = int(start[0])
+second_start = int(start[1])
+third_start = int(start[2])
+fourth_start = int(start[3])
+
+first_end = int(end[0])
+second_end = int(end[1])
+third_end = int(end[2])
+fourth_end = int(end[3])
 
 
 for num_1 in range(first_start, first_end + 1):
