@@ -1,3 +1,18 @@
+air_line = input()
+adults_ticket_number = int(input())
+kids_ticket_number = int(input())
+adults_ticket_price = float(input())
+tax = float(input())
+
+adults_sum = adults_ticket_number * (adults_ticket_price + tax)
+kids_sum = kids_ticket_number * (adults_ticket_price * 0.30 + tax)
+total_sum = (kids_sum + adults_sum) * 0.20
+
+print(f'The profit of your agency from {air_line} tickets is {total_sum:.2f} lv.')
+
+
+
+
 air_comapy_name = input()
 adult_tickets = int(input())
 kids_tickets = int(input())
@@ -15,3 +30,5 @@ total_price_tickets = adult_tickets * adult_tickets_fee + kids_tickets_fee * kid
 profit = "{:.2f}".format(total_price_tickets * proftif_margin)
 
 print(f"The profit of your agency from {air_comapy_name} tickets is {profit} lv.")
+
+
