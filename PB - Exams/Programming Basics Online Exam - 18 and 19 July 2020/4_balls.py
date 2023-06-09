@@ -45,22 +45,6 @@ print(f"Divides from black balls: {black}")
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #
 # import math
 #
@@ -121,3 +105,52 @@ print(f"Divides from black balls: {black}")
 # print("Other colors picked:", balls["counter"]["other balls"])
 # print("Divides from black balls:", balls["counter"]["black"])
 #
+
+
+
+# import math
+#
+# ball_numbers = int(input())
+#
+# total_points = 0
+# ball_red = 0
+# ball_orange = 0
+# ball_yellow = 0
+# ball_white = 0
+# other_colors = 0
+# divided_black = 0
+#
+# for ball in range(ball_numbers):
+#     ball_color = input()
+#
+#     if ball_color == 'red':
+#         total_points += 5
+#         ball_red += 1
+#
+#     elif ball_color == 'orange':
+#         total_points += 10
+#         ball_orange += 1
+#
+#     elif ball_color == 'yellow':
+#         total_points += 15
+#         ball_yellow += 1
+#
+#     elif ball_color == 'white':
+#         total_points += 20
+#         ball_white += 1
+#
+#     elif ball_color == 'black':
+#         divided_black += 1
+#         total_points -= math.ceil(total_points / 2)
+#
+#     else:
+#         other_colors += 1
+#
+# print(f'Total points: {total_points}')
+# print(f'Red balls: {ball_red}')
+# print(f'Orange balls: {ball_orange}')
+# print(f'Yellow balls: {ball_yellow}')
+# print(f'White balls: {ball_white}')
+# print(f'Other colors picked: {other_colors}')
+# print(f'Divides from black balls: {divided_black}')
+
