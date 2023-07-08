@@ -52,31 +52,26 @@ show_result()
 # dragons_by_colours = {}
 #
 # for _ in range(number_of_dragons):
-#     colour, name, damage, health, armor = input().split()
-#     if colour not in dragons_by_colours:
-#         dragons_by_colours[colour] = {}
-#     dragons_by_colours[colour][name] = [45 if damage == "null" else int(damage),
-#                                         250 if health == "null" else int(health),
-#                                         10 if armor == "null" else int(armor)]
+#     colour, name, damage, health, armor = (int(x) if x.isdigit() else x for x in input().split())
+#     dragons_by_colours[colour] = dragons_by_colours.get(colour, {})
+#     dragons_by_colours[colour][name] = (45 if damage == "null" else damage,
+#                                         250 if health == "null" else health,
+#                                         10 if armor == "null" else armor)
 #
 # average_per_colour = {}
 # for colour, name in dragons_by_colours.items():
-#     avg_for_colour = []
+#     avg_for_color = []
 #     for dragon, info in name.items():
-#         if len(name) > 1:
-#             avg_for_colour.append(info)
-#         else:
-#             avg_for_colour.append(info)
-#         avg_result = [sum(i) / len(avg_for_colour) for i in zip(*avg_for_colour)]
+#         avg_for_color.append(info)
+#         avg_result = [sum(i) / len(avg_for_color) for i in zip(*avg_for_color)]
 #     average_per_colour[colour] = avg_result
 #
 # sorted_dictionary = {k: {x: y for x, y in sorted(v.items())} for k, v in dragons_by_colours.items()}
 #
-# for colour, average in average_per_colour.items():
-#     print(f"{colour}::({average[0]:.2f}/{average[1]:.2f}/{average[2]:.2f})")
-#     for name, info in sorted_dictionary[colour].items():
-#         print(f"-{name} -> damage: {info[0]}, health: {info[1]}, armor: {info[2]}")
-#
+# for colour, data in average_per_colour.items():
+#     print(f"{colour}::({'/'.join(f'{x:.2f}' for x in data)})")
+#     for name, data in sorted_dictionary[colour].items():
+#         print(f"-{name} -> {', '.join(f'{x}: {y}' for x, y in zip(('damage', 'health', 'armor'), data))}")
 
 
 
