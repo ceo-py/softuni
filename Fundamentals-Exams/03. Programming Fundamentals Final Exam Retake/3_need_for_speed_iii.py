@@ -7,8 +7,7 @@ for car in range(number_of_cars):
     cars_info[car_name] = info
 
 
-def drive(info):
-    car_name, distance, fuel = info
+def drive(car_name, distance, fuel):
     if cars_info[car_name][1] >= fuel:
         cars_info[car_name][1] -= fuel
         cars_info[car_name][0] += distance
@@ -20,16 +19,14 @@ def drive(info):
         print("Not enough fuel to make that ride")
 
 
-def refuel(info):
-    car_name, fuel = info
+def refuel(car_name, fuel):
     if cars_info[car_name][1] + fuel > 75:
         fuel = 75 - cars_info[car_name][1]
     cars_info[car_name][1] += fuel
     print(f"{car_name} refueled with {fuel} liters")
 
 
-def revert(info):
-    car_name, kilometers = info
+def revert(car_name, kilometers):
     cars_info[car_name][0] -= kilometers
     if cars_info[car_name][0] < 10_000:
         cars_info[car_name][0] = 10_000
@@ -51,7 +48,7 @@ command_func = {
 command = input()
 while command != "Stop":
     command_type, *info = (int(x) if x.isdigit() else x for x in command.split(" : "))
-    command_func[command_type](info)
+    command_func[command_type](*info)
     command = input()
 
 show_result()
