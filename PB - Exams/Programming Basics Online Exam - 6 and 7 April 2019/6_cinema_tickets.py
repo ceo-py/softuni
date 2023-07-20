@@ -1,39 +1,77 @@
-last_ticket = False
-student_tickets = 0
-standard_tickets = 0
-kid_tickets = 0
+student, standard, kid = 0, 0, 0
 
+movie = input()
 
-while not last_ticket:
-    movie_name = input()
-    if movie_name == "Finish":
-        break
-    movie_tickets = int(input())
-    ticket_number_for_current_movie = 0
-    for ticket in range(movie_tickets):
+while movie != 'Finish':
+
+    free_salon_spots = int(input())
+    total_spot = free_salon_spots
+
+    while free_salon_spots:
         ticket_type = input()
-        if ticket_type == "kid":
-            kid_tickets += 1
-        elif ticket_type == "student":
-            student_tickets += 1
-        elif ticket_type == "standard":
-            standard_tickets += 1
-        elif ticket_type == "End":
-            break
-        elif ticket_type == "Finish":
-            last_ticket = True
-            break
-        ticket_number_for_current_movie += 1
-    print(f"{movie_name} - {((ticket_number_for_current_movie / movie_tickets) * 100):.2f}% full.")
 
-total_tickets = student_tickets + standard_tickets + kid_tickets
-total_student_tickets = (student_tickets / total_tickets) * 100
-total_standard_tickets = (standard_tickets / total_tickets) * 100
-total_kid_tickets = (kid_tickets / total_tickets) * 100
-print(f"Total tickets: {total_tickets}")
-print(f"{total_student_tickets:.2f}% student tickets.")
-print(f"{total_standard_tickets:.2f}% standard tickets.")
-print(f"{total_kid_tickets:.2f}% kids tickets.")
+        if ticket_type == 'End':
+            break
+
+        free_salon_spots -= 1
+        if ticket_type == 'standard':
+            standard += 1
+        elif ticket_type == 'student':
+            student += 1
+        elif ticket_type == 'kid':
+            kid += 1
+
+    print(f'{movie} - {abs(free_salon_spots / total_spot * 100 - 100):.2f}% full.')
+    movie = input()
+
+total_tickets = student + standard + kid
+print(f'Total tickets: {total_tickets}')
+print(f'{student / total_tickets * 100:.2f}% student tickets.')
+print(f'{standard / total_tickets * 100:.2f}% standard tickets.')
+print(f'{kid / total_tickets * 100:.2f}% kids tickets.')
+
+
+
+
+
+
+
+# last_ticket = False
+# student_tickets = 0
+# standard_tickets = 0
+# kid_tickets = 0
+#
+#
+# while not last_ticket:
+#     movie_name = input()
+#     if movie_name == "Finish":
+#         break
+#     movie_tickets = int(input())
+#     ticket_number_for_current_movie = 0
+#     for ticket in range(movie_tickets):
+#         ticket_type = input()
+#         if ticket_type == "kid":
+#             kid_tickets += 1
+#         elif ticket_type == "student":
+#             student_tickets += 1
+#         elif ticket_type == "standard":
+#             standard_tickets += 1
+#         elif ticket_type == "End":
+#             break
+#         elif ticket_type == "Finish":
+#             last_ticket = True
+#             break
+#         ticket_number_for_current_movie += 1
+#     print(f"{movie_name} - {((ticket_number_for_current_movie / movie_tickets) * 100):.2f}% full.")
+#
+# total_tickets = student_tickets + standard_tickets + kid_tickets
+# total_student_tickets = (student_tickets / total_tickets) * 100
+# total_standard_tickets = (standard_tickets / total_tickets) * 100
+# total_kid_tickets = (kid_tickets / total_tickets) * 100
+# print(f"Total tickets: {total_tickets}")
+# print(f"{total_student_tickets:.2f}% student tickets.")
+# print(f"{total_standard_tickets:.2f}% standard tickets.")
+# print(f"{total_kid_tickets:.2f}% kids tickets.")
 
 
 
