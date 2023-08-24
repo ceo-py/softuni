@@ -1,19 +1,49 @@
-max_points = 0
-winner = ''
-name = input()
-while name != "Stop":
-    points = 0
-    for letter in name:
-        number = int(input())
-        if number == ord(letter):
-            points += 10
+player_name = input()
+
+best_player_name = ''
+best_player_score = 0
+
+while player_name != 'Stop':
+
+    current_player_score = 0
+
+    for letter in player_name:
+        current_score = int(input())
+
+        if ord(letter) == current_score:
+            current_player_score += 10
+
         else:
-            points += 2
-    if points >= max_points:
-        winner = name
-        max_points = points
-    name = input()
-print(f'The winner is {winner} with {max_points} points!')
+            current_player_score += 2
+
+    if current_player_score >= best_player_score:
+        best_player_score = current_player_score
+        best_player_name = player_name
+
+    player_name = input()
+
+print(f'The winner is {best_player_name} with {best_player_score} points!')
+
+
+
+
+
+# max_points = 0
+# winner = ''
+# name = input()
+# while name != "Stop":
+#     points = 0
+#     for letter in name:
+#         number = int(input())
+#         if number == ord(letter):
+#             points += 10
+#         else:
+#             points += 2
+#     if points >= max_points:
+#         winner = name
+#         max_points = points
+#     name = input()
+# print(f'The winner is {winner} with {max_points} points!')
 
 
 
