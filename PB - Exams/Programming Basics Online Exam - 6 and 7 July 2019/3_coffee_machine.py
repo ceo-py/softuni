@@ -1,41 +1,101 @@
-type_of_drink = input()
-sugar_amount = input()
-count_drinks = int(input())
-price_per_drink = 0
+drink = input()
+sugar = input()
+drink_numbers = int(input())
 
-if type_of_drink == "Espresso":
-    price_per_drink = 0.9
-    if sugar_amount == "Normal":
-        price_per_drink = 1
-    elif sugar_amount == "Extra":
-        price_per_drink = 1.2
+drink_price = 0
 
-if type_of_drink == "Cappuccino":
-    price_per_drink = 1
-    if sugar_amount == "Normal":
-        price_per_drink = 1.2
-    elif sugar_amount == "Extra":
-        price_per_drink = 1.6
+if drink == 'Espresso':
 
-if type_of_drink == "Tea":
-    price_per_drink = 0.5
-    if sugar_amount == "Normal":
-        price_per_drink = 0.6
-    elif sugar_amount == "Extra":
-        price_per_drink = 0.7
+    if sugar == 'Without':
+        drink_price = 0.90
 
-bill = price_per_drink * count_drinks
+    elif sugar == 'Normal':
+        drink_price = 1
 
-if sugar_amount == "Without":
-    bill *= 0.65
+    elif sugar == 'Extra':
+        drink_price = 1.20
 
-if type_of_drink == "Espresso" and count_drinks >= 5:
-    bill *= 0.75
 
-if bill > 15:
-    bill *= 0.8
+elif drink == 'Cappuccino':
 
-print(f'You bought {count_drinks} cups of {type_of_drink} for {bill:.2f} lv.')
+    if sugar == 'Without':
+        drink_price = 1
+
+    elif sugar == 'Normal':
+        drink_price = 1.20
+
+    elif sugar == 'Extra':
+        drink_price = 1.60
+
+elif drink == 'Tea':
+
+    if sugar == 'Without':
+        drink_price = 0.50
+
+    elif sugar == 'Normal':
+        drink_price = 0.60
+
+    elif sugar == 'Extra':
+        drink_price = 0.70
+
+if sugar == 'Without':
+    drink_price *= 0.65
+
+if drink == 'Espresso' and drink_numbers >= 5:
+    drink_price *= 0.75
+
+total_price = drink_price * drink_numbers
+
+if total_price > 15:
+    total_price *= 0.80
+
+print(f'You bought {drink_numbers} cups of {drink} for {total_price:.2f} lv.')
+
+
+
+
+
+
+
+
+# type_of_drink = input()
+# sugar_amount = input()
+# count_drinks = int(input())
+# price_per_drink = 0
+#
+# if type_of_drink == "Espresso":
+#     price_per_drink = 0.9
+#     if sugar_amount == "Normal":
+#         price_per_drink = 1
+#     elif sugar_amount == "Extra":
+#         price_per_drink = 1.2
+#
+# if type_of_drink == "Cappuccino":
+#     price_per_drink = 1
+#     if sugar_amount == "Normal":
+#         price_per_drink = 1.2
+#     elif sugar_amount == "Extra":
+#         price_per_drink = 1.6
+#
+# if type_of_drink == "Tea":
+#     price_per_drink = 0.5
+#     if sugar_amount == "Normal":
+#         price_per_drink = 0.6
+#     elif sugar_amount == "Extra":
+#         price_per_drink = 0.7
+#
+# bill = price_per_drink * count_drinks
+#
+# if sugar_amount == "Without":
+#     bill *= 0.65
+#
+# if type_of_drink == "Espresso" and count_drinks >= 5:
+#     bill *= 0.75
+#
+# if bill > 15:
+#     bill *= 0.8
+#
+# print(f'You bought {count_drinks} cups of {type_of_drink} for {bill:.2f} lv.')
 
 
 
