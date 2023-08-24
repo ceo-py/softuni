@@ -1,26 +1,63 @@
 import math
 
-word_enter = input()
-most_powerful_word, points, how_long_is_the_word, letters_ = "", 0, 0, "aeiouy"
+word = input()
 
-while word_enter != "End of words":
-    total_word_points, first_letter = 0, word_enter[0]
-    how_long_is_the_word = len(word_enter)
-    for letter in word_enter:
-        total_word_points += int(ord(letter))
+most_powerful_word = ''
+most_powerful_points = 0
 
-    if first_letter in letters_ or first_letter in letters_.upper():
-        total_word_points *= how_long_is_the_word
+letters_to_double =  'aeiouy'
+
+
+while word != 'End of words':
+
+    current_word_points = 0
+
+    for letter in word:
+
+        current_word_points += int(ord(letter))
+
+    if word[0] in f'{letters_to_double}{letters_to_double.upper()}':
+        current_word_points *= len(word)
     else:
-        total_word_points = math.floor(total_word_points / how_long_is_the_word)
+        current_word_points =  math.floor(current_word_points / len(word))
 
-    if total_word_points > points:
-        points = total_word_points
-        most_powerful_word = word_enter
+    if current_word_points > most_powerful_points:
+        most_powerful_word = word
+        most_powerful_points = current_word_points
 
-    word_enter = input()
+    word = input()
 
-print(f"The most powerful word is {most_powerful_word} - {points}")
+print(f'The most powerful word is {most_powerful_word} - {most_powerful_points}')
+
+
+
+
+
+
+
+# import math
+#
+# word_enter = input()
+# most_powerful_word, points, how_long_is_the_word, letters_ = "", 0, 0, "aeiouy"
+#
+# while word_enter != "End of words":
+#     total_word_points, first_letter = 0, word_enter[0]
+#     how_long_is_the_word = len(word_enter)
+#     for letter in word_enter:
+#         total_word_points += int(ord(letter))
+#
+#     if first_letter in letters_ or first_letter in letters_.upper():
+#         total_word_points *= how_long_is_the_word
+#     else:
+#         total_word_points = math.floor(total_word_points / how_long_is_the_word)
+#
+#     if total_word_points > points:
+#         points = total_word_points
+#         most_powerful_word = word_enter
+#
+#     word_enter = input()
+#
+# print(f"The most powerful word is {most_powerful_word} - {points}")
 
 
 
