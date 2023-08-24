@@ -1,34 +1,82 @@
-student, standard, kid = 0, 0, 0
+movie_name = input()
 
-movie = input()
+student = 0
+standard = 0
+kid = 0
 
-while movie != 'Finish':
 
-    free_salon_spots = int(input())
-    total_spot = free_salon_spots
+while movie_name != 'Finish':
 
-    while free_salon_spots:
+    salon_space = int(input())
+    total_salon_space = salon_space
+
+    while salon_space:
+
         ticket_type = input()
 
         if ticket_type == 'End':
             break
 
-        free_salon_spots -= 1
-        if ticket_type == 'standard':
-            standard += 1
-        elif ticket_type == 'student':
+        salon_space -= 1
+
+        if ticket_type == 'student':
             student += 1
+
+        elif ticket_type == 'standard':
+            standard += 1
+
         elif ticket_type == 'kid':
             kid += 1
 
-    print(f'{movie} - {abs(free_salon_spots / total_spot * 100 - 100):.2f}% full.')
-    movie = input()
+    print(f'{movie_name} - {abs(salon_space /  total_salon_space * 100 - 100):.2f}% full.')
+
+
+    movie_name = input()
 
 total_tickets = student + standard + kid
+
 print(f'Total tickets: {total_tickets}')
 print(f'{student / total_tickets * 100:.2f}% student tickets.')
 print(f'{standard / total_tickets * 100:.2f}% standard tickets.')
 print(f'{kid / total_tickets * 100:.2f}% kids tickets.')
+
+
+
+
+
+
+
+# student, standard, kid = 0, 0, 0
+#
+# movie = input()
+#
+# while movie != 'Finish':
+#
+#     free_salon_spots = int(input())
+#     total_spot = free_salon_spots
+#
+#     while free_salon_spots:
+#         ticket_type = input()
+#
+#         if ticket_type == 'End':
+#             break
+#
+#         free_salon_spots -= 1
+#         if ticket_type == 'standard':
+#             standard += 1
+#         elif ticket_type == 'student':
+#             student += 1
+#         elif ticket_type == 'kid':
+#             kid += 1
+#
+#     print(f'{movie} - {abs(free_salon_spots / total_spot * 100 - 100):.2f}% full.')
+#     movie = input()
+#
+# total_tickets = student + standard + kid
+# print(f'Total tickets: {total_tickets}')
+# print(f'{student / total_tickets * 100:.2f}% student tickets.')
+# print(f'{standard / total_tickets * 100:.2f}% standard tickets.')
+# print(f'{kid / total_tickets * 100:.2f}% kids tickets.')
 
 
 
