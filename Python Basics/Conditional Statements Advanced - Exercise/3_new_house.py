@@ -1,37 +1,94 @@
 type_flower = input()
 count_flower = int(input())
 budget = int(input())
-price = 0
-if type_flower == "Roses":
-    price = 5 * count_flower
-    if count_flower > 80:
-        price = price * 0.90
 
-elif type_flower == "Dahlias":
-    price = 3.80 * count_flower
+flower_price = 0
+price_correction = 1
+
+if type_flower == 'Roses':
+    flower_price = 5
+
+    if count_flower > 80:
+        price_correction = 0.90
+
+
+elif type_flower == 'Dahlias':
+    flower_price = 3.80
+
     if count_flower > 90:
-        price = price * 0.85
+        price_correction = 0.85
 
-elif type_flower == "Tulips":
-    price = 2.80 * count_flower
+
+elif type_flower == 'Tulips':
+    flower_price = 2.80
+
     if count_flower > 80:
-        price = price * 0.85
+        price_correction = 0.85
 
-elif type_flower == "Narcissus":
-    price = 3 * count_flower
+
+elif type_flower == 'Narcissus':
+    flower_price = 3
+
     if count_flower < 120:
-        price = price * 1.15
+        price_correction = 1.15
 
-elif type_flower == "Gladiolus":
-    price = 2.50 * count_flower
+
+elif type_flower == 'Gladiolus':
+    flower_price = 2.50
+
     if count_flower < 80:
-        price = price * 1.20
-enough_budget = abs(budget - price)
-if price <= budget:
-    print(f"Hey, you have a great garden with {count_flower} {type_flower} and {enough_budget:.2f} leva left.")
-else:
-    print(F"Not enough money, you need {enough_budget:.2f} leva more.")
+        price_correction = 1.20
 
+total_sum = budget - (flower_price * count_flower) * price_correction
+
+if total_sum >= 0:
+    print(f'Hey, you have a great garden with {count_flower} {type_flower} and {total_sum:.2f} leva left.')
+
+else:
+    print(f'Not enough money, you need {abs(total_sum):.2f} leva more.')
+
+
+
+
+
+
+
+
+
+# type_flower = input()
+# count_flower = int(input())
+# budget = int(input())
+# price = 0
+# if type_flower == "Roses":
+#     price = 5 * count_flower
+#     if count_flower > 80:
+#         price = price * 0.90
+#
+# elif type_flower == "Dahlias":
+#     price = 3.80 * count_flower
+#     if count_flower > 90:
+#         price = price * 0.85
+#
+# elif type_flower == "Tulips":
+#     price = 2.80 * count_flower
+#     if count_flower > 80:
+#         price = price * 0.85
+#
+# elif type_flower == "Narcissus":
+#     price = 3 * count_flower
+#     if count_flower < 120:
+#         price = price * 1.15
+#
+# elif type_flower == "Gladiolus":
+#     price = 2.50 * count_flower
+#     if count_flower < 80:
+#         price = price * 1.20
+# enough_budget = abs(budget - price)
+# if price <= budget:
+#     print(f"Hey, you have a great garden with {count_flower} {type_flower} and {enough_budget:.2f} leva left.")
+# else:
+#     print(F"Not enough money, you need {enough_budget:.2f} leva more.")
+#
 
 
 
