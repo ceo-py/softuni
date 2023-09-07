@@ -8,6 +8,7 @@ judges_score = points_from_academy
 for judge in range(0, judges_number):
     judge_name = input()
     judge_points = float(input())
+
     judges_score += (len(judge_name) * (judge_points / 2))
 
     if judges_score > 1250.5:
