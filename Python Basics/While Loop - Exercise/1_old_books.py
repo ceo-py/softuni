@@ -1,17 +1,40 @@
 book_to_check = input()
 
-book_added_to_liberry = list()
-book_check_count = 0
+book = input()
+checked_books = 0
 
-while True:
-    book_added_to_liberry.append(input())
-    if "No More Books" in book_added_to_liberry:
-        print(f"The book you search is not here!\nYou checked {book_check_count} books.")
+while book != 'No More Books':
+
+    checked_books += 1
+
+    if book == book_to_check:
+        print(f'You checked {checked_books - 1} books and found it.')
         break
-    if book_to_check in book_added_to_liberry:
-        print(f"You checked {book_check_count} books and found it.")
-        break
-    book_check_count += 1
+
+    book = input()
+else:
+    print(f'The book you search is not here!\n'
+          f'You checked {checked_books} books.')
+
+
+
+
+
+
+# book_to_check = input()
+#
+# book_added_to_liberry = list()
+# book_check_count = 0
+#
+# while True:
+#     book_added_to_liberry.append(input())
+#     if "No More Books" in book_added_to_liberry:
+#         print(f"The book you search is not here!\nYou checked {book_check_count} books.")
+#         break
+#     if book_to_check in book_added_to_liberry:
+#         print(f"You checked {book_check_count} books and found it.")
+#         break
+#     book_check_count += 1
 
 
 
