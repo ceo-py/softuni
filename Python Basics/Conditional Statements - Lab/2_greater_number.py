@@ -1,6 +1,6 @@
-a = int(input())
-b = int(input())
-if a > b:
-    print(a)
+number_one = int(input())
+number_two = int(input())
+if number_one > number_two:
+    print(number_one)
 else:
-    print(b)
+    print(number_two)

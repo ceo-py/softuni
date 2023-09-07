@@ -1,12 +1,12 @@
-a = float(input())
+speed = float(input())
 
-if a <= 10:
+if speed <= 10:
     print("slow")
-elif a <= 50:
+elif speed <= 50:
     print("average")
-elif a <= 150:
+elif speed <= 150:
     print("fast")
-elif a <= 1000:
+elif speed <= 1000:
     print("ultra fast")
 else:
     print("extremely fast")
