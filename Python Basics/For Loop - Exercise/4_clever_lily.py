@@ -15,11 +15,10 @@ for age in range(0, lily_age + 1):
         gifts_received += 1
 
 total_brother_steal_money = brother_steal_money * (lily_age - gifts_received)
-extra_money = (extra_money + (gifts_received * toy_price)) - total_brother_steal_money
+extra_money = washing_machine_price - ((extra_money + (gifts_received * toy_price)) - total_brother_steal_money)
 
-if extra_money >= washing_machine_price:
-    extra_money = extra_money - washing_machine_price
-    print(f"Yes! {extra_money:.2f}")
+if extra_money <= 0:
+    print(f"Yes! {abs(extra_money):.2f}")
 else:
-    extra_money = washing_machine_price - extra_money
-    print(f"No! {extra_money:.2f}")
+
+    print(f"No! {abs(extra_money):.2f}")
