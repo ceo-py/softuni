@@ -1,13 +1,24 @@
 animal = input()
 
-type_anymal = {
-    "dog": "mammal",
-    "crocodile": "reptile",
-    "tortoise": "reptile",
-    "snake": "reptile"
-    }
+output = ' unknown'
 
-if animal in type_anymal:
-    print(type_anymal[animal])
-else:
-    print("unknown")
+if animal in 'crocodile, tortoise, snake':
+    output = 'reptile'
+
+elif animal == 'dog':
+    output = 'mammal'
+
+print(output)
+
+
+
+# animal = input()
+#
+# type_animal = {
+#     "dog": "mammal",
+#     "crocodile": "reptile",
+#     "tortoise": "reptile",
+#     "snake": "reptile"
+#     }
+#
+# print(type_animal.get(animal, 'unknown'))
