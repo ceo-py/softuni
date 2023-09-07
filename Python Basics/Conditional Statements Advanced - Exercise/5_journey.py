@@ -1,32 +1,81 @@
 budget = float(input())
-season = str(input())
+season = input()
 
-destination = ""
+destination = ''
+percent_from_budget = 0
+accommodation = ''
 
 if budget <= 100:
     destination = 'Bulgaria'
+
     if season == 'summer':
-        type_of_trip = 'Camp'
-        trip_expense = budget * 0.30
+        percent_from_budget = 0.30
+
     elif season == 'winter':
-        type_of_trip = 'Hotel'
-        trip_expense = budget * 0.70
-elif 100 < budget <= 1000:
+        percent_from_budget = 0.70
+
+elif budget <= 1000:
     destination = 'Balkans'
+
     if season == 'summer':
-        type_of_trip = 'Camp'
-        trip_expense = budget * 0.40
+        percent_from_budget = 0.40
+
     elif season == 'winter':
-        type_of_trip = 'Hotel'
-        trip_expense = budget * 0.80
+        percent_from_budget = 0.80
+
 elif budget > 1000:
     destination = 'Europe'
-    type_of_trip = 'Hotel'
-    trip_expense = budget * 0.90
+    percent_from_budget = 0.90
 
-if destination:
-    print(f"Somewhere in {destination}")
-    print(f"{type_of_trip} - {trip_expense:.2f}")
+
+if season == 'winter' or budget > 1000:
+    accommodation = 'Hotel'
+
+else:
+    accommodation = 'Camp'
+
+
+total_sum = budget * percent_from_budget
+print(f'Somewhere in {destination}')
+print(f'{accommodation} - {total_sum:.2f}')
+
+
+
+
+
+
+# budget = float(input())
+# season = str(input())
+#
+# destination = ""
+#
+# if budget <= 100:
+#     destination = 'Bulgaria'
+#     if season == 'summer':
+#         type_of_trip = 'Camp'
+#         trip_expense = budget * 0.30
+#     elif season == 'winter':
+#         type_of_trip = 'Hotel'
+#         trip_expense = budget * 0.70
+# elif 100 < budget <= 1000:
+#     destination = 'Balkans'
+#     if season == 'summer':
+#         type_of_trip = 'Camp'
+#         trip_expense = budget * 0.40
+#     elif season == 'winter':
+#         type_of_trip = 'Hotel'
+#         trip_expense = budget * 0.80
+# elif budget > 1000:
+#     destination = 'Europe'
+#     type_of_trip = 'Hotel'
+#     trip_expense = budget * 0.90
+#
+# if destination:
+#     print(f"Somewhere in {destination}")
+#     print(f"{type_of_trip} - {trip_expense:.2f}")
+
+
+
 
 
 # budget = float(input())
