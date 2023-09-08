@@ -6,3 +6,12 @@ for letter in list_of_characters:
     letter_dic[letter] = ord(letter)
 
 print(letter_dic)
+
+
+
+
+
+
+
+
+# print({x: ord(x) for x in input().split(", ")})
