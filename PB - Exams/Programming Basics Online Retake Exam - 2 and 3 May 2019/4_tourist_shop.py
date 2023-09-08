@@ -11,11 +11,10 @@ while product != 'Stop':
     if product_counter % 3 == 0:
         price *= 0.50
 
-    if budget - price >= 0:
-        budget -= price
-    else:
+    budget -= price
+    if  budget < 0:
         print("You don't have enough money!")
-        print(f"You need {abs(budget - price):.2f} leva!")
+        print(f"You need {abs(budget):.2f} leva!")
         break
 
     product = input()
