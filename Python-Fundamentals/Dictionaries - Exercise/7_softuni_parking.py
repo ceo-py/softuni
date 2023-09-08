@@ -1,37 +1,35 @@
 number_cars = int(input())
-parking_info = {}
 
+class ParkingLot:
+    def __init__(self):
+        self.parking = {}
 
-def register_car(name, number):
-    if name in parking_info:
-        print(f"ERROR: already registered with plate number {parking_info[name]}")
-        return
-    parking_info[name] = number
-    print(f"{name} registered {number} successfully")
+    def register(self, name, number):
+        if name in self.parking:
+            return f"ERROR: already registered with plate number {self.parking[name]}"
 
+        self.parking[name] = number
+        return f"{name} registered {number} successfully"
 
-def unregister_car(name):
-    if name not in parking_info:
-        print(f"ERROR: user {name} not found")
-        return
-    del parking_info[name]
-    print(f"{name} unregistered successfully")
+    def unregister(self, name):
+        if name not in self.parking:
+            return f"ERROR: user {name} not found"
 
+        del self.parking[name]
+        return f"{name} unregistered successfully"
 
-def all_cars_in_praking():
-    for key, value in parking_info.items():
-        print(f"{key} => {value}")
+    def __str__(self):
+        return '\n'.join(f"{key} => {value}" for key, value in self.parking.items())
 
+parking = ParkingLot()
 
 for _ in range(number_cars):
-    command, name, *number = input().split()
-    if command == "register":
-        number = number[-1]
-        register_car(name, number)
-    else:
-        unregister_car(name)
+    command, *data = input().split()
+    print(parking.__getattribute__(command)(*data))
 
-all_cars_in_praking()
+print(parking)
+
+
 
 
 
