@@ -2,7 +2,7 @@ total_numbers = int(input())
 
 sum_of_numbers = 0
 
-for i in range(0, total_numbers):
+for i in range(total_numbers):
     number = int(input())
     sum_of_numbers += number
 
