@@ -10,16 +10,16 @@ for _ in range(1, number_fans + 1):
     sector_type = input()
 
     if sector_type == "A":
-        a_sector += + 1
+        a_sector += 1
 
     elif sector_type == "B":
-        b_sector += + 1
+        b_sector += 1
 
     elif sector_type == "V":
-        v_sector += + 1
+        v_sector += 1
 
     elif sector_type == "G":
-        g_sector += + 1
+        g_sector += 1
 
 a_sector = (a_sector / number_fans) * 100
 b_sector = (b_sector / number_fans) * 100
