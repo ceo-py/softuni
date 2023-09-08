@@ -1,11 +1,10 @@
-resourse = input()
+resource = input()
 
-total_resourse = dict()
-while resourse != "stop":
+total_resource = {}
+while resource != "stop":
     quantity = int(input())
-    total_resourse[resourse] = total_resourse.get(resourse, 0)
-    total_resourse[resourse] += quantity
-    resourse = input()
+    total_resource[resource] = total_resource.get(resource, 0) + quantity
+    resource = input()
 
-for key, value in total_resourse.items():
+for key, value in total_resource.items():
     print(f"{key} -> {value}")
