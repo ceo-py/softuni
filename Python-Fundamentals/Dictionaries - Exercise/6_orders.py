@@ -7,10 +7,8 @@ quantity_d = "quantity"
 while command != "buy":
     name, price, quantity = [float(x) if x[-1].isdigit() else x for x in command.split()]
     drinks_info[name] = drinks_info.get(name, {})
-    drinks_info[name][price_d] = drinks_info[name].get(price_d, 0)
-    drinks_info[name][quantity_d] = drinks_info[name].get(quantity_d, 0)
+    drinks_info[name][quantity_d] = drinks_info[name].get(quantity_d, 0) + quantity
     drinks_info[name][price_d] = price
-    drinks_info[name][quantity_d] += quantity
     command = input()
 
 for product_name in drinks_info:
