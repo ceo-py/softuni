@@ -26,10 +26,13 @@ else:
 
 
 
+
+
+
 # number = int(input())
 #
 # guessed_passwords = list()
-# counter = 0
+#
 #
 # for a in range(1, 10):
 #
@@ -42,9 +45,9 @@ else:
 #                 if a * b + c * d == number and a < b and c > d:
 #                     print(f"{a}{b}{c}{d}", end=" ")
 #                     guessed_passwords.append(f"{a}{b}{c}{d}")
-#                     counter += 1
 #
-# if counter >= 4:
+#
+# if len(guessed_passwords) >= 4:
 #     print(f"\nPassword: {guessed_passwords[3]}")
 #
 # else:
