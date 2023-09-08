@@ -1,31 +1,34 @@
-contests, users = {}, {}
-contest_data = input()
+passwords = {}
+rankings = {}
 
-while contest_data != "end of contests":
-    contest, password = contest_data.split(":")
-    contests[contest] = password
-    contest_data = input()
+contest = input()
 
-submission_data = input()
+while contest != 'end of contests':
+    name, password = contest.split(':')
+    passwords[name] = password
+    contest = input()
 
-while submission_data != "end of submissions":
-    contest, password, username, points = [int(x) if x.isdigit() else x for x in submission_data.split("=>")]
-    if contests.get(contest) == password:
-        users[username] = users.get(username, {})
-        users[username][contest] = users[username].get(contest, 0)
-        if users[username][contest] < points:
-            users[username][contest] = points
-    submission_data = input()
+users_input = input()
 
+while users_input != 'end of submissions':
+    contest_name, password, user_name, score = users_input.split('=>')
 
-candidates = {name: sum(users[name].values()) for name in users}
-best_candidate = max(candidates, key=candidates.get)
-print(f"Best candidate is {best_candidate} with total {candidates[best_candidate]} points."
-      f"\nRanking:")
+    if contest_name not in passwords or password != passwords[contest_name]:
+        users_input = input()
+        continue
 
-for name in sorted(users):
+    rankings[user_name] = rankings.get(user_name, {})
+    rankings[user_name][contest_name] = rankings[user_name].get(contest_name, 0)
+    rankings[user_name][contest_name] = max(int(score), rankings[user_name][contest_name])
+
+    users_input = input()
+
+max_user, max_total_score = max(rankings.items(), key=lambda user_scores: sum(user_scores[1].values()))
+
+print(f'Best candidate is {max_user} with total {sum(max_total_score.values())} points.\nRanking:')
+for name in sorted(rankings):
     print(name)
-    for contest, points in sorted(users[name].items(), key=lambda item: -item[1]):
+    for contest, points in sorted(rankings[name].items(), key=lambda item: -item[1]):
         print(f"#  {contest} -> {points}")
 
 
@@ -34,6 +37,35 @@ for name in sorted(users):
 
 
 
+# contests, users = {}, {}
+# contest_data = input()
+#
+# while contest_data != "end of contests":
+#     contest, password = contest_data.split(":")
+#     contests[contest] = password
+#     contest_data = input()
+#
+# submission_data = input()
+#
+# while submission_data != "end of submissions":
+#     contest, password, username, points = [int(x) if x.isdigit() else x for x in submission_data.split("=>")]
+#     if contests.get(contest) == password:
+#         users[username] = users.get(username, {})
+#         users[username][contest] = users[username].get(contest, 0)
+#         if users[username][contest] < points:
+#             users[username][contest] = points
+#     submission_data = input()
+#
+#
+# candidates = {name: sum(users[name].values()) for name in users}
+# best_candidate = max(candidates, key=candidates.get)
+# print(f"Best candidate is {best_candidate} with total {candidates[best_candidate]} points."
+#       f"\nRanking:")
+#
+# for name in sorted(users):
+#     print(name)
+#     for contest, points in sorted(users[name].items(), key=lambda item: -item[1]):
+#         print(f"#  {contest} -> {points}")
 
 
 #
@@ -77,12 +109,6 @@ for name in sorted(users):
 # show_result()
 #
 #
-
-
-
-
-
-
 
 
 #
