@@ -8,7 +8,7 @@ for _ in range(number_of_pipes):
     pipe = int(input())
 
     if capacity - pipe >= 0:
-        capacity += - pipe
+        capacity -= pipe
         total_capacity_left += pipe
 
     else:
