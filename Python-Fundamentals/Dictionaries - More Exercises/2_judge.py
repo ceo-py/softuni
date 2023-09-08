@@ -2,11 +2,10 @@ courses, individual = {}, {}
 data = input()
 while data != "no more time":
 
-    name, course, score = [x if x.isalpha() else int(x) for x in data.split(" -> ")]
+    name, course, score = data.split(" -> ")
     courses[course] = courses.get(course, {})
     courses[course][name] = courses[course].get(name, 0)
-    if courses[course][name] < score:
-        courses[course][name] = score
+    courses[course][name] = max(int(score), courses[course][name])
     data = input()
 
 for course in courses:
