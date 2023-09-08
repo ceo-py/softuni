@@ -2,13 +2,25 @@ n = int(input())
 
 for i in range(1, n + 1):
     sum = 0
-    is_special = False
     for digits in str(i):
         sum += int(digits)
-    if sum == 5 or sum == 7 or sum == 11:
-        is_special = True
-    print(f"{i} -> {is_special}")
+    print(f"{i} -> {sum == 5 or sum == 7 or sum == 11}")
 
+
+
+
+
+
+# n = int(input())
+#
+# for i in range(1, n + 1):
+#     sum = 0
+#     is_special = False
+#     for digits in str(i):
+#         sum += int(digits)
+#     if sum == 5 or sum == 7 or sum == 11:
+#         is_special = True
+#     print(f"{i} -> {is_special}")
 
 
 
