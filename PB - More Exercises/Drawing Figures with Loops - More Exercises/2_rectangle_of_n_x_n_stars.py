@@ -2,5 +2,5 @@ number = int(input())
 
 to_print = number * "*"
 
-for row in range(0, number):
+for row in range(number):
     print(to_print)
