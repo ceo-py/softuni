@@ -15,6 +15,29 @@ else:
 
 
 
+# count = int(input())
+# max_difference = 0
+# previous_sum = 0
+#
+# for i in range(count):
+#     current_sum = int(input()) + int(input())
+#     if i == 0:
+#         previous_sum = current_sum
+#         continue
+#     sum_abs = abs(previous_sum - current_sum)
+#     if sum_abs > max_difference:
+#         max_difference = sum_abs
+#
+#     previous_sum = current_sum
+#
+# if max_difference == 0:
+#     print(f"Yes, value={previous_sum}")
+# else:
+#     print(f"No, maxdiff={max_difference}")
+
+
+
+
 #
 #
 # count = int(input())
@@ -35,6 +58,7 @@ else:
 #     print(f"No, maxdiff={max_difference}")
 #
 #
+
 
 
 
