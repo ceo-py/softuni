@@ -6,9 +6,7 @@ sum_y = sum([abs(num) for num in points[2:]])
 
 
 def whats_closer(arg1, arg2):
-    if arg1 <= arg2:
-        return points[:2]
-    return points[2:]
+    return points[:2] if arg1 <= arg2 else points[2:]
 
 
 print(whats_closer(sum_x, sum_y))
