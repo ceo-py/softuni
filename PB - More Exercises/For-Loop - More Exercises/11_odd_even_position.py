@@ -51,6 +51,32 @@ else:
 
 
 
+
+
+#
+# total_numbers_for_input = int(input())
+# initial_list = [float(input()) for _ in range(total_numbers_for_input)]
+# odd, even = initial_list[::2], initial_list[1::2]
+#
+# print(f"OddSum={sum(odd):.2f},")
+# print(f"OddMin={min(odd):.2f}," if odd else 'OddMin=No,')
+# print(f"OddMax={max(odd):.2f}," if odd else 'OddMax=No,')
+# print(f"EvenSum={sum(even):.2f},")
+# print(f"EvenMin={min(even):.2f}," if even else 'EvenMin=No,')
+# print(f"EvenMax={max(even):.2f}" if even else 'EvenMax=No')
+#
+#
+#
+#
+#
+
+
+
+
+
+
+
+
 #
 #
 # total_numbers_for_input = int(input())
