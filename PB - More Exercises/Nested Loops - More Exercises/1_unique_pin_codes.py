@@ -10,6 +10,18 @@ for num_one in range(1, pin_one + 1):
 
 
 
+#thanks to  Nenogzar
+# pin_one = int(input())
+# pin_two = int(input())
+# pin_three = int(input())
+# for num_one in range(2, pin_one+1, 2):
+#     for number_two in range(2, pin_two+1):
+#         for num_tree in range(2, pin_three+1, 2):
+#             if str(number_two) in "2357":
+#                 print(num_one, number_two, num_tree)
+
+
+
 # num_1 = int(input())
 # num_2 = int(input())
 # num_3 = int(input())
