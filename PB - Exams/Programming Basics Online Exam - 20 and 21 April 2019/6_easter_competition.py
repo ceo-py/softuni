@@ -30,7 +30,6 @@ print(f'{baker_best_name} won competition with {baker_best_score} points!')
 
 
 
-
 # easter_cake_number = int(input())
 #
 # to_stop = 100
