@@ -1,20 +1,29 @@
 number_students = int(input())
 total_lectures = int(input())
 bonus = int(input())
-max_num = 0
-total_bonus = 0
 
-if number_students:
-    max_num = max(int(input()) for x in range(number_students))
-
-if max_num:
-    total_bonus = (max_num / total_lectures) * (5 + bonus)
+max_num = max(int(input()) for x in range(number_students)) if number_students else 0
+total_bonus = (max_num / total_lectures) * (5 + bonus) if  max_num else 0
 
 print(f"Max Bonus: {round(total_bonus)}.")
 print(f"The student has attended {max_num} lectures.")
 
 
 
+# number_students = int(input())
+# total_lectures = int(input())
+# bonus = int(input())
+# max_num = 0
+# total_bonus = 0
+#
+# if number_students:
+#     max_num = max(int(input()) for x in range(number_students))
+#
+# if max_num:
+#     total_bonus = (max_num / total_lectures) * (5 + bonus)
+#
+# print(f"Max Bonus: {round(total_bonus)}.")
+# print(f"The student has attended {max_num} lectures.")
 
 
 
