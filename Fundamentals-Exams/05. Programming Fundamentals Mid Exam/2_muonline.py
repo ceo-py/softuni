@@ -1,37 +1,131 @@
-rooms_data = [data.split() for data in input().split("|")]
+dungeon_rooms = input().split("|")
+
+hero_health = 100
+hero_collected_bitcoins = 0
+
+for i in range(len(dungeon_rooms)):
+
+    command, number = [int(x) if x[-1].isdigit() else x for x in dungeon_rooms[i].split()]
+
+    if command == 'potion':
+
+        if hero_health + number > 100:
+            number = 100 - hero_health
+
+        hero_health += number
+
+        print(f'You healed for {number} hp.')
+        print(f'Current health: {hero_health} hp.')
+        continue
+
+    if command == 'chest':
+        hero_collected_bitcoins += number
+        print(f'You found {number} bitcoins.')
+        continue
 
 
-initial_health = 100
-bitcoins = 0
-room = 0
+    hero_health -= number
 
-for room_data in rooms_data:
-    item, value = [int(x) if x.isdigit() else x for x in room_data]
-    room += 1
+    if hero_health > 0:
+        print(f'You slayed {command}.')
+        continue
 
-    if item == "potion":
-        if initial_health + value > 100:
-            value = 100 - initial_health
-        initial_health += value
-        print(f"You healed for {value} hp.")
-        print(f"Current health: {initial_health} hp.")
+    print(f'You died! Killed by {command}.')
+    print(f'Best room: {i + 1}')
+    break
 
-    elif item == "chest":
-        bitcoins += value
-        print(f"You found {value} bitcoins.")
-
-    else:
-        if initial_health - value <= 0:
-            print(f"You died! Killed by {item}.")
-            print(f"Best room: {room}")
-            break
-        else:
-            initial_health -= value
-            print(f"You slayed {item}.")
 else:
-    print("You've made it!")
-    print(f"Bitcoins: {bitcoins}")
-    print(f"Health: {initial_health}")
+    print(f'You\'ve made it!')
+    print(f'Bitcoins: {hero_collected_bitcoins}')
+    print(f'Health: {hero_health}')
+
+
+
+
+
+#
+# dungeon_rooms = input().split("|")
+#
+# hero_health = 100
+# hero_collected_bitcoins = 0
+#
+# for room_data in dungeon_rooms:
+#
+#     command, number = [int(x) if x[-1].isdigit() else x for x in room_data.split()]
+#
+#     if command == 'potion':
+#
+#         if hero_health + number >= 100:
+#             number = 100 - hero_health
+#
+#         hero_health += number
+#
+#         print(f'You healed for {number} hp.')
+#         print(f'Current health: {hero_health} hp.')
+#         continue
+#
+#     if command == 'chest':
+#         hero_collected_bitcoins += number
+#         print(f'You found {number} bitcoins.')
+#         continue
+#
+#
+#     hero_health -= number
+#
+#     if hero_health > 0:
+#         print(f'You slayed {command}.')
+#         continue
+#
+#     print(f'You died! Killed by {command}.')
+#     print(f'Best room: {dungeon_rooms.index(room_data) + 1}')
+#     break
+#
+# else:
+#     print(f'You\'ve made it!')
+#     print(f'Bitcoins: {hero_collected_bitcoins}')
+#     print(f'Health: {hero_health}')
+#
+#
+
+
+
+
+
+
+# rooms_data = [data.split() for data in input().split("|")]
+#
+#
+# initial_health = 100
+# bitcoins = 0
+# room = 0
+#
+# for room_data in rooms_data:
+#     item, value = [int(x) if x.isdigit() else x for x in room_data]
+#     room += 1
+#
+#     if item == "potion":
+#         if initial_health + value > 100:
+#             value = 100 - initial_health
+#         initial_health += value
+#         print(f"You healed for {value} hp.")
+#         print(f"Current health: {initial_health} hp.")
+#
+#     elif item == "chest":
+#         bitcoins += value
+#         print(f"You found {value} bitcoins.")
+#
+#     else:
+#         if initial_health - value <= 0:
+#             print(f"You died! Killed by {item}.")
+#             print(f"Best room: {room}")
+#             break
+#         else:
+#             initial_health -= value
+#             print(f"You slayed {item}.")
+# else:
+#     print("You've made it!")
+#     print(f"Bitcoins: {bitcoins}")
+#     print(f"Health: {initial_health}")
 
 
 
