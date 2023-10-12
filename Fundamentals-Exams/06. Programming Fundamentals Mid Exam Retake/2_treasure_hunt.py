@@ -1,33 +1,79 @@
-initial_loot = input().split("|")
+initial_loot = input().split('|')
 
-data_info = input()
+command_data = input()
 
-while data_info != "Yohoho!":
-    command, *data = [x for x in data_info.split()]
+while command_data != 'Yohoho!':
+    command, *data = [int(x) if x.isdigit() else x for x in command_data.split()]
 
-    if command == "Loot":
+    if command == 'Loot':
+        # [initial_loot.append(item) for item in data if item not in initial_loot]
         for item in data:
             if item not in initial_loot:
                 initial_loot.insert(0, item)
 
-    elif command == "Drop":
-        index = int(data[0])
-        if 0 <= index < len(initial_loot):
+    elif command == 'Drop':
+        index = data[0]
+        if index in range(len(initial_loot)):
+            # item = initial_loot.pop(initial_loot)
+            # initial_loot.append(initial_loot)
+
             initial_loot.append(initial_loot.pop(index))
 
-    elif command == "Steal":
-        count = int(data[0])
-        stolen_items = initial_loot[-count:]
-        initial_loot = initial_loot[:-count]
-        print(*stolen_items, sep=", ")
-    data_info = input()
+    elif command == 'Steal':
+        index = -data[0]
+        stolen_items = initial_loot[index:]
+        initial_loot = initial_loot[:index]
+        print(', '.join(stolen_items))
+
+    command_data = input()
 
 
 if initial_loot:
-    average_treasure_gain = sum(len(x) for x in initial_loot) / len(initial_loot)
-    print(f"Average treasure gain: {average_treasure_gain:.2f} pirate credits.")
+    # avr_treasure = 0
+    # for item in initial_loot:
+    #     avr_treasure += len(initial_loot)
+
+    avr_treasure = sum(len(x) for x in initial_loot) / len(initial_loot)
+    print(f'Average treasure gain: {avr_treasure:.2f} pirate credits.')
+
 else:
-    print("Failed treasure hunt.")
+    print('Failed treasure hunt.')
+
+
+
+
+# initial_loot = input().split("|")
+#
+# data_info = input()
+#
+# while data_info != "Yohoho!":
+#     command, *data = [x for x in data_info.split()]
+#
+#     if command == "Loot":
+#         for item in data:
+#             if item not in initial_loot:
+#                 initial_loot.insert(0, item)
+#
+#     elif command == "Drop":
+#         index = int(data[0])
+#         if 0 <= index < len(initial_loot):
+#             initial_loot.append(initial_loot.pop(index))
+#
+#     elif command == "Steal":
+#         count = int(data[0])
+#         stolen_items = initial_loot[-count:]
+#         initial_loot = initial_loot[:-count]
+#         print(*stolen_items, sep=", ")
+#     data_info = input()
+#
+#
+# if initial_loot:
+#     average_treasure_gain = sum(len(x) for x in initial_loot) / len(initial_loot)
+#     print(f"Average treasure gain: {average_treasure_gain:.2f} pirate credits.")
+# else:
+#     print("Failed treasure hunt.")
+
+
 
 
 
