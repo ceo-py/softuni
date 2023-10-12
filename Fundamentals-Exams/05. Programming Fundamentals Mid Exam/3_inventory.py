@@ -1,31 +1,73 @@
-items = input().split(", ")
+collected_items = input().split(', ')
+
+input_data = input()
+
+while input_data != 'Craft!':
+    command, item = input_data.split(' - ')
+
+    item_in_collection = item.split(':')[0] in collected_items
+
+    if command == 'Collect' and not item_in_collection:
+        collected_items.append(item)
+
+    elif command == 'Drop' and item_in_collection:
+        collected_items.remove(item)
+
+    elif command == 'Combine Items' and item_in_collection:
+        old_item, new_item = item.split(':')
+        collected_items.insert(collected_items.index(old_item) + 1, new_item)
+
+    elif command == 'Renew' and item_in_collection:
+        collected_items.append(collected_items.pop(collected_items.index(item)))
+
+    input_data = input()
+
+print(*collected_items, sep=', ')
 
 
-data_info = input()
-while data_info != "Craft!":
-    command, item = data_info.split(" - ")
+# print(', '.join(collected_items))
+#
+# items = ''
+# for item in collected_items:
+#     items += f'{item}, '
+#
+# print(items[:-2])
 
-    if command == "Collect":
-        if item not in items:
-            items.append(item)
-    elif command == "Drop":
-        if item in items:
-            items.remove(item)
 
-    elif command == "Combine Items":
-        old_item, new_item = item.split(":")
-        if old_item in items:
-            old_item_index = items.index(old_item)
-            items.insert(old_item_index + 1, new_item)
 
-    elif command == "Renew":
-        if item in items:
-            item = items.pop(items.index(item))
-            items.append(item)
 
-    data_info = input()
 
-print(*items, sep=", ")
+
+
+
+# items = input().split(", ")
+#
+#
+# data_info = input()
+# while data_info != "Craft!":
+#     command, item = data_info.split(" - ")
+#
+#     if command == "Collect":
+#         if item not in items:
+#             items.append(item)
+#     elif command == "Drop":
+#         if item in items:
+#             items.remove(item)
+#
+#     elif command == "Combine Items":
+#         old_item, new_item = item.split(":")
+#         if old_item in items:
+#             old_item_index = items.index(old_item)
+#             items.insert(old_item_index + 1, new_item)
+#
+#     elif command == "Renew":
+#         if item in items:
+#             item = items.pop(items.index(item))
+#             items.append(item)
+#
+#     data_info = input()
+#
+# print(*items, sep=", ")
 
 
 #
