@@ -10,6 +10,17 @@ for words in range(n):
 
 
 
+#
+# n = int(input())
+# symbols = ".,_"
+#
+# for words in range(n):
+#     string_to_input = input()
+#     print(f"{string_to_input} is not pure!" if any(x in string_to_input for x in symbols) else f"{string_to_input} is pure.")
+#
+
+
+
 # how_many_strings = int(input())
 #
 # skip_parameters = [",", ".", "_"]
