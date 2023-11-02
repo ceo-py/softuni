@@ -19,6 +19,21 @@ if game_terminated:
 
 
 
+
+# c, t = {}, [11, 11]
+# for i in set(input().split()):
+#     if (i[0] in 'AB') and (t[ord(i[0]) - 65] - (ord(i[0]) - 64) < 6):
+#         print(f"Team {i[0]} - {t[ord(i[0]) - 65]}; Team {'AB'[ord(i[0]) - 65 - 1]} - {t[ord(i[0]) - 66]}\nGame was terminated")
+#         break
+#     t[ord(i[0]) - 65] -= 1
+# else:
+#     print(f"Team A - {t[0]}; Team B - {t[1]}")
+
+
+
+
+
+
 # team_information = input().split(" ")
 # terminated = False
 # teams_info = []
