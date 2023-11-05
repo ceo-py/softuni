@@ -6,11 +6,7 @@ best_players = []
 
 def duel_players(name_one, name_two):
     if all(x not in player_info.get(name_two, []) for x in player_info.get(name_one, [])): return
-    if sum(player_info[name_one].values()) > sum(player_info[name_two].values()):
-        del player_info[name_two]
-    else:
-        del player_info[name_one]
-
+    del player_info[min({name_one: player_info[name_one], name_two: player_info[name_two]}, key=lambda x: sum(player_info[x].values()))]
 
 
 def adding_players_roles(player, position, skill):
