@@ -1,4 +1,4 @@
-numbers = [n for n in input().split()]
+numbers = input().split()
 string_text = input()
 
 msg_show = ""
@@ -21,7 +21,7 @@ print(msg_show)
 
 #
 #
-# numbers = [n for n in input().split()]
+# numbers = input().split()
 # string_text = input()
 #
 # msg_show = ""
