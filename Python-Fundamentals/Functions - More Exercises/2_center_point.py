@@ -1,8 +1,8 @@
 import math
 
 points = tuple(math.floor(float(input())) for _ in range(4))
-sum_x = sum([abs(num) for num in points[:2]])
-sum_y = sum([abs(num) for num in points[2:]])
+sum_x = sum(abs(num) for num in points[:2])
+sum_y = sum(abs(num) for num in points[2:])
 
 
 def whats_closer(arg1, arg2):
