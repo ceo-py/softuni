@@ -15,6 +15,5 @@ print("Negative number!")
 #         print("Negative number!")
 #         break
 #
-#     total = number * 2
-#     print(f"Result: {total:.2f}")
+#     print(f"Result: {number * 2:.2f}")
 
