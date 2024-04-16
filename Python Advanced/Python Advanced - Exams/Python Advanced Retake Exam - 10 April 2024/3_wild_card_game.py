@@ -4,22 +4,50 @@ def draw_cards(*args, **kwargs):
         'monster': [],
         'spell': [],
     }
-    for name, type in args:
-        cards[type].append(name)
+    for name, type_ in args:
+        cards[type_].append(name)
 
-    for name, type in kwargs.items():
-        cards[type].append(name)
+    for name, type_ in kwargs.items():
+        cards[type_].append(name)
 
-    if cards['monster']:
-        output.append("Monster cards:")
-        for monster in sorted(cards['monster'], reverse=True):
-            output.append(f"  ***{monster}")
+    if cards["monster"]:
+        output.append(f"Monster cards:")
+        for card in sorted(cards['monster'], reverse=True):
+            output.append('  ***' + card)
 
-    if cards['spell']:
-        output.append("Spell cards:")
-        for monster in sorted(cards['spell']):
-            output.append(f"  $$${monster}")
+    if cards["spell"]:
+        output.append(f"Spell cards:")
+        for card in sorted(cards['spell']):
+            output.append(f'  $$${card}')
+
     return '\n'.join(output)
+
+
+
+
+
+# def draw_cards(*args, **kwargs):
+#     output = []
+#     cards = {
+#         'monster': [],
+#         'spell': [],
+#     }
+#     for name, type in args:
+#         cards[type].append(name)
+#
+#     for name, type in kwargs.items():
+#         cards[type].append(name)
+#
+#     if cards['monster']:
+#         output.append("Monster cards:")
+#         for monster in sorted(cards['monster'], reverse=True):
+#             output.append(f"  ***{monster}")
+#
+#     if cards['spell']:
+#         output.append("Spell cards:")
+#         for monster in sorted(cards['spell']):
+#             output.append(f"  $$${monster}")
+#     return '\n'.join(output)
 
 
 print(draw_cards(("cyber dragon", "monster"), freeze="spell",))
