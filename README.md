@@ -26,6 +26,7 @@
 |    |   | [Python Advanced Retake Exam - 16 December 2020](https://www.youtube.com/watch?v=UKSH1h77zdc&list=PLtrqz5Y_ckigsjxFiwB_qvbgvW15yigzw) ||
 |    |   | [Python Advanced Exam - 24 October 2020](https://www.youtube.com/watch?v=Rif6U2bnREw&list=PLtrqz5Y_ckijCu9inyi7oRF8kM-xcvMpn) ||
 |    |   | [Python Advanced Retake Exam - 19 August 2020](https://www.youtube.com/watch?v=L5YhORrxo_M&list=PLtrqz5Y_ckijqzcvu_LbWOQcDZRCjylVC) ||
-|    |   | [Python Advanced Exam - 27 June 2020](https://www.youtube.com/watch?v=pdPGOl_YGYc&list=PLtrqz5Y_ckigGKHYS7dM2MEFuvO5TasJb) ||****
-|    |   | [Python Advanced Exam - 17 February 2024](https://www.youtube.com/watch?v=-ROent9nDLg&list=PLtrqz5Y_ckignxD8_gL-K4bEgkMGFWUnL&ab_channel=AKA) ||****
+|    |   | [Python Advanced Exam - 27 June 2020](https://www.youtube.com/watch?v=pdPGOl_YGYc&list=PLtrqz5Y_ckigGKHYS7dM2MEFuvO5TasJb) ||
+|    |   | [Python Advanced Exam - 17 February 2024](https://www.youtube.com/watch?v=-ROent9nDLg&list=PLtrqz5Y_ckignxD8_gL-K4bEgkMGFWUnL&ab_channel=AKA) ||
+|    |   | [Python Advanced Retake Exam - 10 April 2024](https://www.youtube.com/watch?v=_K5mo10ZEJc&list=PLtrqz5Y_ckigl1tYyPtgpETI1_b3SLwjc&ab_channel=AKA) ||
 </div>
