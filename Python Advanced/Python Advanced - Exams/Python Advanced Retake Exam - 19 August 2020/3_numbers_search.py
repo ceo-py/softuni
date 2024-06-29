@@ -1,12 +1,20 @@
 def numbers_searching(*args):
-    return [list(set(range(min(args), max(args))) - set(args))[0],
+    return [*set(range(min(args), max(args))) - set(args),
             sorted(list(set(x for n, x in enumerate(args) if x in args[:n])))]
+
+
+# def numbers_searching(*args):
+#     return [list(set(range(min(args), max(args))) - set(args))[0],
+#             sorted(list(set(x for n, x in enumerate(args) if x in args[:n])))]
 
 
 # def numbers_searching(*args):
 #     return [list(filter(lambda x: x not in args, range(min(args), max(args) + 1)))[0],
 #             sorted(list(set(x for n, x in enumerate(args) if x in args[:n])))]
 #
+
+# def numbers_searching(*args):
+#     return [*filter(lambda x: x not in args, range(min(args), max(args) + 1)), sorted(list(set(x for n, x in enumerate(args) if x in args[:n])))]
 
 #
 #
