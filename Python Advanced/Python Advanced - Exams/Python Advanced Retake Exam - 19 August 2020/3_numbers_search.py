@@ -3,7 +3,10 @@ def numbers_searching(*args):
             sorted(list(set(x for n, x in enumerate(args) if x in args[:n])))]
 
 
-
+# def numbers_searching(*args):
+#     return [list(filter(lambda x: x not in args, range(min(args), max(args) + 1)))[0],
+#             sorted(list(set(x for n, x in enumerate(args) if x in args[:n])))]
+#
 
 #
 #
@@ -33,4 +36,3 @@ print(numbers_searching(1, 2, 4, 2, 5, 4))
 print(numbers_searching(5, 5, 9, 10, 7, 8, 7, 9))
 
 print(numbers_searching(50, 50, 47, 47, 48, 45, 49, 44, 47, 45, 44, 44, 48, 44, 48))
-
