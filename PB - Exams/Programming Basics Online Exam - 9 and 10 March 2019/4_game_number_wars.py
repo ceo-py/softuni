@@ -3,6 +3,7 @@ player_two = input()
 
 player_one_score = 0
 player_two_score = 0
+
 player_one_card = input()
 
 while player_one_card != "End of game":
@@ -11,15 +12,11 @@ while player_one_card != "End of game":
 
     difference_score = abs(player_one_card - player_two_card)
 
-    if player_one_card > player_two_card:
-        player_one_score += difference_score
-
-    elif player_one_card < player_two_card:
-        player_two_score += difference_score
-
-    else:
+    if difference_score == 0:
         player_one_card = int(input())
         player_two_card = int(input())
+        winner = ""
+        winner_points = 0
 
         if player_one_card > player_two_card:
             winner = player_one
@@ -32,6 +29,13 @@ while player_one_card != "End of game":
         print("Number wars!")
         print(f"{winner} is winner with {winner_points} points")
         break
+
+    if player_one_card > player_two_card:
+        player_one_score += difference_score
+
+    elif player_one_card < player_two_card:
+        player_two_score += difference_score
+
     player_one_card = input()
 
 else:
