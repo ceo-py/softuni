@@ -46,6 +46,32 @@ for num1 in range(number_one, (number_one + number_three + 1)):
 #
 
 
+
+
+#
+# first_number = int(input())
+# second_number = int(input())
+# first_interval = int(input())
+# second_interval = int(input())
+# def is_prime(number):
+#     if number <= 1:
+#         return False
+#     for i in range(2, number):
+#         if number % i == 0:
+#             return False
+#     return True
+#
+# first_primes = [i for i in range(first_number, first_number + first_interval + 1) if is_prime(i)]
+# second_primes = [j for j in range(second_number, second_number + second_interval + 1) if is_prime(j)]
+#
+# [print(f"{i}{j}") for i in first_primes for j in second_primes]
+
+
+
+
+
+
+
 #
 # number_one = int(input())
 # number_two = int(input())
