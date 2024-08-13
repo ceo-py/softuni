@@ -3,7 +3,6 @@ from collections import deque
 bee_groups = deque(int(x) for x in input().split())
 bee_eaters_groups = [int(x) for x in input().split()]
 
-
 while bee_groups and bee_eaters_groups:
     defenders = bee_groups.popleft()
     attackers = bee_eaters_groups.pop()
@@ -13,20 +12,20 @@ while bee_groups and bee_eaters_groups:
     if defenders == attackers_power:
         continue
 
-    elif attackers_power < defenders:
+    if attackers_power < defenders:
         bee_groups.append(defenders - attackers_power)
+        continue
 
-    else:
-        for attack in range(attackers):
-            defenders -= 7
-            attackers -= 1
+    for attack in range(attackers):
+        defenders -= 7
+        attackers -= 1
 
-            if defenders <= 0:
-                if defenders < 0:
-                    attackers += 1
-                break
+        if defenders <= 0:
+            if defenders < 0:
+                attackers += 1
+            break
 
-        bee_eaters_groups.append(attackers)
+    bee_eaters_groups.append(attackers)
 
 print("The final battle is over!")
 
