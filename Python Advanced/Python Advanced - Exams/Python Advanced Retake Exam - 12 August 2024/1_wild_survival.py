@@ -17,7 +17,7 @@ while bee_groups and bee_eaters_groups:
         bee_groups.append(defenders - attackers_power)
 
     else:
-        for attack in range(1, attackers):
+        for attack in range(attackers):
             defenders -= 7
             attackers -= 1
 
