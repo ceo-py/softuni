@@ -16,16 +16,20 @@ while bee_groups and bee_eaters_groups:
         bee_groups.append(defenders - attackers_power)
         continue
 
-    for attack in range(attackers):
-        defenders -= 7
-        attackers -= 1
+    # base mathod with loop
+    # for attack in range(attackers):
+    #     defenders -= 7
+    #     attackers -= 1
+    #
+    #     if defenders <= 0:
+    #         if defenders < 0:
+    #             attackers += 1
+    #         break
+    #
+    # bee_eaters_groups.append(attackers)
 
-        if defenders <= 0:
-            if defenders < 0:
-                attackers += 1
-            break
-
-    bee_eaters_groups.append(attackers)
+    # using pure math no loop
+    bee_eaters_groups.append(attackers - (defenders // 7) - (1 if (defenders // 7) * 7 - defenders > 0 else 0))
 
 print("The final battle is over!")
 
