@@ -38,6 +38,45 @@ if time_for_arrival != time_for_exam:
 
 
 
+#
+# exam_hour = int(input())
+# exam_minute = int(input())
+# arrival_hour = int(input())
+# arrival_minute = int(input())
+#
+# result = ''
+#
+# total_min_exam = exam_hour * 60 + exam_minute
+# arrival_time = arrival_hour * 60 + arrival_minute
+#
+# diff = total_min_exam - arrival_time
+#
+# if diff > 30:
+#     print('Early')
+# elif diff < 0:
+#     print('Late')
+# else:
+#     print('On time')
+#
+# hours = abs(diff) // 60
+# minutes = abs(diff) % 60
+#
+# if hours > 0:
+#     result = f'{hours}:{minutes:.2d} hours'
+#
+# elif minutes > 0:
+#     result = f'{minutes} minutes'
+#
+# if diff > 0:
+#     result += 'before the start'
+# elif diff < 0:
+#     result += 'after the start'
+#
+# print(result)
+
+
+
+
 
 
 
