@@ -34,7 +34,8 @@ def step_in_matrix(direction: str) -> tuple:
         a + b for a, b in zip((c_row, c_col), directions(direction))]
 
     if not inside_matrix(row, col):
-        return (c_row, c_col, matrix[c_row][c_col])
+        row, col = c_row, c_col
+
     return (row, col, matrix[row][col])
 
 
