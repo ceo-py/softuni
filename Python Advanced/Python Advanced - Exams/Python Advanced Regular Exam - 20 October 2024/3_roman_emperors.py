@@ -1,7 +1,5 @@
 def list_roman_emperors(*emperors, **emperors_dict):
-    output = []
-    successful_emperors = {}
-    unsuccessful_emperors = {}
+    output, successful_emperors, unsuccessful_emperors = [], {}, {}
 
     for emperor_name, emperor_success in emperors:
         if emperor_success:
