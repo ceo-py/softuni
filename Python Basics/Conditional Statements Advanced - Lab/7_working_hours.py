@@ -36,13 +36,13 @@ else:
 # # към това
 # hour = int(input())
 # day = input()
-# ouput = "closed" if 10 <= hour <= 18 and day != "Sunday" else "closed"
+# ouput = "open" if 10 <= hour <= 18 and day != "Sunday" else "closed"
 # print(ouput)
 
 
 
 # # до това
-# print("closed" if 10 <= int(input()) <= 18 and input() != "Sunday" else "closed")
+# print("open" if 10 <= int(input()) <= 18 and input() != "Sunday" else "closed")
 
 
 # hour = int(input())
