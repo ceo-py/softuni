@@ -11,6 +11,8 @@ for index, symbols in enumerate(main_string):
             if main_string[index + 1].isdigit():
                 continue
         result_show += int(number) * current_result
+        print(current_result)
+        print(number)
         current_result, number = "", ""
 
 result_show = result_show.upper()
