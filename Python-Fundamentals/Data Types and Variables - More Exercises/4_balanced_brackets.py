@@ -14,6 +14,38 @@ else:
 
 
 
+
+# n = int(input())
+# counter = 0
+# for _ in range(n):
+#     line = input()
+#     counter += line.count('(') - line.count(')')
+#     if counter > 1 or counter < 0:
+#         print("UNBALANCED")
+#         break
+# else:
+#     print("BALANCED" if counter == 0 else "UNBALANCED")
+
+
+
+# number = int(input())
+# counter = 0
+#
+# for _ in range(number):
+#     check = input()
+#     if "(" in check:
+#         counter += 1
+#     elif ")" in check:
+#         counter -= 1
+#
+#     if counter not in (0, 1):
+#         print("UNBALANCED")
+#         break
+# else:
+#     print("BALANCED")
+
+
+
 # number = int(input())
 #
 # open = 0
